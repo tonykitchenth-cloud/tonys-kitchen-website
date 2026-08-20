@@ -1,12 +1,1317 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tony's Kitchen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tony's Kitchen Express | Authentic Thai Food</title>
+
+  <meta
+    name="description"
+    content="Tony's Kitchen Express — Authentic Thai food, freshly prepared in Pak Kret, Nonthaburi."
+  >
+
+  <meta name="theme-color" content="#11110f">
+
+  <style>
+    /* =========================
+       RESET
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans Thai",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+      background: #f7f6f2;
+      color: #171714;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* =========================
+       VARIABLES
+    ========================== */
+
+    :root {
+      --black: #171714;
+      --dark: #11110f;
+      --cream: #f7f6f2;
+      --white: #ffffff;
+      --muted: #77766f;
+      --line: #deddd6;
+      --accent: #a67c42;
+      --max-width: 1180px;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      color: var(--white);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 24px 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-order {
+      padding: 11px 18px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 999px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 720px;
+      background: var(--dark);
+      color: var(--white);
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding:
+        140px
+        50px
+        80px
+        max(28px, calc((100vw - var(--max-width)) / 2 + 28px));
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c9c7bd;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      max-width: 650px;
+
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #c9a66d;
+    }
+
+    .hero-description {
+      max-width: 440px;
+      margin-top: 28px;
+
+      font-size: 16px;
+      color: #c7c6c0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+      padding: 0 22px;
+
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .button-secondary {
+      border: 1px solid #55544f;
+      color: var(--white);
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 720px;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(17,17,15,0.25),
+          transparent 40%
+        );
+    }
+
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    .section {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 110px 28px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-description {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       SIGNATURE DISHES
+    ========================== */
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .dish-card {
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .dish-image {
+      aspect-ratio: 1.2 / 1;
+      overflow: hidden;
+      background: #ecebe6;
+    }
+
+    .dish-image img {
+      height: 100%;
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .dish-card:hover .dish-image img {
+      transform: scale(1.03);
+    }
+
+    .dish-info {
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 20px;
+    }
+
+    .dish-name {
+      font-size: 19px;
+      font-weight: 650;
+    }
+
+    .dish-name-en {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .dish-price {
+      font-size: 17px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+
+    /* =========================
+       MENU
+    ========================== */
+
+    .menu-section {
+      background: var(--white);
+    }
+
+    .menu-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .menu-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .menu-price {
+      font-size: 17px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+
+    /* =========================
+       BRAND STATEMENT
+    ========================== */
+
+    .statement {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .statement-inner {
+      max-width: 800px;
+      margin: auto;
+      padding: 125px 28px;
+    }
+
+    .statement h2 {
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .statement p {
+      margin-top: 24px;
+      color: #aaa9a2;
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .location-address {
+      font-size: 21px;
+      line-height: 1.5;
+      max-width: 470px;
+    }
+
+    .location-meta {
+      margin-top: 35px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 17px;
+    }
+
+    .map-placeholder {
+      background: #e8e6df;
+      min-height: 330px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 30px;
+    }
+
+    .map-placeholder p {
+      color: #66645d;
+      max-width: 300px;
+    }
+
+
+    /* =========================
+       ORDER
+    ========================== */
+
+    .order-section {
+      background: #ebe8df;
+    }
+
+    .order-box {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .order-box h2 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .order-box p {
+      color: var(--muted);
+      margin: 22px auto 32px;
+      max-width: 500px;
+    }
+
+    .order-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .order-buttons .button-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .order-buttons .button-line {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .order-buttons .button-grab {
+      background: #f1c84c;
+      color: #171714;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 50px 28px 30px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-tagline {
+      color: #85847e;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .footer-right {
+      color: #85847e;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .copyright {
+      max-width: var(--max-width);
+      margin: 45px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #2b2b27;
+
+      color: #66655f;
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       MOBILE ORDER BAR
+    ========================== */
+
+    .mobile-order {
+      display: none;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .nav-inner {
+        padding: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding:
+          130px
+          24px
+          60px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 14vw, 72px);
+      }
+
+      .hero-image {
+        min-height: 420px;
+        height: 420px;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .section-heading {
+        display: block;
+        margin-bottom: 35px;
+      }
+
+      .section-description {
+        margin-top: 18px;
+      }
+
+      .signature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .statement-inner {
+        padding: 90px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+
+      .mobile-order {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+
+        background: var(--white);
+        padding: 7px;
+
+        border-radius: 999px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.18);
+      }
+
+      .mobile-order a {
+        flex: 1;
+        text-align: center;
+
+        padding: 12px 5px;
+        border-radius: 999px;
+
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .mobile-order .call {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .mobile-order .line {
+        color: var(--black);
+      }
+
+      .mobile-order .grab {
+        background: #f1c84c;
+        color: var(--black);
+      }
+
+      footer {
+        padding-bottom: 110px;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .hero-image {
+        min-height: 350px;
+        height: 350px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .menu-item {
+        gap: 15px;
+      }
+
+      .menu-name {
+        font-size: 16px;
+      }
+
+      .menu-price {
+        font-size: 15px;
+      }
+
+      .location-address {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
-    <h1>Tony's Kitchen</h1>
-    <p>เว็บไซต์กำลังอยู่ระหว่างการพัฒนา</p>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="nav">
+    <div class="nav-inner">
+
+      <a href="#" class="logo">
+        Tony's Kitchen
+      </a>
+
+      <nav class="nav-links">
+        <a href="#menu">Menu</a>
+        <a href="#location">Location</a>
+        <a href="#order" class="nav-order">Order Now</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Tony's Kitchen Express
+        </div>
+
+        <h1>
+          Authentic Thai
+          <span>Cooking.</span>
+        </h1>
+
+        <p class="hero-description">
+          Freshly prepared Thai dishes made with quality ingredients,
+          bold flavors and a simple love for good food.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#menu" class="button button-primary">
+            View Menu
+          </a>
+
+          <a href="#order" class="button button-secondary">
+            Order Now
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <img
+          src="spring-rolls.png"
+          alt="Vegetable spring rolls served with sweet chili sauce"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SIGNATURE
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+          <div class="section-label">
+            Signature
+          </div>
+
+          <h2 class="section-title">
+            Made to crave.
+          </h2>
+        </div>
+
+        <p class="section-description">
+          A selection of customer favorites,
+          freshly prepared and served with care.
+        </p>
+
+      </div>
+
+
+      <div class="signature-grid">
+
+
+        <article class="dish-card">
+
+          <div class="dish-image">
+
+            <img
+              src="spring-rolls.png"
+              alt="Vegetable spring rolls"
+            >
+
+          </div>
+
+          <div class="dish-info">
+
+            <div>
+              <div class="dish-name">
+                ปอเปี๊ยะไส้ผัก
+              </div>
+
+              <span class="dish-name-en">
+                Vegetable Spring Rolls
+              </span>
+            </div>
+
+            <div class="dish-price">
+              ฿89
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="dish-card">
+
+          <div class="dish-image">
+
+            <img
+              src="chicken-fried-rice.png"
+              alt="Chicken fried rice"
+            >
+
+          </div>
+
+          <div class="dish-info">
+
+            <div>
+              <div class="dish-name">
+                ข้าวผัดไก่
+              </div>
+
+              <span class="dish-name-en">
+                Chicken Fried Rice
+              </span>
+            </div>
+
+            <div class="dish-price">
+              ฿89
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <section class="menu-section" id="menu">
+
+      <div class="section">
+
+        <div class="section-heading">
+
+          <div>
+            <div class="section-label">
+              Our Menu
+            </div>
+
+            <h2 class="section-title">
+              Thai favorites.
+            </h2>
+          </div>
+
+          <p class="section-description">
+            Simple, generous and full of flavor.
+          </p>
+
+        </div>
+
+
+        <div class="menu-list">
+
+
+          <div class="menu-item">
+
+            <div>
+              <div class="menu-name">
+                ผัดไทยกุ้ง
+              </div>
+
+              <span class="menu-subtitle">
+                Pad Thai with Prawns
+              </span>
+            </div>
+
+            <div class="menu-price">
+              ฿169
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <div class="menu-name">
+                ผัดกะเพราไก่
+              </div>
+
+              <span class="menu-subtitle">
+                Thai Basil Chicken
+              </span>
+            </div>
+
+            <div class="menu-price">
+              ฿89
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <div class="menu-name">
+                ข้าวผัดไก่
+              </div>
+
+              <span class="menu-subtitle">
+                Chicken Fried Rice
+              </span>
+            </div>
+
+            <div class="menu-price">
+              ฿89
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <div class="menu-name">
+                ต้มยำกุ้ง
+              </div>
+
+              <span class="menu-subtitle">
+                Tom Yum Goong
+              </span>
+            </div>
+
+            <div class="menu-price">
+              ฿209
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <div class="menu-name">
+                ปอเปี๊ยะไส้ผัก
+              </div>
+
+              <span class="menu-subtitle">
+                Vegetable Spring Rolls
+              </span>
+            </div>
+
+            <div class="menu-price">
+              ฿89
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BRAND STATEMENT
+    ========================== -->
+
+    <section class="statement">
+
+      <div class="statement-inner">
+
+        <div class="section-label">
+          Tony's Kitchen Express
+        </div>
+
+        <h2>
+          Fresh.<br>
+          Simple.<br>
+          Authentic.
+        </h2>
+
+        <p>
+          Thai food made fresh and served with heart.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LOCATION
+    ========================== -->
+
+    <section class="section" id="location">
+
+      <div class="location-grid">
+
+
+        <div>
+
+          <div class="section-label">
+            Find Us
+          </div>
+
+          <h2 class="section-title">
+            Come say<br>
+            hello.
+          </h2>
+
+          <p class="location-address" style="margin-top: 30px;">
+            Located in front of the entrance to
+            Nichada Thani Village,
+            Samakkhi 29 Alley,
+            Bang Talat, Pak Kret District,
+            Nonthaburi 11120
+          </p>
+
+
+          <div class="location-meta">
+
+            <div>
+
+              <div class="meta-label">
+                Location
+              </div>
+
+              <div class="meta-value">
+                Pak Kret, Nonthaburi
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <div class="meta-label">
+                Phone
+              </div>
+
+              <div class="meta-value">
+                <a href="tel:+66841536498">
+                  084-153-6498
+                </a>
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <div class="meta-label">
+                Opening Hours
+              </div>
+
+              <div class="meta-value">
+                Please contact us for today's opening hours.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="map-placeholder">
+
+          <div>
+
+            <p>
+              Tony's Kitchen Express
+              <br><br>
+              In front of the entrance to
+              Nichada Thani Village
+            </p>
+
+            <br>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Tony%27s+Kitchen+Express+Nichada+Thani+Village+Nonthaburi"
+              target="_blank"
+              rel="noopener"
+              class="button button-primary"
+            >
+              Get Directions
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ORDER
+    ========================== -->
+
+    <section class="order-section" id="order">
+
+      <div class="section">
+
+        <div class="order-box">
+
+          <div class="section-label">
+            Order With Us
+          </div>
+
+          <h2>
+            Hungry?
+          </h2>
+
+          <p>
+            Order directly by phone or LINE,
+            or find us on GrabFood.
+          </p>
+
+
+          <div class="order-buttons">
+
+            <a
+              href="tel:+66841536498"
+              class="button button-primary"
+            >
+              Call 084-153-6498
+            </a>
+
+
+            <a
+              href="https://line.me/ti/p/~padaroisauce"
+              target="_blank"
+              rel="noopener"
+              class="button button-line"
+            >
+              LINE
+            </a>
+
+
+            <a
+              href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
+              target="_blank"
+              rel="noopener"
+              class="button button-grab"
+            >
+              GrabFood
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <div class="footer-logo">
+          TONY'S KITCHEN EXPRESS
+        </div>
+
+        <div class="footer-tagline">
+          Authentic Thai Food · Pak Kret, Nonthaburi
+        </div>
+
+      </div>
+
+
+      <div class="footer-right">
+
+        <a href="tel:+66841536498">
+          084-153-6498
+        </a>
+
+        <br>
+
+        LINE: padaroisauce
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 Tony's Kitchen Express. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MOBILE ORDER BAR
+  ========================== -->
+
+  <div class="mobile-order">
+
+    <a
+      href="tel:+66841536498"
+      class="call"
+    >
+      CALL
+    </a>
+
+    <a
+      href="https://line.me/ti/p/~padaroisauce"
+      target="_blank"
+      rel="noopener"
+      class="line"
+    >
+      LINE
+    </a>
+
+    <a
+      href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
+      target="_blank"
+      rel="noopener"
+      class="grab"
+    >
+      GRAB
+    </a>
+
+  </div>
+
 </body>
 </html>
