@@ -838,6 +838,109 @@ footer {
     }
 
 }
+    /* =========================
+   MENU LIGHTBOX
+========================= */
+
+.menu-image {
+    cursor: zoom-in;
+}
+
+.menu-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.menu-lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    width: min(900px, 100%);
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    width: auto;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #222;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.lightbox-close:hover {
+    background: #b42318;
+    color: white;
+}
+
+.lightbox-caption {
+    position: absolute;
+    left: 50%;
+    bottom: -55px;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+
+    .menu-lightbox {
+        padding: 15px;
+    }
+
+    .lightbox-content img {
+        max-height: 75vh;
+        border-radius: 12px;
+    }
+
+    .lightbox-close {
+        top: -8px;
+        right: -5px;
+        width: 42px;
+        height: 42px;
+        font-size: 26px;
+    }
+
+    .lightbox-caption {
+        bottom: -48px;
+        font-size: 14px;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}
 </style>
 </head>
 
@@ -1639,7 +1742,41 @@ footer {
     </div>
 
 </footer>
+<!-- =========================
+     MENU LIGHTBOX
+========================= -->
 
+<div
+    class="menu-lightbox"
+    id="menuLightbox"
+    onclick="closeMenuLightbox(event)"
+>
+
+    <div class="lightbox-content">
+
+        <button
+            class="lightbox-close"
+            type="button"
+            onclick="closeMenuLightbox()"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+        <div
+            class="lightbox-caption"
+            id="lightboxCaption">
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =========================
      LANGUAGE JAVASCRIPT
@@ -1768,6 +1905,74 @@ document.querySelectorAll(".nav-links a").forEach(function(link) {
             .classList.remove("mobile-open");
 
     });
+
+});
+
+</script>
+    <script>
+
+/* =========================
+   MENU LIGHTBOX
+========================= */
+
+document.querySelectorAll(".menu-card .menu-image img").forEach(function(image) {
+
+    image.addEventListener("click", function() {
+
+        const lightbox = document.getElementById("menuLightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const caption = document.getElementById("lightboxCaption");
+
+        lightboxImage.src = this.src;
+        lightboxImage.alt = this.alt;
+
+        caption.textContent = this.alt;
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+function closeMenuLightbox(event) {
+
+    const lightbox = document.getElementById("menuLightbox");
+
+    if (
+        !event ||
+        event.target === lightbox ||
+        event.target.classList.contains("lightbox-close")
+    ) {
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+}
+
+
+/* Press ESC to close */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        const lightbox = document.getElementById("menuLightbox");
+
+        if (lightbox.classList.contains("active")) {
+
+            lightbox.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+    }
 
 });
 
