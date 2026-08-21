@@ -10,999 +10,854 @@
 content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Pad Thai, Thai Basil Chicken, Fried Rice and more.">
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fffaf3;
-    color: #222;
-    line-height: 1.6;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fffaf3;
+    color:#222;
+    line-height:1.6;
 }
 
-img {
-    display: block;
-    width: 100%;
+body.modal-open{
+    overflow:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+img{
+    display:block;
+    width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
 }
 
 /* =========================
    NAVIGATION
 ========================= */
 
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.97);
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.06);
 }
 
-.nav-inner {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:12px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+.logo{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
 }
 
-.logo img {
-    width: 85px;
-    height: 85px;
-    object-fit: contain;
-    display: block;
+.logo img{
+    width:85px;
+    height:85px;
+    object-fit:contain;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 22px;
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+    font-size:15px;
+    font-weight:700;
 }
 
-.nav-links a:hover {
-    color: #b42318;
+.nav-links a:hover{
+    color:#b42318;
 }
 
-.nav-button {
-    background: #b42318;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 999px;
+.nav-button{
+    background:#b42318;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:999px;
 }
 
-.nav-button:hover {
-    background: #8f1c14;
-    color: white !important;
+.nav-button:hover{
+    background:#8f1c14;
+    color:#fff!important;
 }
 
-/* LANGUAGE SWITCHER */
-
-.language-switcher {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: #f5f5f5;
-    padding: 4px;
-    border-radius: 999px;
-    border: 1px solid #e5e5e5;
+.language-switcher{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    background:#f5f5f5;
+    padding:4px;
+    border-radius:999px;
+    border:1px solid #e5e5e5;
 }
 
-.language-btn {
-    border: none;
-    background: transparent;
-    padding: 7px 11px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 800;
-    color: #555;
-    transition: 0.2s;
+.language-btn{
+    border:0;
+    background:transparent;
+    padding:7px 11px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:800;
+    color:#555;
 }
 
-.language-btn:hover {
-    color: #b42318;
+.language-btn:hover{
+    color:#b42318;
 }
 
-.language-btn.active {
-    background: #b42318;
-    color: white;
+.language-btn.active{
+    background:#b42318;
+    color:#fff;
+}
+
+.mobile-menu-button{
+    display:none;
+    border:0;
+    background:#b42318;
+    color:#fff;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    font-size:24px;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
 }
 
 /* =========================
    HERO
 ========================= */
 
-.hero {
-    min-height: 650px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,0.82) 0%,
-            rgba(0,0,0,0.60) 42%,
-            rgba(0,0,0,0.12) 100%
+            rgba(0,0,0,.82) 0%,
+            rgba(0,0,0,.60) 42%,
+            rgba(0,0,0,.12) 100%
         ),
         url("kaphrao-chicken.png") center center / cover no-repeat;
 }
 
-.hero-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 80px 22px;
-    color: white;
+.hero-content{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 22px;
+    color:#fff;
 }
 
-.hero-tag {
-    display: inline-block;
-    background: #f4b400;
-    color: #241700;
-    font-weight: 800;
-    padding: 7px 15px;
-    border-radius: 999px;
-    margin-bottom: 20px;
-    font-size: 14px;
+.hero-tag{
+    display:inline-block;
+    background:#f4b400;
+    color:#241700;
+    font-weight:800;
+    padding:7px 15px;
+    border-radius:999px;
+    margin-bottom:20px;
+    font-size:14px;
 }
 
-.hero h1 {
-    font-size: clamp(42px, 7vw, 82px);
-    line-height: 0.98;
-    max-width: 720px;
-    margin-bottom: 25px;
-    letter-spacing: -2px;
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:.98;
+    max-width:720px;
+    margin-bottom:25px;
+    letter-spacing:-2px;
 }
 
-.hero h1 span {
-    color: #ffd166;
+.hero h1 span:last-child{
+    color:#ffd166;
 }
 
-.hero p {
-    max-width: 620px;
-    font-size: 20px;
-    color: #f5f5f5;
-    margin-bottom: 30px;
+.hero p{
+    max-width:620px;
+    font-size:20px;
+    color:#f5f5f5;
+    margin-bottom:30px;
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-weight: 800;
-    transition: 0.2s;
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:999px;
+    font-weight:800;
+    transition:.2s;
 }
 
-.btn-primary {
-    background: #b42318;
-    color: white;
+.btn-primary{
+    background:#b42318;
+    color:#fff;
 }
 
-.btn-primary:hover {
-    background: #8f1c14;
-    transform: translateY(-2px);
+.btn-primary:hover{
+    background:#8f1c14;
+    transform:translateY(-2px);
 }
 
-.btn-secondary {
-    background: white;
-    color: #222;
+.btn-secondary{
+    background:#fff;
+    color:#222;
 }
 
-.btn-secondary:hover {
-    background: #f1f1f1;
-    transform: translateY(-2px);
+.btn-secondary:hover{
+    background:#f1f1f1;
+    transform:translateY(-2px);
 }
 
 /* =========================
    GENERAL
 ========================= */
 
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 85px 22px;
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:85px 22px;
 }
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 45px;
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-.section-heading .eyebrow {
-    color: #b42318;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 13px;
-    margin-bottom: 8px;
+.eyebrow{
+    color:#b42318;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:13px;
+    margin-bottom:8px;
 }
 
-.section-heading h2 {
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.1;
-    margin-bottom: 12px;
+.section-heading h2{
+    font-size:clamp(32px,5vw,48px);
+    line-height:1.1;
+    margin-bottom:12px;
 }
 
-.section-heading p {
-    max-width: 650px;
-    margin: auto;
-    color: #666;
+.section-heading p{
+    max-width:650px;
+    margin:auto;
+    color:#666;
 }
 
 /* =========================
    ABOUT
 ========================= */
 
-.about {
-    background: white;
+.about{
+    background:#fff;
 }
 
-.about-grid {
-    max-width: 1200px;
-    margin: auto;
-    padding: 85px 22px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 55px;
-    align-items: center;
+.about-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:85px 22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
 }
 
-.about-image {
-    overflow: hidden;
-    border-radius: 24px;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+.about-image{
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
 }
 
-.about-image img {
-    height: 500px;
-    object-fit: cover;
+.about-image img{
+    height:500px;
+    object-fit:cover;
 }
 
-.about-text .eyebrow {
-    color: #b42318;
-    font-weight: 800;
-    margin-bottom: 10px;
+.about-text h2{
+    font-size:46px;
+    line-height:1.08;
+    margin-bottom:20px;
 }
 
-.about-text h2 {
-    font-size: 46px;
-    line-height: 1.08;
-    margin-bottom: 20px;
+.about-text p{
+    color:#555;
+    margin-bottom:18px;
 }
 
-.about-text p {
-    color: #555;
-    margin-bottom: 18px;
+.location-box{
+    margin-top:25px;
+    background:#fff7e6;
+    border-left:5px solid #f4b400;
+    padding:18px 20px;
+    border-radius:10px;
 }
 
-.location-box {
-    margin-top: 25px;
-    background: #fff7e6;
-    border-left: 5px solid #f4b400;
-    padding: 18px 20px;
-    border-radius: 10px;
+.map-button{
+    display:inline-block;
+    background:#b42318;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:800;
+    margin-top:5px;
+    transition:.2s;
+}
+
+.map-button:hover{
+    background:#8f1c14;
+    transform:translateY(-2px);
 }
 
 /* =========================
    MENU
 ========================= */
 
-.menu-section {
-    background: #fffaf3;
+.menu-section{
+    background:#fffaf3;
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
 }
 
-.menu-card {
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    transition: transform 0.25s, box-shadow 0.25s;
+.menu-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:transform .25s,box-shadow .25s;
 }
 
-.menu-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 38px rgba(0,0,0,0.12);
+.menu-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 38px rgba(0,0,0,.12);
 }
 
-.menu-image {
-    height: 235px;
-    overflow: hidden;
-    background: #eee;
+.menu-image{
+    height:235px;
+    overflow:hidden;
+    background:#eee;
 }
 
-.menu-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.menu-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:zoom-in;
 }
 
-.menu-info {
-    padding: 20px;
+.menu-info{
+    padding:20px;
 }
 
-.menu-info h3 {
-    font-size: 21px;
-    margin-bottom: 7px;
+.menu-info h3{
+    font-size:21px;
+    margin-bottom:7px;
 }
 
-.menu-info p {
-    color: #666;
-    font-size: 14px;
-    min-height: 45px;
-    margin-bottom: 15px;
+.menu-info p{
+    color:#666;
+    font-size:14px;
+    min-height:45px;
+    margin-bottom:15px;
 }
 
-.menu-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.menu-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: 900;
-    color: #b42318;
+.price{
+    font-size:22px;
+    font-weight:900;
+    color:#b42318;
+}
+
+/* =========================
+   IMAGE LIGHTBOX
+   Single implementation only
+========================= */
+
+.menu-lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:rgba(0,0,0,.90);
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+}
+
+.menu-lightbox.is-open{
+    display:flex;
+}
+
+.lightbox-content{
+    position:relative;
+    width:min(1000px,95vw);
+    max-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.lightbox-content img{
+    width:auto;
+    max-width:100%;
+    max-height:82vh;
+    object-fit:contain;
+    border-radius:16px;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.lightbox-close{
+    position:fixed;
+    top:18px;
+    right:18px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    color:#222;
+    font-size:32px;
+    line-height:1;
+    cursor:pointer;
+    z-index:100001;
+}
+
+.lightbox-close:hover{
+    background:#b42318;
+    color:#fff;
+}
+
+.lightbox-caption{
+    position:fixed;
+    left:50%;
+    bottom:22px;
+    transform:translateX(-50%);
+    max-width:90vw;
+    background:rgba(0,0,0,.75);
+    color:#fff;
+    padding:9px 18px;
+    border-radius:999px;
+    font-weight:700;
+    text-align:center;
 }
 
 /* =========================
    FEATURE
 ========================= */
 
-.feature {
-    background: #181818;
-    color: white;
+.feature{
+    background:#181818;
+    color:#fff;
 }
 
-.feature-grid {
-    max-width: 1200px;
-    margin: auto;
-    padding: 85px 22px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+.feature-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:85px 22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
 }
 
-.feature h2 {
-    font-size: clamp(34px, 5vw, 55px);
-    line-height: 1.05;
-    margin-bottom: 20px;
+.feature h2{
+    font-size:clamp(34px,5vw,55px);
+    line-height:1.05;
+    margin-bottom:20px;
 }
 
-.feature p {
-    color: #ccc;
-    margin-bottom: 25px;
+.feature p{
+    color:#ccc;
+    margin-bottom:25px;
 }
 
-.feature-image {
-    border-radius: 25px;
-    overflow: hidden;
+.feature-image{
+    border-radius:25px;
+    overflow:hidden;
 }
 
-.feature-image img {
-    height: 500px;
-    object-fit: cover;
+.feature-image img{
+    height:500px;
+    object-fit:cover;
 }
 
 /* =========================
    ORDER
 ========================= */
 
-.order-section {
-    background: white;
+.order-section{
+    background:#fff;
 }
 
-.order-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
+.order-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    max-width:1000px;
+    margin:auto;
 }
 
-.order-card {
-    border: 1px solid #eee;
-    border-radius: 18px;
-    padding: 30px 22px;
-    text-align: center;
-    background: #fff;
-    transition: 0.2s;
+.order-card{
+    border:1px solid #eee;
+    border-radius:18px;
+    padding:30px 22px;
+    text-align:center;
+    background:#fff;
+    transition:.2s;
 }
 
-.order-card:hover {
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    transform: translateY(-4px);
+.order-card:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    transform:translateY(-4px);
 }
 
-.order-icon {
-    width: 55px;
-    height: 55px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: #fff0e8;
-    font-size: 25px;
+.order-icon{
+    width:55px;
+    height:55px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#fff0e8;
+    font-size:25px;
 }
 
-.order-card h3 {
-    margin-bottom: 8px;
+.order-card h3{
+    margin-bottom:8px;
 }
 
-.order-card p {
-    color: #666;
-    margin-bottom: 18px;
+.order-card p{
+    color:#666;
+    margin-bottom:18px;
 }
 
-.order-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 999px;
-    background: #b42318;
-    color: white;
-    font-weight: 700;
+.order-button{
+    display:inline-block;
+    min-width:125px;
+    padding:11px 20px;
+    border-radius:999px;
+    background:#b42318;
+    color:#fff;
+    font-weight:800;
+    text-align:center;
+    transition:.2s;
 }
 
-.order-button:hover {
-    background: #8f1c14;
+.order-button:hover{
+    background:#8f1c14;
+    transform:translateY(-2px);
 }
 
 /* =========================
    HOURS
 ========================= */
 
-.hours {
-    background: #fff7e6;
+.hours{
+    background:#fff7e6;
 }
 
-.hours-box {
-    max-width: 650px;
-    margin: auto;
-    background: white;
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+.hours-box{
+    max-width:650px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
 }
 
-.hours-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+.hours-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
 }
 
-.hours-row:last-child {
-    border-bottom: none;
+.hours-row:last-child{
+    border-bottom:0;
 }
 
-.hours-day {
-    font-weight: 700;
+.hours-day{
+    font-weight:700;
 }
 
-.hours-time {
-    color: #b42318;
-    font-weight: 800;
+.hours-time{
+    color:#b42318;
+    font-weight:800;
 }
 
 /* =========================
    CONTACT
 ========================= */
 
-.contact {
-    background: #b42318;
-    color: white;
-    text-align: center;
+.contact{
+    background:#b42318;
+    color:#fff;
+    text-align:center;
 }
 
-.contact .section {
-    padding-bottom: 85px;
+.contact h2{
+    font-size:clamp(35px,5vw,55px);
+    margin-bottom:15px;
 }
 
-.contact h2 {
-    font-size: clamp(35px, 5vw, 55px);
-    margin-bottom: 15px;
+.contact p{
+    max-width:700px;
+    margin:0 auto 28px;
+    color:#ffe5e0;
 }
 
-.contact p {
-    max-width: 700px;
-    margin: 0 auto 28px;
-    color: #ffe5e0;
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
+.contact-button{
+    background:#fff;
+    color:#b42318;
+    padding:13px 22px;
+    border-radius:999px;
+    font-weight:800;
 }
 
-.contact-button {
-    background: white;
-    color: #b42318;
-    padding: 13px 22px;
-    border-radius: 999px;
-    font-weight: 800;
-}
-
-.contact-button:hover {
-    background: #fff0e8;
+.contact-button:hover{
+    background:#fff0e8;
 }
 
 /* =========================
    FOOTER
 ========================= */
 
-footer {
-    background: #111;
-    color: white;
-    padding: 35px 22px;
+footer{
+    background:#111;
+    color:#fff;
+    padding:35px 22px;
 }
 
-.footer-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    flex-wrap: wrap;
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-.footer-logo {
-    font-size: 23px;
-    font-weight: 800;
+.footer-logo{
+    font-size:23px;
+    font-weight:800;
 }
 
-.footer-text {
-    color: #aaa;
-    font-size: 14px;
+.footer-text,
+.footer-address{
+    color:#aaa;
+    font-size:14px;
 }
 
-.footer-address {
-    color: #aaa;
-    max-width: 500px;
-    font-size: 14px;
+.footer-address{
+    max-width:500px;
 }
 
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
-@media (max-width: 1000px) {
-
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media(max-width:1000px){
+    .menu-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .about-grid,
-    .feature-grid {
-        grid-template-columns: 1fr;
+    .feature-grid{
+        grid-template-columns:1fr;
     }
 
     .about-image img,
-    .feature-image img {
-        height: 420px;
+    .feature-image img{
+        height:420px;
     }
 }
 
-@media (max-width: 700px) {
-
-    .nav-inner {
-        padding: 12px 16px;
+@media(max-width:700px){
+    .nav-inner{
+        padding:10px 16px;
+        flex-wrap:wrap;
     }
 
-    .logo img {
-    width: 70px;
-    height: 70px;
-}
-
-    .nav-right {
-        gap: 8px;
+    .logo img{
+        width:70px;
+        height:70px;
     }
 
-    .nav-links {
-        display: none;
+    .nav-right{
+        gap:8px;
+        margin-left:auto;
     }
 
-    .language-switcher {
-        transform: scale(0.9);
+    .mobile-menu-button{
+        display:flex;
+        order:3;
     }
 
-    .hero {
-        min-height: 600px;
+    .nav-links{
+        display:none;
+        width:100%;
+        order:5;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:#fff;
+        border-top:1px solid #eee;
+        margin-top:10px;
+        padding-top:8px;
     }
 
-    .hero-content {
-        padding: 70px 20px;
+    .nav-links.mobile-open{
+        display:flex;
     }
 
-    .hero h1 {
-        font-size: 48px;
+    .nav-links a{
+        padding:14px 8px;
+        border-bottom:1px solid #f0f0f0;
     }
 
-    .hero p {
-        font-size: 17px;
+    .nav-links .nav-button{
+        text-align:center;
+        margin:10px 0;
     }
 
-    .section {
-        padding: 65px 18px;
+    .language-switcher{
+        transform:scale(.9);
+        order:2;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-content{
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section{
+        padding:65px 18px;
     }
 
     .about-grid,
-    .feature-grid {
-        padding: 65px 18px;
-        gap: 35px;
+    .feature-grid{
+        padding:65px 18px;
+        gap:35px;
     }
 
-    .about-text h2 {
-        font-size: 37px;
+    .about-text h2{
+        font-size:37px;
     }
 
-    .menu-grid {
-        grid-template-columns: 1fr;
+    .menu-grid{
+        grid-template-columns:1fr;
     }
 
-    .menu-image {
-    
-        height: 260px;
+    .menu-image{
+        height:260px;
     }
 
-    .order-grid {
-        grid-template-columns: 1fr;
+    .order-grid{
+        grid-template-columns:1fr;
+        gap:18px;
     }
 
-    .hours-box {
-        padding: 25px 20px;
+    .order-card{
+        padding:28px 20px;
     }
 
-    .footer-inner {
-        flex-direction: column;
-    }
-}
-    /* =========================
-   MOBILE MENU BUTTON
-========================= */
-
-.mobile-menu-button {
-    display: none;
-    border: none;
-    background: #b42318;
-    color: white;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-}
-
-/* =========================
-   MOBILE NAVIGATION
-========================= */
-
-@media (max-width: 700px) {
-
-    .nav-inner {
-        position: relative;
-        flex-wrap: wrap;
+    .order-button{
+        width:100%;
     }
 
-    .mobile-menu-button {
-        display: flex;
-        order: 3;
+    .hours-box{
+        padding:25px 20px;
     }
 
-    .nav-links {
-        display: none;
-        width: 100%;
-        order: 5;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: white;
-        border-top: 1px solid #eee;
-        margin-top: 12px;
-        padding-top: 8px;
+    .footer-inner{
+        flex-direction:column;
     }
 
-    .nav-links.mobile-open {
-        display: flex;
+    .menu-lightbox{
+        padding:15px;
     }
 
-    .nav-links a {
-        padding: 14px 8px;
-        border-bottom: 1px solid #f0f0f0;
+    .lightbox-content img{
+        max-height:75vh;
+        border-radius:12px;
     }
 
-    .nav-links .nav-button {
-        text-align: center;
-        margin: 10px 0;
-        padding: 12px 18px;
+    .lightbox-close{
+        top:14px;
+        right:14px;
+        width:44px;
+        height:44px;
+        font-size:28px;
     }
 
-    .language-switch {
-        order: 2;
-        margin-left: auto;
-        margin-right: 8px;
+    .lightbox-caption{
+        bottom:15px;
+        font-size:14px;
     }
-
-    .language-switch button {
-        padding: 7px 9px;
-        font-size: 12px;
-    }
-/* =========================
-   GOOGLE MAPS BUTTON
-========================= */
-
-.map-button {
-    display: inline-block;
-    background: #b42318;
-    color: #ffffff;
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-weight: 800;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    margin-top: 5px;
-}
-
-.map-button:hover {
-    background: #8f1c14;
-    color: #ffffff;
-    transform: translateY(-2px);
-}  
-    /* =========================
-   ORDER BUTTONS
-========================= */
-
-.order-button {
-    display: inline-block;
-    min-width: 125px;
-    padding: 11px 20px;
-    border-radius: 999px;
-    background: #b42318;
-    color: white;
-    font-weight: 800;
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-.order-button:hover {
-    background: #8f1c14;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.order-card {
-    position: relative;
-}
-
-.order-card:hover {
-    transform: translateY(-6px);
-}
-
-@media (max-width: 700px) {
-
-    .order-grid {
-        gap: 18px;
-    }
-
-    .order-card {
-        padding: 28px 20px;
-    }
-
-    .order-button {
-        width: 100%;
-        padding: 13px 20px;
-    }
-
-}
-    /* =========================
-   MENU LIGHTBOX
-========================= */
-
-.menu-image {
-    cursor: zoom-in;
-}
-
-.menu-lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.88);
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-}
-
-.menu-lightbox.active {
-    display: flex;
-}
-
-.lightbox-content {
-    position: relative;
-    width: min(900px, 100%);
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-content img {
-    width: auto;
-    max-width: 100%;
-    max-height: 82vh;
-    object-fit: contain;
-    border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.lightbox-close {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 46px;
-    height: 46px;
-    border: none;
-    border-radius: 50%;
-    background: white;
-    color: #222;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.lightbox-close:hover {
-    background: #b42318;
-    color: white;
-}
-
-.lightbox-caption {
-    position: absolute;
-    left: 50%;
-    bottom: -55px;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.75);
-    color: white;
-    padding: 9px 18px;
-    border-radius: 999px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-@media (max-width: 700px) {
-
-    .menu-lightbox {
-        padding: 15px;
-    }
-
-    .lightbox-content img {
-        max-height: 75vh;
-        border-radius: 12px;
-    }
-
-    .lightbox-close {
-        top: -8px;
-        right: -5px;
-        width: 42px;
-        height: 42px;
-        font-size: 26px;
-    }
-
-    .lightbox-caption {
-        bottom: -48px;
-        font-size: 14px;
-        max-width: 90%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-}
-    /* =========================
-   MENU LIGHTBOX
-========================= */
-
-.menu-image {
-    cursor: zoom-in;
-}
-
-.menu-lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: rgba(0, 0, 0, 0.9);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.menu-lightbox.show {
-    display: flex;
-}
-
-.menu-lightbox img {
-    max-width: 95%;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
-}
-
-.lightbox-close {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    border-radius: 50%;
-    background: white;
-    color: #222;
-    font-size: 32px;
-    cursor: pointer;
-    z-index: 100000;
-}
-
-.lightbox-close:hover {
-    background: #b42318;
-    color: white;
-}
-
-.lightbox-title {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.75);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-weight: 700;
 }
 </style>
 </head>
@@ -1014,52 +869,39 @@ footer {
 ========================= -->
 
 <header class="navbar">
-
     <div class="nav-inner">
 
-       <a href="#home" class="logo">
-    <img src="./Logo-Ex.png" alt="Tony's Kitchen">
-</a>
+        <a href="#home" class="logo" aria-label="Tony's Kitchen Home">
+            <img src="Logo-Ex.png" alt="Tony's Kitchen">
+        </a>
 
         <div class="nav-right">
 
-            <nav class="nav-links">
-
-                <a href="#home" data-en="Home" data-th="หน้าแรก">
-                    Home
-                </a>
-
-                <a href="#menu" data-en="Menu" data-th="เมนู">
-                    Menu
-                </a>
-
-                <a href="#about" data-en="About" data-th="เกี่ยวกับเรา">
-                    About
-                </a>
-
-                <a href="#order" data-en="Order" data-th="สั่งอาหาร">
-                    Order
-                </a>
-
+            <nav class="nav-links" id="mainNav">
+                <a href="#home" data-en="Home" data-th="หน้าแรก">Home</a>
+                <a href="#menu" data-en="Menu" data-th="เมนู">Menu</a>
+                <a href="#about" data-en="About" data-th="เกี่ยวกับเรา">About</a>
+                <a href="#order" data-en="Order" data-th="สั่งอาหาร">Order</a>
                 <a href="#contact"
                    class="nav-button"
                    data-en="Contact"
-                   data-th="ติดต่อ">
-                    Contact
-                </a>
-
+                   data-th="ติดต่อ">Contact</a>
             </nav>
-            <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()" aria-label="Open menu">
-               ☰
+
+            <button
+                class="mobile-menu-button"
+                type="button"
+                onclick="toggleMobileMenu()"
+                aria-label="Open menu"
+                aria-expanded="false">
+                ☰
             </button>
 
-            <!-- LANGUAGE BUTTON -->
-
-            <div class="language-switcher">
-
+            <div class="language-switcher" aria-label="Language">
                 <button
                     class="language-btn active"
                     id="enBtn"
+                    type="button"
                     onclick="setLanguage('en')">
                     EN
                 </button>
@@ -1067,16 +909,14 @@ footer {
                 <button
                     class="language-btn"
                     id="thBtn"
+                    type="button"
                     onclick="setLanguage('th')">
                     TH
                 </button>
-
             </div>
 
         </div>
-
     </div>
-
 </header>
 
 
@@ -1100,7 +940,6 @@ footer {
                 Real Thai Food.
             </span>
             <br>
-
             <span data-en="Made with Passion."
                   data-th="ทำด้วยความใส่ใจ">
                 Made with Passion.
@@ -1115,7 +954,6 @@ footer {
         </p>
 
         <div class="hero-buttons">
-
             <a href="#menu"
                class="btn btn-primary"
                data-en="View Our Menu"
@@ -1129,11 +967,9 @@ footer {
                data-th="สั่งอาหาร">
                 Order Food
             </a>
-
         </div>
 
     </div>
-
 </section>
 
 
@@ -1146,12 +982,9 @@ footer {
     <div class="about-grid">
 
         <div class="about-image">
-
             <img
                 src="kaphrao-chicken.png"
-                alt="Thai Basil Chicken - Tony's Kitchen"
-            >
-
+                alt="Thai Basil Chicken - Tony's Kitchen">
         </div>
 
         <div class="about-text">
@@ -1165,8 +998,7 @@ footer {
             <h2
                 data-en="Thai food with bold, authentic flavor."
                 data-th="อาหารไทยรสชาติจัดจ้านและต้นตำรับ">
-                Thai food with bold,
-                authentic flavor.
+                Thai food with bold, authentic flavor.
             </h2>
 
             <p
@@ -1186,36 +1018,37 @@ footer {
 
             <div class="location-box">
 
-    <strong
-        data-en="Our Location"
-        data-th="ที่ตั้งร้าน">
-        Our Location
-    </strong>
+                <strong
+                    data-en="Our Location"
+                    data-th="ที่ตั้งร้าน">
+                    Our Location
+                </strong>
 
-    <br><br>
+                <br><br>
 
-    <span
-        data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120"
-        data-th="ตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">
-        Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120
-    </span>
+                <span
+                    data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120"
+                    data-th="ตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">
+                    Located in front of the entrance to Nichada Thani Village,
+                    Samakkhi 29 Alley, Bang Talat, Pak Kret District,
+                    Nonthaburi 11120
+                </span>
 
-    <br><br>
+                <br><br>
 
-    <a
-        href="https://maps.app.goo.gl/xPiuy6PjgREHUBDMA"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="map-button"
-        data-en="📍 Get Directions"
-        data-th="📍 นำทางมาร้าน">
-        📍 Get Directions
-    </a>
+                <a
+                    href="https://maps.app.goo.gl/xPiuy6PjgREHUBDMA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="map-button"
+                    data-en="📍 Get Directions"
+                    data-th="📍 นำทางมาร้าน">
+                    📍 Get Directions
+                </a>
 
-</div>
-
+            </div>
+        </div>
     </div>
-
 </section>
 
 
@@ -1249,22 +1082,16 @@ footer {
 
         </div>
 
-
         <div class="menu-grid">
-
-
-            <!-- PAD THAI -->
 
             <article class="menu-card">
 
                 <div class="menu-image">
-
                     <img
-    src="Pad-Thai-shrimp.png"
-    alt="Pad Thai Shrimp"
-    onclick="openMenuLightbox(this)"
->
-
+                        src="Pad-Thai-shrimp.png"
+                        alt="Pad Thai Shrimp"
+                        data-lightbox-title-en="Pad Thai Shrimp"
+                        data-lightbox-title-th="ผัดไทยกุ้ง">
                 </div>
 
                 <div class="menu-info">
@@ -1283,30 +1110,21 @@ footer {
                     </p>
 
                     <div class="menu-bottom">
-
-                        <span class="price">
-                            ฿169
-                        </span>
-
+                        <span class="price">฿169</span>
                     </div>
 
                 </div>
-
             </article>
 
-
-            <!-- KAPRAO -->
 
             <article class="menu-card">
 
                 <div class="menu-image">
-
                     <img
-    src="kaphrao-chicken.png"
-    alt="Thai Basil Chicken"
-    onclick="openMenuLightbox(this)"
->
-
+                        src="kaphrao-chicken.png"
+                        alt="Thai Basil Chicken"
+                        data-lightbox-title-en="Thai Basil Chicken"
+                        data-lightbox-title-th="ผัดกะเพราไก่">
                 </div>
 
                 <div class="menu-info">
@@ -1325,30 +1143,21 @@ footer {
                     </p>
 
                     <div class="menu-bottom">
-
-                        <span class="price">
-                            ฿89
-                        </span>
-
+                        <span class="price">฿89</span>
                     </div>
 
                 </div>
-
             </article>
 
-
-            <!-- FRIED RICE -->
 
             <article class="menu-card">
 
                 <div class="menu-image">
-
                     <img
-    src="Chicken-fried-rice.png"
-    alt="Chicken Fried Rice"
-    onclick="openMenuLightbox(this)"
->
-
+                        src="Chicken-fried-rice.png"
+                        alt="Chicken Fried Rice"
+                        data-lightbox-title-en="Chicken Fried Rice"
+                        data-lightbox-title-th="ข้าวผัดไก่">
                 </div>
 
                 <div class="menu-info">
@@ -1367,30 +1176,21 @@ footer {
                     </p>
 
                     <div class="menu-bottom">
-
-                        <span class="price">
-                            ฿89
-                        </span>
-
+                        <span class="price">฿89</span>
                     </div>
 
                 </div>
-
             </article>
 
-
-            <!-- SPRING ROLLS -->
 
             <article class="menu-card">
 
                 <div class="menu-image">
-
                     <img
-    src="vegetable-spring-roll.png"
-    alt="Vegetable Spring Rolls"
-    onclick="openMenuLightbox(this)"
->
-
+                        src="vegetable-spring-roll.png"
+                        alt="Vegetable Spring Rolls"
+                        data-lightbox-title-en="Vegetable Spring Rolls"
+                        data-lightbox-title-th="ปอเปี๊ยะไส้ผัก">
                 </div>
 
                 <div class="menu-info">
@@ -1404,26 +1204,18 @@ footer {
                     <p
                         data-en="Crispy spring rolls filled with seasoned vegetables."
                         data-th="ปอเปี๊ยะทอดกรอบ ไส้ผักปรุงรสอย่างกลมกล่อม">
-                        Crispy spring rolls filled with
-                        seasoned vegetables.
+                        Crispy spring rolls filled with seasoned vegetables.
                     </p>
 
                     <div class="menu-bottom">
-
-                        <span class="price">
-                            ฿89
-                        </span>
-
+                        <span class="price">฿89</span>
                     </div>
 
                 </div>
-
             </article>
 
         </div>
-
     </div>
-
 </section>
 
 
@@ -1458,32 +1250,25 @@ footer {
                 fresh chili and savory stir-fried chicken.
             </p>
 
-            <a href="#order"
-               class="btn btn-primary"
-               data-en="Order Now"
-               data-th="สั่งอาหารตอนนี้">
+            <a
+                href="#order"
+                class="btn btn-primary"
+                data-en="Order Now"
+                data-th="สั่งอาหารตอนนี้">
                 Order Now
             </a>
 
         </div>
 
         <div class="feature-image">
-
             <img
                 src="kaphrao-chicken.png"
-                alt="Signature Thai Basil Chicken"
-            >
-
+                alt="Signature Thai Basil Chicken">
         </div>
 
     </div>
-
 </section>
 
-
-<!-- =========================
-     ORDER
-========================= -->
 
 <!-- =========================
      ORDER
@@ -1515,17 +1300,11 @@ footer {
 
         </div>
 
-
         <div class="order-grid">
-
-
-            <!-- PHONE -->
 
             <div class="order-card">
 
-                <div class="order-icon">
-                    ☎
-                </div>
+                <div class="order-icon">☎</div>
 
                 <h3
                     data-en="Phone"
@@ -1550,17 +1329,11 @@ footer {
             </div>
 
 
-            <!-- LINE -->
-
             <div class="order-card">
 
-                <div class="order-icon">
-                    LINE
-                </div>
+                <div class="order-icon">LINE</div>
 
-                <h3>
-                    LINE
-                </h3>
+                <h3>LINE</h3>
 
                 <p
                     data-en="Chat with us and order directly."
@@ -1581,17 +1354,11 @@ footer {
             </div>
 
 
-            <!-- GRABFOOD -->
-
             <div class="order-card">
 
-                <div class="order-icon">
-                    G
-                </div>
+                <div class="order-icon">G</div>
 
-                <h3>
-                    GrabFood
-                </h3>
+                <h3>GrabFood</h3>
 
                 <p
                     data-en="Order online through GrabFood."
@@ -1612,10 +1379,9 @@ footer {
             </div>
 
         </div>
-
     </div>
-
 </section>
+
 
 <!-- =========================
      OPENING HOURS
@@ -1707,9 +1473,7 @@ footer {
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
@@ -1746,7 +1510,7 @@ footer {
             <a
                 href="https://line.me/ti/p/~padaroisauce"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="contact-button">
                 LINE
             </a>
@@ -1754,15 +1518,13 @@ footer {
             <a
                 href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="contact-button">
                 GrabFood
             </a>
 
         </div>
-
     </div>
-
 </section>
 
 
@@ -1775,374 +1537,324 @@ footer {
     <div class="footer-inner">
 
         <div>
-
-            <div class="footer-logo">
-                Tony's Kitchen
-            </div>
+            <div class="footer-logo">Tony's Kitchen</div>
 
             <div class="footer-text"
                  data-en="Authentic Thai Food"
                  data-th="อาหารไทยต้นตำรับ">
                 Authentic Thai Food
             </div>
-
         </div>
 
         <div class="footer-address"
              data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120"
              data-th="ตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">
-            Located in front of the entrance to
-            Nichada Thani Village,
-            Samakkhi 29 Alley,
-            Bang Talat,
-            Pak Kret District,
+            Located in front of the entrance to Nichada Thani Village,
+            Samakkhi 29 Alley, Bang Talat, Pak Kret District,
             Nonthaburi 11120
         </div>
 
         <div class="footer-text"
              data-en="© 2026 Tony's Kitchen. All rights reserved."
              data-th="© 2026 Tony's Kitchen สงวนลิขสิทธิ์">
-            © 2026 Tony's Kitchen.
-            All rights reserved.
+            © 2026 Tony's Kitchen. All rights reserved.
         </div>
 
     </div>
-
 </footer>
+
+
 <!-- =========================
-     MENU LIGHTBOX
+     SINGLE MENU LIGHTBOX
 ========================= -->
 
 <div
-    class="menu-lightbox"
     id="menuLightbox"
-    onclick="closeMenuLightbox(event)"
->
+    class="menu-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu image preview"
+    aria-hidden="true">
+
+    <button
+        id="lightboxClose"
+        class="lightbox-close"
+        type="button"
+        aria-label="Close image">
+        ×
+    </button>
 
     <div class="lightbox-content">
-
-        <button
-            class="lightbox-close"
-            type="button"
-            onclick="closeMenuLightbox()"
-            aria-label="Close image"
-        >
-            ×
-        </button>
 
         <img
             id="lightboxImage"
             src=""
-            alt=""
-        >
-
-        <div
-            class="lightbox-caption"
-            id="lightboxCaption">
-        </div>
+            alt="">
 
     </div>
-
-</div>
-
-<!-- =========================
-     LANGUAGE JAVASCRIPT
-========================= -->
-
-<script>
-
-function setLanguage(language) {
-
-    /*
-     * Change every element that has
-     * data-en and data-th
-     */
-
-    const elements = document.querySelectorAll(
-        "[data-en][data-th]"
-    );
-
-    elements.forEach(function(element) {
-
-        if (language === "th") {
-
-            element.innerHTML = element.getAttribute("data-th");
-
-        } else {
-
-            element.innerHTML = element.getAttribute("data-en");
-
-        }
-
-    });
-
-
-    /*
-     * Change HTML language
-     */
-
-    document.documentElement.lang = language;
-
-
-    /*
-     * Change active button
-     */
-
-    document.getElementById("enBtn")
-        .classList.toggle(
-            "active",
-            language === "en"
-        );
-
-    document.getElementById("thBtn")
-        .classList.toggle(
-            "active",
-            language === "th"
-        );
-
-
-    /*
-     * Save language selection
-     */
-
-    localStorage.setItem(
-        "tonysKitchenLanguage",
-        language
-    );
-}
-
-
-/*
- * IMPORTANT:
- * English is ALWAYS the default language
- * for a new visitor.
- *
- * If the visitor previously selected Thai,
- * we remember their choice.
- */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const savedLanguage =
-            localStorage.getItem(
-                "tonysKitchenLanguage"
-            );
-
-        if (savedLanguage === "th") {
-
-            setLanguage("th");
-
-        } else {
-
-            setLanguage("en");
-
-        }
-
-    }
-);
-
-</script>
-<script>
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-function toggleMobileMenu() {
-
-    const menu = document.querySelector(".nav-links");
-
-    menu.classList.toggle("mobile-open");
-
-}
-
-
-/* =========================
-   CLOSE MENU AFTER CLICK
-========================= */
-
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
-        document
-            .querySelector(".nav-links")
-            .classList.remove("mobile-open");
-
-    });
-
-});
-
-</script>
-    <script>
-
-/* =========================
-   MENU LIGHTBOX
-========================= */
-
-document.querySelectorAll(".menu-card .menu-image img").forEach(function(image) {
-
-    image.addEventListener("click", function() {
-
-        const lightbox = document.getElementById("menuLightbox");
-        const lightboxImage = document.getElementById("lightboxImage");
-        const caption = document.getElementById("lightboxCaption");
-
-        lightboxImage.src = this.src;
-        lightboxImage.alt = this.alt;
-
-        caption.textContent = this.alt;
-
-        lightbox.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
-
-
-function closeMenuLightbox(event) {
-
-    const lightbox = document.getElementById("menuLightbox");
-
-    if (
-        !event ||
-        event.target === lightbox ||
-        event.target.classList.contains("lightbox-close")
-    ) {
-
-        lightbox.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-    }
-
-}
-
-
-/* Press ESC to close */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        const lightbox = document.getElementById("menuLightbox");
-
-        if (lightbox.classList.contains("active")) {
-
-            lightbox.classList.remove("active");
-
-            document.body.style.overflow = "";
-
-        }
-
-    }
-
-});
-
-</script>
-    <!-- =========================
-     MENU LIGHTBOX
-========================= -->
-
-<div
-    id="menuLightbox"
-    class="menu-lightbox"
-    onclick="closeMenuLightbox(event)"
->
-
-    <button
-        type="button"
-        class="lightbox-close"
-        onclick="closeMenuLightbox(event)"
-        aria-label="Close"
-    >
-        ×
-    </button>
-
-    <img
-        id="lightboxImage"
-        src=""
-        alt=""
-    >
 
     <div
-        id="lightboxTitle"
-        class="lightbox-title">
+        id="lightboxCaption"
+        class="lightbox-caption">
     </div>
 
 </div>
-    <script>
 
-/* =========================
-   MENU LIGHTBOX
-========================= */
 
-function openMenuLightbox(image) {
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+(function(){
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    window.setLanguage = function(language){
+
+        const elements = document.querySelectorAll("[data-en][data-th]");
+
+        elements.forEach(function(element){
+
+            if(language === "th"){
+                element.textContent = element.getAttribute("data-th");
+            }else{
+                element.textContent = element.getAttribute("data-en");
+            }
+
+        });
+
+        document.documentElement.lang = language;
+
+        const enBtn = document.getElementById("enBtn");
+        const thBtn = document.getElementById("thBtn");
+
+        if(enBtn){
+            enBtn.classList.toggle("active", language === "en");
+        }
+
+        if(thBtn){
+            thBtn.classList.toggle("active", language === "th");
+        }
+
+        localStorage.setItem("tonysKitchenLanguage", language);
+
+        updateLightboxCaption();
+    };
+
+
+    function updateLightboxCaption(){
+
+        const lightbox = document.getElementById("menuLightbox");
+
+        if(!lightbox.classList.contains("is-open")){
+            return;
+        }
+
+        const image = document.getElementById("lightboxImage");
+        const caption = document.getElementById("lightboxCaption");
+
+        if(!image || !caption){
+            return;
+        }
+
+        const language = document.documentElement.lang || "en";
+
+        const title =
+            language === "th"
+                ? image.getAttribute("data-lightbox-title-th")
+                : image.getAttribute("data-lightbox-title-en");
+
+        caption.textContent = title || image.alt || "";
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    window.toggleMobileMenu = function(){
+
+        const menu = document.getElementById("mainNav");
+        const button = document.querySelector(".mobile-menu-button");
+
+        if(!menu){
+            return;
+        }
+
+        const isOpen = menu.classList.toggle("mobile-open");
+
+        if(button){
+            button.setAttribute("aria-expanded", String(isOpen));
+            button.setAttribute(
+                "aria-label",
+                isOpen ? "Close menu" : "Open menu"
+            );
+        }
+    };
+
+
+    document.querySelectorAll(".nav-links a").forEach(function(link){
+
+        link.addEventListener("click", function(){
+
+            const menu = document.getElementById("mainNav");
+            const button = document.querySelector(".mobile-menu-button");
+
+            if(menu){
+                menu.classList.remove("mobile-open");
+            }
+
+            if(button){
+                button.setAttribute("aria-expanded","false");
+                button.setAttribute("aria-label","Open menu");
+            }
+        });
+
+    });
+
+
+    /* =========================
+       MENU LIGHTBOX
+       One system only
+    ========================= */
 
     const lightbox = document.getElementById("menuLightbox");
     const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
 
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
+    function openLightbox(image){
 
-    lightboxTitle.textContent = image.alt;
+        if(!lightbox || !lightboxImage){
+            return;
+        }
 
-    lightbox.classList.add("show");
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt || "";
 
-    document.body.style.overflow = "hidden";
-}
+        lightboxImage.setAttribute(
+            "data-lightbox-title-en",
+            image.getAttribute("data-lightbox-title-en") || image.alt || ""
+        );
 
+        lightboxImage.setAttribute(
+            "data-lightbox-title-th",
+            image.getAttribute("data-lightbox-title-th") || image.alt || ""
+        );
 
-function closeMenuLightbox(event) {
+        const language = document.documentElement.lang || "en";
 
-    if (
-        event &&
-        event.target !== event.currentTarget &&
-        !event.target.classList.contains("lightbox-close")
-    ) {
-        return;
+        const title =
+            language === "th"
+                ? lightboxImage.getAttribute("data-lightbox-title-th")
+                : lightboxImage.getAttribute("data-lightbox-title-en");
+
+        lightboxCaption.textContent = title || image.alt || "";
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden","false");
+
+        document.body.classList.add("modal-open");
+
+        if(lightboxClose){
+            lightboxClose.focus();
+        }
     }
 
-    const lightbox = document.getElementById("menuLightbox");
 
-    lightbox.classList.remove("show");
+    function closeLightbox(){
 
-    document.body.style.overflow = "";
-}
+        if(!lightbox){
+            return;
+        }
+
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden","true");
+
+        document.body.classList.remove("modal-open");
+
+        if(lightboxImage){
+            lightboxImage.src = "";
+            lightboxImage.alt = "";
+        }
+
+        if(lightboxCaption){
+            lightboxCaption.textContent = "";
+        }
+    }
 
 
-/* Close with ESC */
+    document.querySelectorAll(".menu-image img").forEach(function(image){
 
-document.addEventListener("keydown", function(event) {
+        image.addEventListener("click", function(event){
 
-    if (event.key === "Escape") {
+            event.preventDefault();
+            event.stopPropagation();
 
-        const lightbox = document.getElementById("menuLightbox");
+            openLightbox(image);
+        });
 
-        lightbox.classList.remove("show");
+    });
 
-        document.body.style.overflow = "";
+
+    if(lightboxClose){
+        lightboxClose.addEventListener("click", function(event){
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            closeLightbox();
+        });
+    }
+
+
+    if(lightbox){
+
+        lightbox.addEventListener("click", function(event){
+
+            if(event.target === lightbox){
+                closeLightbox();
+            }
+
+        });
 
     }
 
-});
 
-</script>
-    <script>
-/* =========================
-   EMERGENCY SCROLL FIX
-========================= */
+    document.addEventListener("keydown", function(event){
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-    document.body.classList.remove("lightbox-open");
-});
+        if(event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")){
+            closeLightbox();
+        }
+
+    });
+
+
+    /* =========================
+       STARTUP
+    ========================= */
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        const savedLanguage =
+            localStorage.getItem("tonysKitchenLanguage");
+
+        if(savedLanguage === "th"){
+            setLanguage("th");
+        }else{
+            setLanguage("en");
+        }
+
+        /* Safety: never leave the page locked on startup. */
+        document.body.classList.remove("modal-open");
+        document.documentElement.style.overflow = "";
+    });
+
+})();
 </script>
+
 </body>
 </html>
