@@ -2133,5 +2133,16 @@ document.addEventListener("keydown", function(event) {
 });
 
 </script>
+    <script>
+/* =========================
+   EMERGENCY SCROLL FIX
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    document.body.classList.remove("lightbox-open");
+});
+</script>
 </body>
 </html>
