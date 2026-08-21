@@ -941,6 +941,69 @@ footer {
     }
 
 }
+    /* =========================
+   MENU LIGHTBOX
+========================= */
+
+.menu-image {
+    cursor: zoom-in;
+}
+
+.menu-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.menu-lightbox.show {
+    display: flex;
+}
+
+.menu-lightbox img {
+    max-width: 95%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    color: #222;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.lightbox-close:hover {
+    background: #b42318;
+    color: white;
+}
+
+.lightbox-title {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+}
 </style>
 </head>
 
@@ -1197,9 +1260,10 @@ footer {
                 <div class="menu-image">
 
                     <img
-                        src="Pad-Thai-shrimp.png"
-                        alt="Pad Thai Shrimp"
-                    >
+    src="Pad-Thai-shrimp.png"
+    alt="Pad Thai Shrimp"
+    onclick="openMenuLightbox(this)"
+>
 
                 </div>
 
@@ -1238,9 +1302,10 @@ footer {
                 <div class="menu-image">
 
                     <img
-                        src="kaphrao-chicken.png"
-                        alt="Thai Basil Chicken"
-                    >
+    src="kaphrao-chicken.png"
+    alt="Thai Basil Chicken"
+    onclick="openMenuLightbox(this)"
+>
 
                 </div>
 
@@ -1279,9 +1344,10 @@ footer {
                 <div class="menu-image">
 
                     <img
-                        src="Chicken-fried-rice.png"
-                        alt="Chicken Fried Rice"
-                    >
+    src="Chicken-fried-rice.png"
+    alt="Chicken Fried Rice"
+    onclick="openMenuLightbox(this)"
+>
 
                 </div>
 
@@ -1320,9 +1386,10 @@ footer {
                 <div class="menu-image">
 
                     <img
-                        src="vegetable-spring-roll.png"
-                        alt="Vegetable Spring Rolls"
-                    >
+    src="vegetable-spring-roll.png"
+    alt="Vegetable Spring Rolls"
+    onclick="openMenuLightbox(this)"
+>
 
                 </div>
 
@@ -1971,6 +2038,95 @@ document.addEventListener("keydown", function(event) {
             document.body.style.overflow = "";
 
         }
+
+    }
+
+});
+
+</script>
+    <!-- =========================
+     MENU LIGHTBOX
+========================= -->
+
+<div
+    id="menuLightbox"
+    class="menu-lightbox"
+    onclick="closeMenuLightbox(event)"
+>
+
+    <button
+        type="button"
+        class="lightbox-close"
+        onclick="closeMenuLightbox(event)"
+        aria-label="Close"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt=""
+    >
+
+    <div
+        id="lightboxTitle"
+        class="lightbox-title">
+    </div>
+
+</div>
+    <script>
+
+/* =========================
+   MENU LIGHTBOX
+========================= */
+
+function openMenuLightbox(image) {
+
+    const lightbox = document.getElementById("menuLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxTitle.textContent = image.alt;
+
+    lightbox.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeMenuLightbox(event) {
+
+    if (
+        event &&
+        event.target !== event.currentTarget &&
+        !event.target.classList.contains("lightbox-close")
+    ) {
+        return;
+    }
+
+    const lightbox = document.getElementById("menuLightbox");
+
+    lightbox.classList.remove("show");
+
+    document.body.style.overflow = "";
+}
+
+
+/* Close with ESC */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        const lightbox = document.getElementById("menuLightbox");
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
 
     }
 
