@@ -792,6 +792,52 @@ footer {
     color: #ffffff;
     transform: translateY(-2px);
 }  
+    /* =========================
+   ORDER BUTTONS
+========================= */
+
+.order-button {
+    display: inline-block;
+    min-width: 125px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background: #b42318;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.order-button:hover {
+    background: #8f1c14;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.order-card {
+    position: relative;
+}
+
+.order-card:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width: 700px) {
+
+    .order-grid {
+        gap: 18px;
+    }
+
+    .order-card {
+        padding: 28px 20px;
+    }
+
+    .order-button {
+        width: 100%;
+        padding: 13px 20px;
+    }
+
+}
 </style>
 </head>
 
@@ -1269,6 +1315,10 @@ footer {
      ORDER
 ========================= -->
 
+<!-- =========================
+     ORDER
+========================= -->
+
 <section class="order-section" id="order">
 
     <div class="section">
@@ -1283,14 +1333,14 @@ footer {
 
             <h2
                 data-en="How would you like to order?"
-                data-th="คุณต้องการสั่งอาหารทางไหน?">
+                data-th="คุณต้องการสั่งอาหารแบบไหน?">
                 How would you like to order?
             </h2>
 
             <p
-                data-en="Contact Tony's Kitchen directly or order online."
-                data-th="ติดต่อ Tony's Kitchen โดยตรง หรือสั่งอาหารออนไลน์">
-                Contact Tony's Kitchen directly or order online.
+                data-en="Choose your preferred way to order from Tony's Kitchen."
+                data-th="เลือกช่องทางที่คุณต้องการสั่งอาหารจาก Tony's Kitchen">
+                Choose your preferred way to order from Tony's Kitchen.
             </p>
 
         </div>
@@ -1314,15 +1364,17 @@ footer {
                 </h3>
 
                 <p
-                    data-en="Call us directly"
-                    data-th="โทรหาเราโดยตรง">
-                    Call us directly
+                    data-en="Call us directly and place your order."
+                    data-th="โทรหาเราโดยตรงเพื่อสั่งอาหาร">
+                    Call us directly and place your order.
                 </p>
 
                 <a
                     href="tel:0841536498"
-                    class="order-button">
-                    084-153-6498
+                    class="order-button"
+                    data-en="Call Now"
+                    data-th="โทรเลย">
+                    Call Now
                 </a>
 
             </div>
@@ -1341,25 +1393,25 @@ footer {
                 </h3>
 
                 <p
-                    data-en="Chat and order directly"
-                    data-th="แชทและสั่งอาหารโดยตรง">
-                    Chat and order directly
+                    data-en="Chat with us and order directly."
+                    data-th="แชทกับเราและสั่งอาหารโดยตรง">
+                    Chat with us and order directly.
                 </p>
 
                 <a
                     href="https://line.me/ti/p/~padaroisauce"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     class="order-button"
-                    data-en="Add LINE"
-                    data-th="เพิ่ม LINE">
-                    Add LINE
+                    data-en="Open LINE"
+                    data-th="เปิด LINE">
+                    Open LINE
                 </a>
 
             </div>
 
 
-            <!-- GRAB -->
+            <!-- GRABFOOD -->
 
             <div class="order-card">
 
@@ -1372,15 +1424,15 @@ footer {
                 </h3>
 
                 <p
-                    data-en="Order online through GrabFood"
+                    data-en="Order online through GrabFood."
                     data-th="สั่งอาหารออนไลน์ผ่าน GrabFood">
-                    Order online through GrabFood
+                    Order online through GrabFood.
                 </p>
 
                 <a
                     href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     class="order-button"
                     data-en="Order on Grab"
                     data-th="สั่งผ่าน Grab">
@@ -1394,7 +1446,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- =========================
      OPENING HOURS
