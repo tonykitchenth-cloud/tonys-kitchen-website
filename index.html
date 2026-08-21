@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Tony's Kitchen | Authentic Thai Food</title>
 
@@ -34,11 +28,7 @@ html {
 }
 
 body {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #fffaf3;
     color: #222;
     line-height: 1.6;
@@ -71,39 +61,30 @@ button {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     background: rgba(255,255,255,0.97);
-
     border-bottom: 1px solid #eee;
-
-    box-shadow:
-        0 2px 12px rgba(0,0,0,0.06);
-
-    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .nav-inner {
     max-width: 1200px;
     margin: auto;
-
     padding: 12px 22px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
+    min-width: 170px;
 }
 
-.logo-image {
-    width: 145px;
-    height: 58px;
-
+.logo-link img {
+    width: 150px;
+    height: 55px;
     object-fit: contain;
     object-position: left center;
 }
@@ -116,9 +97,8 @@ button {
 
 .nav-links {
     display: flex;
-    gap: 22px;
+    gap: 23px;
     align-items: center;
-
     font-size: 15px;
     font-weight: 700;
 }
@@ -133,16 +113,13 @@ button {
 
 .nav-button {
     background: #b42318;
-    color: white;
-
-    padding: 9px 17px;
-
+    color: white !important;
+    padding: 10px 18px;
     border-radius: 999px;
 }
 
 .nav-button:hover {
     background: #8f1c14;
-    color: white !important;
 }
 
 
@@ -153,38 +130,30 @@ button {
 .language-switcher {
     display: flex;
     align-items: center;
-
+    gap: 4px;
+    padding: 4px;
     border: 1px solid #ddd;
     border-radius: 999px;
-
-    padding: 3px;
-
-    background: white;
+    background: #fff;
 }
 
-.language-button {
+.language-btn {
     border: none;
     background: transparent;
-
     cursor: pointer;
-
-    padding: 6px 10px;
-
+    padding: 7px 11px;
     border-radius: 999px;
-
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
-
     color: #555;
-
     transition: 0.2s;
 }
 
-.language-button:hover {
-    color: #b42318;
+.language-btn:hover {
+    background: #f4f4f4;
 }
 
-.language-button.active {
+.language-btn.active {
     background: #b42318;
     color: white;
 }
@@ -196,10 +165,8 @@ button {
 
 .hero {
     min-height: 650px;
-
     display: flex;
     align-items: center;
-
     position: relative;
     overflow: hidden;
 
@@ -210,47 +177,33 @@ button {
             rgba(0,0,0,0.60) 42%,
             rgba(0,0,0,0.12) 100%
         ),
-        url("kaphrao-chicken.png")
-        center center / cover no-repeat;
+        url("kaphrao-chicken.png") center center / cover no-repeat;
 }
 
 .hero-content {
     width: 100%;
     max-width: 1200px;
-
     margin: auto;
-
     padding: 80px 22px;
-
     color: white;
 }
 
 .hero-tag {
     display: inline-block;
-
     background: #f4b400;
     color: #241700;
-
     font-weight: 800;
-
     padding: 7px 15px;
-
     border-radius: 999px;
-
     margin-bottom: 20px;
-
     font-size: 14px;
 }
 
 .hero h1 {
     font-size: clamp(42px, 7vw, 82px);
-
     line-height: 0.98;
-
     max-width: 720px;
-
     margin-bottom: 25px;
-
     letter-spacing: -2px;
 }
 
@@ -260,11 +213,8 @@ button {
 
 .hero p {
     max-width: 620px;
-
     font-size: 20px;
-
     color: #f5f5f5;
-
     margin-bottom: 30px;
 }
 
@@ -276,15 +226,10 @@ button {
 
 .btn {
     display: inline-block;
-
     padding: 14px 24px;
-
     border-radius: 999px;
-
     font-weight: 800;
-
     transition: 0.2s;
-
     border: none;
     cursor: pointer;
 }
@@ -311,50 +256,40 @@ button {
 
 
 /* =========================================================
-   GENERAL
+   GENERAL SECTIONS
 ========================================================= */
 
 .section {
     max-width: 1200px;
-
     margin: auto;
-
     padding: 85px 22px;
 }
 
 .section-heading {
     text-align: center;
-
     margin-bottom: 45px;
 }
 
-.section-heading .eyebrow {
+.section-heading .eyebrow,
+.about-text .eyebrow,
+.feature .eyebrow {
     color: #b42318;
-
     font-weight: 800;
-
     text-transform: uppercase;
-
     letter-spacing: 1.5px;
-
     font-size: 13px;
-
     margin-bottom: 8px;
 }
 
 .section-heading h2 {
     font-size: clamp(32px, 5vw, 48px);
-
     line-height: 1.1;
-
     margin-bottom: 12px;
 }
 
 .section-heading p {
     max-width: 650px;
-
     margin: auto;
-
     color: #666;
 }
 
@@ -369,100 +304,57 @@ button {
 
 .about-grid {
     max-width: 1200px;
-
     margin: auto;
-
     padding: 85px 22px;
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 55px;
-
     align-items: center;
 }
 
 .about-image {
     overflow: hidden;
-
     border-radius: 24px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,0.12);
-
-    cursor: pointer;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
 }
 
 .about-image img {
     width: 100%;
     height: 500px;
-
     object-fit: cover;
-
-    transition: transform 0.35s;
-}
-
-.about-image:hover img {
-    transform: scale(1.03);
-}
-
-.about-text .eyebrow {
-    color: #b42318;
-
-    font-weight: 800;
-
-    margin-bottom: 10px;
 }
 
 .about-text h2 {
     font-size: 46px;
-
     line-height: 1.08;
-
     margin-bottom: 20px;
 }
 
 .about-text p {
     color: #555;
-
     margin-bottom: 18px;
 }
 
 .location-box {
     margin-top: 25px;
-
     background: #fff7e6;
-
     border-left: 5px solid #f4b400;
-
     padding: 18px 20px;
-
     border-radius: 10px;
 }
 
-.maps-button {
+.map-button {
     display: inline-block;
-
     margin-top: 15px;
-
     background: #b42318;
-
     color: white;
-
-    padding: 11px 18px;
-
+    padding: 10px 18px;
     border-radius: 999px;
-
     font-weight: 800;
-
-    transition: 0.2s;
 }
 
-.maps-button:hover {
+.map-button:hover {
     background: #8f1c14;
-
-    transform: translateY(-2px);
 }
 
 
@@ -476,97 +368,39 @@ button {
 
 .menu-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
 .menu-card {
     background: white;
-
     border-radius: 18px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.07);
-
-    transition:
-        transform 0.25s,
-        box-shadow 0.25s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .menu-card:hover {
     transform: translateY(-7px);
-
-    box-shadow:
-        0 18px 38px rgba(0,0,0,0.12);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.12);
 }
 
 .menu-image {
     height: 235px;
-
     overflow: hidden;
-
     background: #eee;
-
     cursor: pointer;
-
-    position: relative;
-}
-
-.menu-image::after {
-    content: "View";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0.9);
-
-    background: rgba(0,0,0,0.65);
-
-    color: white;
-
-    padding: 8px 15px;
-
-    border-radius: 999px;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    opacity: 0;
-
-    transition: 0.25s;
-
-    pointer-events: none;
-}
-
-.menu-image:hover::after {
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
 }
 
 .menu-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: transform 0.35s;
 }
 
-.menu-image:hover img {
-    transform: scale(1.05);
+.menu-card:hover .menu-image img {
+    transform: scale(1.04);
 }
 
 .menu-info {
@@ -575,34 +409,99 @@ button {
 
 .menu-info h3 {
     font-size: 21px;
-
     margin-bottom: 7px;
 }
 
 .menu-info p {
     color: #666;
-
     font-size: 14px;
-
     min-height: 45px;
-
     margin-bottom: 15px;
 }
 
 .menu-bottom {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 .price {
     font-size: 22px;
-
     font-weight: 900;
-
     color: #b42318;
+}
+
+.view-photo {
+    font-size: 13px;
+    font-weight: 800;
+    color: #b42318;
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.88);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 950px;
+    max-height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #222;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: #f1f1f1;
 }
 
 
@@ -612,60 +511,38 @@ button {
 
 .feature {
     background: #181818;
-
     color: white;
 }
 
 .feature-grid {
     max-width: 1200px;
-
     margin: auto;
-
     padding: 85px 22px;
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 60px;
-
     align-items: center;
-}
-
-.feature .eyebrow {
-    color: #ffd166;
-    font-weight: 800;
-
-    margin-bottom: 10px;
 }
 
 .feature h2 {
     font-size: clamp(34px, 5vw, 55px);
-
     line-height: 1.05;
-
     margin-bottom: 20px;
 }
 
 .feature p {
     color: #ccc;
-
     margin-bottom: 25px;
 }
 
 .feature-image {
     border-radius: 25px;
-
     overflow: hidden;
-
-    cursor: pointer;
 }
 
 .feature-image img {
     width: 100%;
-
     height: 500px;
-
     object-fit: cover;
 }
 
@@ -680,57 +557,42 @@ button {
 
 .order-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
-
-    max-width: 1100px;
-
+    max-width: 1200px;
     margin: auto;
 }
 
 .order-card {
     border: 1px solid #eee;
-
     border-radius: 18px;
-
-    padding: 30px 22px;
-
+    padding: 35px 20px;
     text-align: center;
-
     background: #fff;
-
     transition: 0.2s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .order-card:hover {
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.08);
-
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     transform: translateY(-4px);
 }
 
-
-/* =========================================================
-   ORDER LOGOS
-========================================================= */
-
 .order-icon {
-    width: 75px;
-    height: 75px;
-
-    margin: 0 auto 18px;
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 20px;
 
     border-radius: 18px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    background: #fff;
+    background: #fff0e8;
 
     overflow: hidden;
 }
@@ -738,48 +600,36 @@ button {
 .order-icon img {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
-
-    display: block;
 }
 
 .phone-icon {
-    font-size: 42px;
-
-    background: #fff0e8;
+    font-size: 48px;
 }
 
 .order-card h3 {
     margin-bottom: 8px;
+    font-size: 22px;
 }
 
 .order-card p {
     color: #666;
-
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    min-height: 48px;
 }
 
 .order-button {
     display: inline-block;
-
-    padding: 10px 20px;
-
+    padding: 11px 20px;
     border-radius: 999px;
-
     background: #b42318;
-
     color: white;
-
     font-weight: 700;
-
-    transition: 0.2s;
+    margin-top: auto;
 }
 
 .order-button:hover {
     background: #8f1c14;
-
-    transform: translateY(-2px);
 }
 
 
@@ -793,26 +643,17 @@ button {
 
 .hours-box {
     max-width: 650px;
-
     margin: auto;
-
     background: white;
-
     border-radius: 20px;
-
     padding: 35px;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.06);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
 }
 
 .hours-row {
     display: flex;
-
     justify-content: space-between;
-
     padding: 15px 0;
-
     border-bottom: 1px solid #eee;
 }
 
@@ -826,7 +667,6 @@ button {
 
 .hours-time {
     color: #b42318;
-
     font-weight: 800;
 }
 
@@ -837,54 +677,38 @@ button {
 
 .contact {
     background: #b42318;
-
     color: white;
-
     text-align: center;
 }
 
 .contact h2 {
     font-size: clamp(35px, 5vw, 55px);
-
     margin-bottom: 15px;
 }
 
 .contact p {
     max-width: 700px;
-
     margin: 0 auto 28px;
-
     color: #ffe5e0;
 }
 
 .contact-buttons {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 12px;
 }
 
 .contact-button {
     background: white;
-
     color: #b42318;
-
     padding: 13px 22px;
-
     border-radius: 999px;
-
     font-weight: 800;
-
-    transition: 0.2s;
 }
 
 .contact-button:hover {
     background: #fff0e8;
-
-    transform: translateY(-2px);
 }
 
 
@@ -894,152 +718,32 @@ button {
 
 footer {
     background: #111;
-
     color: white;
-
     padding: 35px 22px;
 }
 
 .footer-inner {
     max-width: 1200px;
-
     margin: auto;
-
     display: flex;
-
     justify-content: space-between;
-
     gap: 25px;
-
     flex-wrap: wrap;
 }
 
 .footer-logo {
     font-size: 23px;
-
     font-weight: 800;
 }
 
-.footer-text {
+.footer-text,
+.footer-address {
     color: #aaa;
-
     font-size: 14px;
 }
 
 .footer-address {
-    color: #aaa;
-
     max-width: 500px;
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   LIGHTBOX
-========================================================= */
-
-.lightbox {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    background: rgba(0,0,0,0.92);
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-}
-
-.lightbox.active {
-    display: flex;
-}
-
-.lightbox-content {
-    position: relative;
-
-    max-width: 1100px;
-    max-height: 90vh;
-
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-image {
-    max-width: 100%;
-
-    max-height: 85vh;
-
-    width: auto;
-
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 20px 80px rgba(0,0,0,0.5);
-}
-
-.lightbox-close {
-    position: fixed;
-
-    top: 20px;
-    right: 25px;
-
-    width: 50px;
-    height: 50px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: white;
-
-    color: #222;
-
-    font-size: 30px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 10001;
-}
-
-.lightbox-close:hover {
-    background: #f1f1f1;
-}
-
-.lightbox-caption {
-    position: fixed;
-
-    left: 50%;
-    bottom: 20px;
-
-    transform: translateX(-50%);
-
-    color: white;
-
-    background: rgba(0,0,0,0.55);
-
-    padding: 8px 18px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    text-align: center;
 }
 
 
@@ -1047,16 +751,14 @@ footer {
    MOBILE
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 
     .menu-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .order-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .about-grid,
@@ -1069,31 +771,38 @@ footer {
         height: 420px;
     }
 
+    .nav-links {
+        gap: 14px;
+    }
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 750px) {
+
+    .nav-inner {
+        padding: 10px 14px;
+    }
+
+    .logo-link {
+        min-width: 120px;
+    }
+
+    .logo-link img {
+        width: 120px;
+        height: 48px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
 
     .nav-links {
         display: none;
     }
 
-    .nav-right {
-        gap: 10px;
-    }
-
-    .logo-image {
-        width: 125px;
-        height: 52px;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .nav-inner {
-        padding: 10px 14px;
+    .language-btn {
+        padding: 6px 9px;
+        font-size: 12px;
     }
 
     .hero {
@@ -1119,7 +828,6 @@ footer {
     .about-grid,
     .feature-grid {
         padding: 65px 18px;
-
         gap: 35px;
     }
 
@@ -1127,13 +835,16 @@ footer {
         font-size: 37px;
     }
 
-    .menu-grid,
-    .order-grid {
+    .menu-grid {
         grid-template-columns: 1fr;
     }
 
     .menu-image {
         height: 260px;
+    }
+
+    .order-grid {
+        grid-template-columns: 1fr;
     }
 
     .hours-box {
@@ -1148,61 +859,31 @@ footer {
         padding: 15px;
     }
 
-    .lightbox-close {
-        top: 12px;
-        right: 12px;
-
-        width: 45px;
-        height: 45px;
+    .lightbox-image {
+        max-height: 80vh;
     }
-
-}
-
-
-/* =========================================================
-   EXTRA SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .language-button {
-        padding: 5px 7px;
-
-        font-size: 11px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =======================================================
+<!-- =========================================================
      NAVIGATION
-======================================================= -->
+========================================================= -->
 
 <header class="navbar">
 
     <div class="nav-inner">
 
-        <a
-            href="#home"
-            class="logo-link"
-            aria-label="Tony's Kitchen Home"
-        >
+        <a href="#home" class="logo-link">
 
             <img
                 src="Logo-Ex.png"
                 alt="Tony's Kitchen"
-                class="logo-image"
             >
 
         </a>
@@ -1212,31 +893,19 @@ footer {
 
             <nav class="nav-links">
 
-                <a
-                    href="#home"
-                    data-i18n="navHome"
-                >
+                <a href="#home" data-i18n="navHome">
                     Home
                 </a>
 
-                <a
-                    href="#menu"
-                    data-i18n="navMenu"
-                >
+                <a href="#menu" data-i18n="navMenu">
                     Menu
                 </a>
 
-                <a
-                    href="#about"
-                    data-i18n="navAbout"
-                >
+                <a href="#about" data-i18n="navAbout">
                     About
                 </a>
 
-                <a
-                    href="#order"
-                    data-i18n="navOrder"
-                >
+                <a href="#order" data-i18n="navOrder">
                     Order
                 </a>
 
@@ -1251,27 +920,24 @@ footer {
             </nav>
 
 
-            <div
-                class="language-switcher"
-                aria-label="Language selector"
-            >
+            <!-- LANGUAGE -->
+
+            <div class="language-switcher">
 
                 <button
-                    type="button"
-                    class="language-button"
+                    class="language-btn active"
                     id="langEN"
-                    onclick="setLanguage('en')"
+                    type="button"
                 >
                     EN
                 </button>
 
                 <button
-                    type="button"
-                    class="language-button"
+                    class="language-btn"
                     id="langTH"
-                    onclick="setLanguage('th')"
+                    type="button"
                 >
-                    ไทย
+                    TH
                 </button>
 
             </div>
@@ -1284,14 +950,11 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      HERO
-======================================================= -->
+========================================================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -1305,10 +968,7 @@ footer {
 
         <h1>
 
-            <span
-                data-i18n="heroTitle1"
-                style="color:white;"
-            >
+            <span data-i18n="heroTitle1">
                 Real Thai Food.
             </span>
 
@@ -1339,7 +999,6 @@ footer {
                 View Our Menu
             </a>
 
-
             <a
                 href="#order"
                 class="btn btn-secondary"
@@ -1356,25 +1015,16 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      ABOUT
-======================================================= -->
+========================================================= -->
 
-<section
-    class="about"
-    id="about"
->
+<section class="about" id="about">
 
     <div class="about-grid">
 
 
-        <div
-            class="about-image"
-            onclick="openLightbox(
-                'kaphrao-chicken.png',
-                'Thai Basil Chicken'
-            )"
-        >
+        <div class="about-image">
 
             <img
                 src="kaphrao-chicken.png"
@@ -1439,15 +1089,14 @@ footer {
 
                 <br>
 
-
                 <a
                     href="https://maps.app.goo.gl/xPiuy6PjgREHUBDMA"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="maps-button"
+                    rel="noopener"
+                    class="map-button"
                     data-i18n="openMaps"
                 >
-                    Open Google Maps
+                    Open in Google Maps
                 </a>
 
             </div>
@@ -1460,14 +1109,11 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      MENU
-======================================================= -->
+========================================================= -->
 
-<section
-    class="menu-section"
-    id="menu"
->
+<section class="menu-section" id="menu">
 
     <div class="section">
 
@@ -1489,8 +1135,7 @@ footer {
 
             <p data-i18n="menuDescription">
 
-                Classic Thai dishes prepared fresh
-                and packed with flavor.
+                Classic Thai dishes prepared fresh and packed with flavor.
 
             </p>
 
@@ -1502,17 +1147,14 @@ footer {
 
 
             <!-- =================================================
-                 PAD THAI
+                 MENU 1
             ================================================== -->
 
             <article class="menu-card">
 
                 <div
                     class="menu-image"
-                    onclick="openLightbox(
-                        'Pad-Thai-shrimp.png',
-                        'Pad Thai Shrimp'
-                    )"
+                    data-lightbox="Pad-Thai-shrimp.png"
                 >
 
                     <img
@@ -1525,7 +1167,7 @@ footer {
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="padThaiTitle">
+                    <h3 data-i18n="padThaiName">
                         Pad Thai Shrimp
                     </h3>
 
@@ -1544,6 +1186,13 @@ footer {
                             ฿169
                         </span>
 
+                        <span
+                            class="view-photo"
+                            data-i18n="viewPhoto"
+                        >
+                            View Photo
+                        </span>
+
                     </div>
 
                 </div>
@@ -1553,17 +1202,14 @@ footer {
 
 
             <!-- =================================================
-                 KAPRAO
+                 MENU 2
             ================================================== -->
 
             <article class="menu-card">
 
                 <div
                     class="menu-image"
-                    onclick="openLightbox(
-                        'kaphrao-chicken.png',
-                        'Thai Basil Chicken'
-                    )"
+                    data-lightbox="kaphrao-chicken.png"
                 >
 
                     <img
@@ -1576,7 +1222,7 @@ footer {
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="kaphraoTitle">
+                    <h3 data-i18n="kaphraoName">
                         Thai Basil Chicken
                     </h3>
 
@@ -1595,6 +1241,13 @@ footer {
                             ฿89
                         </span>
 
+                        <span
+                            class="view-photo"
+                            data-i18n="viewPhoto"
+                        >
+                            View Photo
+                        </span>
+
                     </div>
 
                 </div>
@@ -1604,17 +1257,14 @@ footer {
 
 
             <!-- =================================================
-                 FRIED RICE
+                 MENU 3
             ================================================== -->
 
             <article class="menu-card">
 
                 <div
                     class="menu-image"
-                    onclick="openLightbox(
-                        'Chicken-fried-rice.png',
-                        'Chicken Fried Rice'
-                    )"
+                    data-lightbox="Chicken-fried-rice.png"
                 >
 
                     <img
@@ -1627,7 +1277,7 @@ footer {
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="friedRiceTitle">
+                    <h3 data-i18n="friedRiceName">
                         Chicken Fried Rice
                     </h3>
 
@@ -1646,6 +1296,13 @@ footer {
                             ฿89
                         </span>
 
+                        <span
+                            class="view-photo"
+                            data-i18n="viewPhoto"
+                        >
+                            View Photo
+                        </span>
+
                     </div>
 
                 </div>
@@ -1655,17 +1312,14 @@ footer {
 
 
             <!-- =================================================
-                 SPRING ROLLS
+                 MENU 4
             ================================================== -->
 
             <article class="menu-card">
 
                 <div
                     class="menu-image"
-                    onclick="openLightbox(
-                        'vegetable-spring-roll.png',
-                        'Vegetable Spring Rolls'
-                    )"
+                    data-lightbox="vegetable-spring-roll.png"
                 >
 
                     <img
@@ -1678,7 +1332,7 @@ footer {
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="springRollTitle">
+                    <h3 data-i18n="springRollName">
                         Vegetable Spring Rolls
                     </h3>
 
@@ -1697,11 +1351,19 @@ footer {
                             ฿89
                         </span>
 
+                        <span
+                            class="view-photo"
+                            data-i18n="viewPhoto"
+                        >
+                            View Photo
+                        </span>
+
                     </div>
 
                 </div>
 
             </article>
+
 
         </div>
 
@@ -1711,9 +1373,9 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      FEATURED DISH
-======================================================= -->
+========================================================= -->
 
 <section class="feature">
 
@@ -1724,6 +1386,7 @@ footer {
 
             <div
                 class="eyebrow"
+                style="color:#ffd166;"
                 data-i18n="signatureEyebrow"
             >
                 SIGNATURE DISH
@@ -1755,13 +1418,7 @@ footer {
         </div>
 
 
-        <div
-            class="feature-image"
-            onclick="openLightbox(
-                'kaphrao-chicken.png',
-                'Thai Basil Chicken'
-            )"
-        >
+        <div class="feature-image">
 
             <img
                 src="kaphrao-chicken.png"
@@ -1776,14 +1433,11 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      ORDER
-======================================================= -->
+========================================================= -->
 
-<section
-    class="order-section"
-    id="order"
->
+<section class="order-section" id="order">
 
     <div class="section">
 
@@ -1799,17 +1453,12 @@ footer {
 
 
             <h2 data-i18n="orderTitle">
-
                 How would you like to order?
-
             </h2>
 
 
             <p data-i18n="orderDescription">
-
-                Contact Tony's Kitchen directly
-                or order online.
-
+                Contact Tony's Kitchen directly or order online.
             </p>
 
         </div>
@@ -1869,16 +1518,14 @@ footer {
 
 
                 <p data-i18n="lineDescription">
-
                     Chat and order directly
-
                 </p>
 
 
                 <a
                     href="https://line.me/ti/p/~padaroisauce"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                     class="order-button"
                     data-i18n="addLine"
                 >
@@ -1909,18 +1556,16 @@ footer {
 
 
                 <p data-i18n="grabDescription">
-
                     Order online through GrabFood
-
                 </p>
 
 
                 <a
                     href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                     class="order-button"
-                    data-i18n="orderOnGrab"
+                    data-i18n="orderGrab"
                 >
                     Order on Grab
                 </a>
@@ -1949,16 +1594,14 @@ footer {
 
 
                 <p data-i18n="whatsappDescription">
-
                     Chat and order directly
-
                 </p>
 
 
                 <a
                     href="https://wa.me/66841536498"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                     class="order-button"
                     data-i18n="chatWhatsApp"
                 >
@@ -1966,6 +1609,7 @@ footer {
                 </a>
 
             </div>
+
 
         </div>
 
@@ -1975,9 +1619,9 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      OPENING HOURS
-======================================================= -->
+========================================================= -->
 
 <section class="hours">
 
@@ -1994,7 +1638,7 @@ footer {
             </div>
 
 
-            <h2 data-i18n="openingHours">
+            <h2 data-i18n="hoursTitle">
                 Opening Hours
             </h2>
 
@@ -2115,6 +1759,7 @@ footer {
 
             </div>
 
+
         </div>
 
     </div>
@@ -2123,14 +1768,11 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      CONTACT
-======================================================= -->
+========================================================= -->
 
-<section
-    class="contact"
-    id="contact"
->
+<section class="contact" id="contact">
 
     <div class="section">
 
@@ -2141,10 +1783,7 @@ footer {
 
 
         <p data-i18n="contactDescription">
-
-            Order your favorite Thai dishes
-            from Tony's Kitchen today.
-
+            Order your favorite Thai dishes from Tony's Kitchen today.
         </p>
 
 
@@ -2154,7 +1793,7 @@ footer {
             <a
                 href="tel:0841536498"
                 class="contact-button"
-                data-i18n="callUs"
+                data-i18n="callButton"
             >
                 Call 084-153-6498
             </a>
@@ -2163,7 +1802,7 @@ footer {
             <a
                 href="https://line.me/ti/p/~padaroisauce"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="contact-button"
             >
                 LINE
@@ -2173,7 +1812,7 @@ footer {
             <a
                 href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="contact-button"
             >
                 GrabFood
@@ -2183,11 +1822,12 @@ footer {
             <a
                 href="https://wa.me/66841536498"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="contact-button"
             >
                 WhatsApp
             </a>
+
 
         </div>
 
@@ -2197,9 +1837,9 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      FOOTER
-======================================================= -->
+========================================================= -->
 
 <footer>
 
@@ -2225,16 +1865,14 @@ footer {
 
         <div
             class="footer-address"
-            data-i18n="footerAddress"
+            data-i18n="address"
         >
-
             Located in front of the entrance to
             Nichada Thani Village,
             Samakkhi 29 Alley,
             Bang Talat,
             Pak Kret District,
             Nonthaburi 11120
-
         </div>
 
 
@@ -2242,11 +1880,9 @@ footer {
             class="footer-text"
             data-i18n="copyright"
         >
-
-            © 2026 Tony's Kitchen.
-            All rights reserved.
-
+            © 2026 Tony's Kitchen. All rights reserved.
         </div>
+
 
     </div>
 
@@ -2254,9 +1890,9 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      LIGHTBOX
-======================================================= -->
+========================================================= -->
 
 <div
     class="lightbox"
@@ -2265,10 +1901,10 @@ footer {
 >
 
     <button
-        type="button"
         class="lightbox-close"
         id="lightboxClose"
-        aria-label="Close image"
+        type="button"
+        aria-label="Close"
     >
         ×
     </button>
@@ -2277,32 +1913,26 @@ footer {
     <div class="lightbox-content">
 
         <img
-            id="lightboxImage"
             class="lightbox-image"
+            id="lightboxImage"
             src=""
             alt=""
         >
 
     </div>
 
-
-    <div
-        class="lightbox-caption"
-        id="lightboxCaption"
-    ></div>
-
 </div>
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      JAVASCRIPT
-======================================================= -->
+========================================================= -->
 
 <script>
 
 /* =========================================================
-   TRANSLATIONS
+   LANGUAGE DATA
 ========================================================= */
 
 const translations = {
@@ -2316,468 +1946,275 @@ const translations = {
         navContact: "Contact",
 
         heroTag: "AUTHENTIC THAI FOOD",
-
         heroTitle1: "Real Thai Food.",
-
         heroTitle2: "Made with Passion.",
-
         heroDescription:
             "Authentic Thai dishes prepared fresh with bold flavors, quality ingredients and the comfort of a home-style kitchen.",
 
         viewMenu: "View Our Menu",
-
         orderFood: "Order Food",
 
-        aboutEyebrow:
-            "ABOUT TONY'S KITCHEN",
-
-        aboutTitle:
-            "Thai food with bold, authentic flavor.",
-
+        aboutEyebrow: "ABOUT TONY'S KITCHEN",
+        aboutTitle: "Thai food with bold, authentic flavor.",
         aboutText1:
             "Tony's Kitchen brings together classic Thai comfort food with carefully prepared dishes made for everyday dining.",
-
         aboutText2:
             "From fragrant Thai basil chicken to wok-fried noodles, every dish is prepared with the goal of delivering satisfying Thai flavors in every bite.",
 
-        locationTitle:
-            "Our Location",
+        locationTitle: "Our Location",
 
         address:
             "Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120",
 
-        openMaps:
-            "Open Google Maps",
+        openMaps: "Open in Google Maps",
 
-        menuEyebrow:
-            "OUR MENU",
-
-        menuTitle:
-            "Customer Favorites",
-
+        menuEyebrow: "OUR MENU",
+        menuTitle: "Customer Favorites",
         menuDescription:
             "Classic Thai dishes prepared fresh and packed with flavor.",
 
-        padThaiTitle:
-            "Pad Thai Shrimp",
-
+        padThaiName: "Pad Thai Shrimp",
         padThaiDescription:
             "Classic Thai stir-fried rice noodles with shrimp and traditional flavors.",
 
-        kaphraoTitle:
-            "Thai Basil Chicken",
-
+        kaphraoName: "Thai Basil Chicken",
         kaphraoDescription:
             "Thai holy basil chicken stir-fried with aromatic chili and basil.",
 
-        friedRiceTitle:
-            "Chicken Fried Rice",
-
+        friedRiceName: "Chicken Fried Rice",
         friedRiceDescription:
             "Fragrant wok-fried rice with chicken and classic Thai seasoning.",
 
-        springRollTitle:
-            "Vegetable Spring Rolls",
-
+        springRollName: "Vegetable Spring Rolls",
         springRollDescription:
             "Crispy spring rolls filled with seasoned vegetables.",
 
-        signatureEyebrow:
-            "SIGNATURE DISH",
+        viewPhoto: "View Photo",
 
-        signatureTitle:
-            "Thai Basil Chicken",
-
+        signatureEyebrow: "SIGNATURE DISH",
+        signatureTitle: "Thai Basil Chicken",
         signatureDescription:
             "One of the most beloved Thai comfort foods: aromatic holy basil, fragrant garlic, fresh chili and savory stir-fried chicken.",
 
-        orderNow:
-            "Order Now",
+        orderNow: "Order Now",
 
-        orderEyebrow:
-            "ORDER NOW",
-
-        orderTitle:
-            "How would you like to order?",
-
+        orderEyebrow: "ORDER NOW",
+        orderTitle: "How would you like to order?",
         orderDescription:
             "Contact Tony's Kitchen directly or order online.",
 
-        phoneTitle:
-            "Phone",
+        phoneTitle: "Phone",
+        phoneDescription: "Call us directly",
 
-        phoneDescription:
-            "Call us directly",
+        lineDescription: "Chat and order directly",
+        addLine: "Add LINE",
 
-        lineDescription:
-            "Chat and order directly",
+        grabDescription: "Order online through GrabFood",
+        orderGrab: "Order on Grab",
 
-        addLine:
-            "Add LINE",
+        whatsappDescription: "Chat and order directly",
+        chatWhatsApp: "Chat on WhatsApp",
 
-        grabDescription:
-            "Order online through GrabFood",
+        visitEyebrow: "VISIT US",
+        hoursTitle: "Opening Hours",
 
-        orderOnGrab:
-            "Order on Grab",
+        monday: "Monday",
+        tuesday: "Tuesday",
+        wednesday: "Wednesday",
+        thursday: "Thursday",
+        friday: "Friday",
+        saturday: "Saturday",
+        sunday: "Sunday",
 
-        whatsappDescription:
-            "Chat and order directly",
-
-        chatWhatsApp:
-            "Chat on WhatsApp",
-
-        visitEyebrow:
-            "VISIT US",
-
-        openingHours:
-            "Opening Hours",
-
-        monday:
-            "Monday",
-
-        tuesday:
-            "Tuesday",
-
-        wednesday:
-            "Wednesday",
-
-        thursday:
-            "Thursday",
-
-        friday:
-            "Friday",
-
-        saturday:
-            "Saturday",
-
-        sunday:
-            "Sunday",
-
-        contactTitle:
-            "Ready to eat?",
-
+        contactTitle: "Ready to eat?",
         contactDescription:
             "Order your favorite Thai dishes from Tony's Kitchen today.",
 
-        callUs:
-            "Call 084-153-6498",
+        callButton: "Call 084-153-6498",
 
-        footerTagline:
-            "Authentic Thai Food",
-
-        footerAddress:
-            "Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120",
+        footerTagline: "Authentic Thai Food",
 
         copyright:
             "© 2026 Tony's Kitchen. All rights reserved."
-
     },
 
 
     th: {
 
         navHome: "หน้าแรก",
-
         navMenu: "เมนู",
-
         navAbout: "เกี่ยวกับเรา",
-
         navOrder: "สั่งอาหาร",
+        navContact: "ติดต่อ",
 
-        navContact: "ติดต่อเรา",
-
-        heroTag:
-            "อาหารไทยต้นตำรับ",
-
-        heroTitle1:
-            "อาหารไทยแท้",
-
-        heroTitle2:
-            "ปรุงด้วยความตั้งใจ",
-
+        heroTag: "อาหารไทยต้นตำรับ",
+        heroTitle1: "อาหารไทยแท้",
+        heroTitle2: "ปรุงด้วยความตั้งใจ",
         heroDescription:
-            "อาหารไทยต้นตำรับ ปรุงสดใหม่ด้วยรสชาติเข้มข้น วัตถุดิบคุณภาพ และความรู้สึกอบอุ่นเหมือนอาหารทำที่บ้าน",
+            "อาหารไทยรสชาติต้นตำรับ ปรุงสดใหม่ด้วยวัตถุดิบคุณภาพ รสชาติจัดจ้าน และความใส่ใจในทุกจาน",
 
-        viewMenu:
-            "ดูเมนูอาหาร",
+        viewMenu: "ดูเมนูอาหาร",
+        orderFood: "สั่งอาหาร",
 
-        orderFood:
-            "สั่งอาหาร",
-
-        aboutEyebrow:
-            "เกี่ยวกับ TONY'S KITCHEN",
-
-        aboutTitle:
-            "อาหารไทยรสชาติเข้มข้นและต้นตำรับ",
-
+        aboutEyebrow: "เกี่ยวกับ TONY'S KITCHEN",
+        aboutTitle: "อาหารไทยรสชาติจัดจ้านและต้นตำรับ",
         aboutText1:
-            "Tony's Kitchen นำเสนออาหารไทยยอดนิยมที่ปรุงอย่างพิถีพิถัน เหมาะสำหรับมื้ออาหารในทุกวัน",
-
+            "Tony's Kitchen นำเสนออาหารไทยสไตล์โฮมเมด พร้อมอาหารจานคลาสสิกที่ปรุงอย่างพิถีพิถันสำหรับทุกมื้อ",
         aboutText2:
-            "ตั้งแต่ผัดกะเพราไก่หอม ๆ ไปจนถึงเมนูผัดกระทะ ทุกจานตั้งใจปรุงเพื่อให้ได้รสชาติอาหารไทยที่อร่อยและน่าประทับใจ",
+            "ตั้งแต่ผัดกะเพราไก่หอม ๆ ไปจนถึงเมนูผัดจากกระทะ ทุกจานตั้งใจปรุงเพื่อให้ได้รสชาติอาหารไทยที่อร่อยและน่าประทับใจ",
 
-        locationTitle:
-            "สถานที่ตั้ง",
+        locationTitle: "ที่ตั้งร้าน",
 
         address:
-            "ร้านตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้าน Nichada Thani ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120",
+            "ร้านตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120",
 
-        openMaps:
-            "เปิด Google Maps",
+        openMaps: "เปิดใน Google Maps",
 
-        menuEyebrow:
-            "เมนูของเรา",
-
-        menuTitle:
-            "เมนูยอดนิยม",
-
+        menuEyebrow: "เมนูของเรา",
+        menuTitle: "เมนูยอดนิยม",
         menuDescription:
-            "อาหารไทยยอดนิยม ปรุงสดใหม่และเต็มไปด้วยรสชาติ",
+            "อาหารไทยคลาสสิก ปรุงสดใหม่ และเต็มไปด้วยรสชาติ",
 
-        padThaiTitle:
-            "ผัดไทยกุ้ง",
-
+        padThaiName: "ผัดไทยกุ้ง",
         padThaiDescription:
-            "เส้นผัดไทยแบบดั้งเดิม ผัดกับกุ้งและเครื่องปรุงรสแบบไทย",
+            "เส้นผัดไทยแบบดั้งเดิม ผัดพร้อมกุ้งและเครื่องปรุงรสสไตล์ไทย",
 
-        kaphraoTitle:
-            "ผัดกะเพราไก่",
-
+        kaphraoName: "ผัดกะเพราไก่",
         kaphraoDescription:
-            "ไก่ผัดกะเพราหอม ๆ พร้อมพริก กระเทียม และใบกะเพรา",
+            "ไก่ผัดกับใบกะเพรา พริก และเครื่องปรุงหอม ๆ สไตล์ไทย",
 
-        friedRiceTitle:
-            "ข้าวผัดไก่",
-
+        friedRiceName: "ข้าวผัดไก่",
         friedRiceDescription:
-            "ข้าวผัดหอม ๆ ผัดในกระทะพร้อมไก่และเครื่องปรุงแบบไทย",
+            "ข้าวผัดหอม ๆ พร้อมเนื้อไก่และเครื่องปรุงสไตล์ไทย",
 
-        springRollTitle:
-            "ปอเปี๊ยะผัก",
-
+        springRollName: "ปอเปี๊ยะผัก",
         springRollDescription:
             "ปอเปี๊ยะทอดกรอบ ไส้ผักปรุงรส",
 
-        signatureEyebrow:
-            "เมนูซิกเนเจอร์",
+        viewPhoto: "ดูรูปอาหาร",
 
-        signatureTitle:
-            "ผัดกะเพราไก่",
-
+        signatureEyebrow: "เมนูซิกเนเจอร์",
+        signatureTitle: "ผัดกะเพราไก่",
         signatureDescription:
-            "หนึ่งในอาหารไทยยอดนิยม ผัดด้วยใบกะเพราหอม ๆ กระเทียม พริกสด และเนื้อไก่ปรุงรสอย่างลงตัว",
+            "หนึ่งในเมนูอาหารไทยยอดนิยม หอมใบกะเพรา กระเทียม พริกสด และไก่ผัดปรุงรสอย่างลงตัว",
 
-        orderNow:
-            "สั่งอาหาร",
+        orderNow: "สั่งอาหาร",
 
-        orderEyebrow:
-            "สั่งอาหาร",
-
-        orderTitle:
-            "ต้องการสั่งอาหารทางไหน?",
-
+        orderEyebrow: "สั่งอาหาร",
+        orderTitle: "คุณต้องการสั่งอาหารอย่างไร?",
         orderDescription:
             "ติดต่อ Tony's Kitchen โดยตรง หรือสั่งอาหารออนไลน์",
 
-        phoneTitle:
-            "โทรศัพท์",
+        phoneTitle: "โทรศัพท์",
+        phoneDescription: "โทรหาเราโดยตรง",
 
-        phoneDescription:
-            "โทรหาเราโดยตรง",
+        lineDescription: "แชตและสั่งอาหารโดยตรง",
+        addLine: "เพิ่ม LINE",
 
-        lineDescription:
-            "แชตและสั่งอาหารโดยตรง",
+        grabDescription: "สั่งอาหารออนไลน์ผ่าน GrabFood",
+        orderGrab: "สั่งผ่าน Grab",
 
-        addLine:
-            "เพิ่ม LINE",
+        whatsappDescription: "แชตและสั่งอาหารโดยตรง",
+        chatWhatsApp: "แชตผ่าน WhatsApp",
 
-        grabDescription:
-            "สั่งอาหารออนไลน์ผ่าน GrabFood",
+        visitEyebrow: "มาเยี่ยมเรา",
+        hoursTitle: "เวลาเปิดทำการ",
 
-        orderOnGrab:
-            "สั่งผ่าน Grab",
+        monday: "วันจันทร์",
+        tuesday: "วันอังคาร",
+        wednesday: "วันพุธ",
+        thursday: "วันพฤหัสบดี",
+        friday: "วันศุกร์",
+        saturday: "วันเสาร์",
+        sunday: "วันอาทิตย์",
 
-        whatsappDescription:
-            "แชตและสั่งอาหารโดยตรง",
-
-        chatWhatsApp:
-            "แชตผ่าน WhatsApp",
-
-        visitEyebrow:
-            "มาเยี่ยมเรา",
-
-        openingHours:
-            "เวลาเปิดทำการ",
-
-        monday:
-            "วันจันทร์",
-
-        tuesday:
-            "วันอังคาร",
-
-        wednesday:
-            "วันพุธ",
-
-        thursday:
-            "วันพฤหัสบดี",
-
-        friday:
-            "วันศุกร์",
-
-        saturday:
-            "วันเสาร์",
-
-        sunday:
-            "วันอาทิตย์",
-
-        contactTitle:
-            "พร้อมอร่อยแล้วหรือยัง?",
-
+        contactTitle: "พร้อมอร่อยแล้วหรือยัง?",
         contactDescription:
-            "สั่งอาหารไทยจานโปรดจาก Tony's Kitchen ได้เลยวันนี้",
+            "สั่งอาหารไทยจานโปรดจาก Tony's Kitchen ได้แล้ววันนี้",
 
-        callUs:
-            "โทร 084-153-6498",
+        callButton: "โทร 084-153-6498",
 
-        footerTagline:
-            "อาหารไทยต้นตำรับ",
-
-        footerAddress:
-            "ร้านตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้าน Nichada Thani ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120",
+        footerTagline: "อาหารไทยต้นตำรับ",
 
         copyright:
             "© 2026 Tony's Kitchen สงวนลิขสิทธิ์"
-
     }
 
 };
 
 
-
 /* =========================================================
-   LANGUAGE FUNCTION
+   CHANGE LANGUAGE
 ========================================================= */
 
 function setLanguage(language) {
 
-    if (!translations[language]) {
-        language = "en";
+    const dictionary = translations[language];
+
+    if (!dictionary) {
+        return;
     }
 
 
-    const elements =
-        document.querySelectorAll("[data-i18n]");
+    document.documentElement.lang = language;
 
 
-    elements.forEach(function(element) {
+    document.querySelectorAll("[data-i18n]").forEach(function(element) {
 
-        const key =
-            element.getAttribute("data-i18n");
+        const key = element.getAttribute("data-i18n");
 
-
-        if (
-            translations[language] &&
-            translations[language][key]
-        ) {
-
-            element.textContent =
-                translations[language][key];
-
+        if (dictionary[key]) {
+            element.textContent = dictionary[key];
         }
 
     });
 
 
-    document.documentElement.lang =
-        language === "th"
-            ? "th"
-            : "en";
+    document.getElementById("langEN")
+        .classList.toggle("active", language === "en");
+
+    document.getElementById("langTH")
+        .classList.toggle("active", language === "th");
 
 
-    document.title =
-        language === "th"
-            ? "Tony's Kitchen | อาหารไทยต้นตำรับ"
-            : "Tony's Kitchen | Authentic Thai Food";
-
-
-    const englishButton =
-        document.getElementById("langEN");
-
-    const thaiButton =
-        document.getElementById("langTH");
-
-
-    englishButton.classList.remove("active");
-
-    thaiButton.classList.remove("active");
-
-
-    if (language === "th") {
-
-        thaiButton.classList.add("active");
-
-    } else {
-
-        englishButton.classList.add("active");
-
-    }
-
-
-    try {
-
-        localStorage.setItem(
-            "tonysKitchenLanguage",
-            language
-        );
-
-    } catch (error) {
-
-        /* Ignore localStorage errors */
-
-    }
+    localStorage.setItem("tonysKitchenLanguage", language);
 
 }
-
 
 
 /* =========================================================
-   LOAD LANGUAGE
+   LANGUAGE BUTTONS
 ========================================================= */
 
-function loadLanguage() {
-
-    let savedLanguage = "en";
-
-
-    try {
-
-        savedLanguage =
-            localStorage.getItem(
-                "tonysKitchenLanguage"
-            ) || "en";
-
-    } catch (error) {
-
-        savedLanguage = "en";
-
+document.getElementById("langEN").addEventListener(
+    "click",
+    function() {
+        setLanguage("en");
     }
+);
 
 
-    if (
-        savedLanguage !== "en" &&
-        savedLanguage !== "th"
-    ) {
-
-        savedLanguage = "en";
-
+document.getElementById("langTH").addEventListener(
+    "click",
+    function() {
+        setLanguage("th");
     }
+);
 
 
-    setLanguage(savedLanguage);
+/* =========================================================
+   DEFAULT LANGUAGE = ENGLISH
+========================================================= */
 
+const savedLanguage =
+    localStorage.getItem("tonysKitchenLanguage");
+
+
+if (savedLanguage === "th") {
+    setLanguage("th");
+} else {
+    setLanguage("en");
 }
-
 
 
 /* =========================================================
@@ -2790,81 +2227,42 @@ const lightbox =
 const lightboxImage =
     document.getElementById("lightboxImage");
 
-const lightboxCaption =
-    document.getElementById("lightboxCaption");
-
 const lightboxClose =
     document.getElementById("lightboxClose");
 
 
+document.querySelectorAll("[data-lightbox]").forEach(function(item) {
 
-function openLightbox(imageSource, caption) {
+    item.addEventListener("click", function() {
 
-    if (!lightbox || !lightboxImage) {
-        return;
-    }
+        const imageSource =
+            item.getAttribute("data-lightbox");
 
+        lightboxImage.src = imageSource;
 
-    lightboxImage.src =
-        imageSource;
+        lightbox.classList.add("open");
 
-    lightboxImage.alt =
-        caption || "";
+        lightbox.setAttribute("aria-hidden", "false");
 
+        document.body.classList.add("no-scroll");
 
-    lightboxCaption.textContent =
-        caption || "";
+    });
 
-
-    lightbox.classList.add("active");
-
-    lightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
-    document.body.classList.add(
-        "no-scroll"
-    );
-
-}
-
+});
 
 
 function closeLightbox() {
 
-    if (!lightbox) {
-        return;
-    }
+    lightbox.classList.remove("open");
 
+    lightbox.setAttribute("aria-hidden", "true");
 
-    lightbox.classList.remove("active");
+    lightboxImage.src = "";
 
-    lightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    document.body.classList.remove(
-        "no-scroll"
-    );
-
-
-    setTimeout(function() {
-
-        lightboxImage.src = "";
-
-    }, 200);
+    document.body.classList.remove("no-scroll");
 
 }
 
-
-
-/* =========================================================
-   LIGHTBOX EVENTS
-========================================================= */
 
 lightboxClose.addEventListener(
     "click",
@@ -2872,19 +2270,21 @@ lightboxClose.addEventListener(
 );
 
 
+/* Click outside image to close */
+
 lightbox.addEventListener(
     "click",
     function(event) {
 
         if (event.target === lightbox) {
-
             closeLightbox();
-
         }
 
     }
 );
 
+
+/* ESC key to close */
 
 document.addEventListener(
     "keydown",
@@ -2892,34 +2292,44 @@ document.addEventListener(
 
         if (
             event.key === "Escape" &&
-            lightbox.classList.contains("active")
+            lightbox.classList.contains("open")
         ) {
-
             closeLightbox();
-
         }
 
     }
 );
 
 
-
 /* =========================================================
-   START
+   PREVENT BROKEN IMAGE ICONS FOR LOGOS
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+document.querySelectorAll(".order-icon img").forEach(function(image) {
 
-        loadLanguage();
+    image.addEventListener("error", function() {
 
-    }
-);
+        image.style.display = "none";
+
+        const fallback =
+            document.createElement("span");
+
+        fallback.style.fontWeight = "800";
+        fallback.style.fontSize = "18px";
+        fallback.textContent = image.alt;
+
+        image.parentElement.appendChild(fallback);
+
+    });
+
+});
+
+
+/* =========================================================
+   DONE
+========================================================= */
 
 </script>
 
-
 </body>
-
 </html>
