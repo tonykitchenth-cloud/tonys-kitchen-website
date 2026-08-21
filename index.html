@@ -6,13 +6,10 @@
 
 <title>Tony's Kitchen</title>
 
-<meta
-    name="description"
-    content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Pad Thai, Thai Basil Chicken, Fried Rice and more."
->
+<meta name="description"
+content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Pad Thai, Thai Basil Chicken, Fried Rice and more.">
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -100,15 +97,13 @@ a {
     color: white !important;
 }
 
-/* =========================
-   LANGUAGE SWITCHER
-========================= */
+/* LANGUAGE SWITCHER */
 
 .language-switcher {
     display: flex;
     align-items: center;
     gap: 5px;
-    background: #f4f4f4;
+    background: #f5f5f5;
     padding: 4px;
     border-radius: 999px;
     border: 1px solid #e5e5e5;
@@ -117,17 +112,17 @@ a {
 .language-btn {
     border: none;
     background: transparent;
-    color: #555;
     padding: 7px 11px;
     border-radius: 999px;
+    cursor: pointer;
     font-size: 13px;
     font-weight: 800;
-    cursor: pointer;
+    color: #555;
     transition: 0.2s;
 }
 
 .language-btn:hover {
-    background: #e9e9e9;
+    color: #b42318;
 }
 
 .language-btn.active {
@@ -145,7 +140,6 @@ a {
     align-items: center;
     position: relative;
     overflow: hidden;
-
     background:
         linear-gradient(
             90deg,
@@ -632,7 +626,7 @@ footer {
     }
 
     .logo {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .nav-right {
@@ -644,12 +638,7 @@ footer {
     }
 
     .language-switcher {
-        padding: 3px;
-    }
-
-    .language-btn {
-        padding: 6px 8px;
-        font-size: 12px;
+        transform: scale(0.9);
     }
 
     .hero {
@@ -702,7 +691,6 @@ footer {
         flex-direction: column;
     }
 }
-
 </style>
 </head>
 
@@ -724,50 +712,48 @@ footer {
 
             <nav class="nav-links">
 
-                <a href="#home" data-i18n="navHome">
+                <a href="#home" data-en="Home" data-th="หน้าแรก">
                     Home
                 </a>
 
-                <a href="#menu" data-i18n="navMenu">
+                <a href="#menu" data-en="Menu" data-th="เมนู">
                     Menu
                 </a>
 
-                <a href="#about" data-i18n="navAbout">
+                <a href="#about" data-en="About" data-th="เกี่ยวกับเรา">
                     About
                 </a>
 
-                <a href="#order" data-i18n="navOrder">
+                <a href="#order" data-en="Order" data-th="สั่งอาหาร">
                     Order
                 </a>
 
                 <a href="#contact"
                    class="nav-button"
-                   data-i18n="navContact">
+                   data-en="Contact"
+                   data-th="ติดต่อ">
                     Contact
                 </a>
 
             </nav>
 
-            <!-- LANGUAGE BUTTONS -->
+
+            <!-- LANGUAGE BUTTON -->
 
             <div class="language-switcher">
 
                 <button
-                    type="button"
                     class="language-btn active"
-                    id="englishBtn"
-                    onclick="setLanguage('en')"
-                >
-                    🇬🇧 English
+                    id="enBtn"
+                    onclick="setLanguage('en')">
+                    EN
                 </button>
 
                 <button
-                    type="button"
                     class="language-btn"
-                    id="thaiBtn"
-                    onclick="setLanguage('th')"
-                >
-                    🇹🇭 ไทย
+                    id="thBtn"
+                    onclick="setLanguage('th')">
+                    TH
                 </button>
 
             </div>
@@ -787,40 +773,45 @@ footer {
 
     <div class="hero-content">
 
-        <div class="hero-tag" data-i18n="heroTag">
+        <div class="hero-tag"
+             data-en="AUTHENTIC THAI FOOD"
+             data-th="อาหารไทยต้นตำรับ">
             AUTHENTIC THAI FOOD
         </div>
 
         <h1>
-            <span data-i18n="heroTitle1">
+            <span data-en="Real Thai Food."
+                  data-th="อาหารไทยแท้">
                 Real Thai Food.
             </span>
             <br>
-            <span data-i18n="heroTitle2">
+
+            <span data-en="Made with Passion."
+                  data-th="ทำด้วยความใส่ใจ">
                 Made with Passion.
             </span>
         </h1>
 
-        <p data-i18n="heroText">
+        <p
+            data-en="Authentic Thai dishes prepared fresh with bold flavors, quality ingredients and the comfort of a home-style kitchen."
+            data-th="อาหารไทยต้นตำรับ ปรุงสดใหม่ด้วยรสชาติจัดจ้าน วัตถุดิบคุณภาพ และความใส่ใจแบบอาหารทำเองที่บ้าน">
             Authentic Thai dishes prepared fresh with bold flavors,
             quality ingredients and the comfort of a home-style kitchen.
         </p>
 
         <div class="hero-buttons">
 
-            <a
-                href="#menu"
-                class="btn btn-primary"
-                data-i18n="viewMenu"
-            >
+            <a href="#menu"
+               class="btn btn-primary"
+               data-en="View Our Menu"
+               data-th="ดูเมนูอาหาร">
                 View Our Menu
             </a>
 
-            <a
-                href="#order"
-                class="btn btn-secondary"
-                data-i18n="orderFood"
-            >
+            <a href="#order"
+               class="btn btn-secondary"
+               data-en="Order Food"
+               data-th="สั่งอาหาร">
                 Order Food
             </a>
 
@@ -844,28 +835,35 @@ footer {
             <img
                 src="kaphrao-chicken.png"
                 alt="Thai Basil Chicken - Tony's Kitchen"
-                data-i18n-alt="aboutImageAlt"
             >
 
         </div>
 
         <div class="about-text">
 
-            <div class="eyebrow" data-i18n="aboutEyebrow">
+            <div class="eyebrow"
+                 data-en="ABOUT TONY'S KITCHEN"
+                 data-th="เกี่ยวกับ TONY'S KITCHEN">
                 ABOUT TONY'S KITCHEN
             </div>
 
-            <h2 data-i18n="aboutTitle">
+            <h2
+                data-en="Thai food with bold, authentic flavor."
+                data-th="อาหารไทยรสชาติจัดจ้านและต้นตำรับ">
                 Thai food with bold,
                 authentic flavor.
             </h2>
 
-            <p data-i18n="aboutText1">
+            <p
+                data-en="Tony's Kitchen brings together classic Thai comfort food with carefully prepared dishes made for everyday dining."
+                data-th="Tony's Kitchen นำเสนออาหารไทยสไตล์โฮมเมด พร้อมเมนูคลาสสิกที่ปรุงอย่างพิถีพิถัน เหมาะสำหรับทุกมื้ออาหาร">
                 Tony's Kitchen brings together classic Thai comfort food
                 with carefully prepared dishes made for everyday dining.
             </p>
 
-            <p data-i18n="aboutText2">
+            <p
+                data-en="From fragrant Thai basil chicken to wok-fried noodles, every dish is prepared with the goal of delivering satisfying Thai flavors in every bite."
+                data-th="ตั้งแต่ผัดกะเพราไก่หอมกรุ่น ไปจนถึงเส้นผัดกระทะร้อน ทุกจานตั้งใจปรุงเพื่อมอบรสชาติไทยที่อร่อยและน่าประทับใจในทุกคำ">
                 From fragrant Thai basil chicken to wok-fried noodles,
                 every dish is prepared with the goal of delivering
                 satisfying Thai flavors in every bite.
@@ -873,13 +871,17 @@ footer {
 
             <div class="location-box">
 
-                <strong data-i18n="locationTitle">
+                <strong
+                    data-en="Our Location"
+                    data-th="ที่ตั้งร้าน">
                     Our Location
                 </strong>
 
                 <br>
 
-                <span data-i18n="locationText">
+                <span
+                    data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120"
+                    data-th="ตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">
                     Located in front of the entrance to
                     Nichada Thani Village,
                     Samakkhi 29 Alley,
@@ -907,15 +909,21 @@ footer {
 
         <div class="section-heading">
 
-            <div class="eyebrow" data-i18n="menuEyebrow">
+            <div class="eyebrow"
+                 data-en="OUR MENU"
+                 data-th="เมนูของเรา">
                 OUR MENU
             </div>
 
-            <h2 data-i18n="menuTitle">
+            <h2
+                data-en="Customer Favorites"
+                data-th="เมนูยอดนิยม">
                 Customer Favorites
             </h2>
 
-            <p data-i18n="menuSubtitle">
+            <p
+                data-en="Classic Thai dishes prepared fresh and packed with flavor."
+                data-th="อาหารไทยคลาสสิก ปรุงสดใหม่และเต็มไปด้วยรสชาติ">
                 Classic Thai dishes prepared fresh and packed with flavor.
             </p>
 
@@ -934,18 +942,21 @@ footer {
                     <img
                         src="Pad-Thai-shrimp.png"
                         alt="Pad Thai Shrimp"
-                        data-i18n-alt="padThaiAlt"
                     >
 
                 </div>
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="padThaiName">
+                    <h3
+                        data-en="Pad Thai Shrimp"
+                        data-th="ผัดไทยกุ้ง">
                         Pad Thai Shrimp
                     </h3>
 
-                    <p data-i18n="padThaiDesc">
+                    <p
+                        data-en="Classic Thai stir-fried rice noodles with shrimp and traditional flavors."
+                        data-th="ผัดไทยเส้นจันท์ผัดกับกุ้ง พร้อมรสชาติแบบไทยต้นตำรับ">
                         Classic Thai stir-fried rice noodles
                         with shrimp and traditional flavors.
                     </p>
@@ -972,18 +983,21 @@ footer {
                     <img
                         src="kaphrao-chicken.png"
                         alt="Thai Basil Chicken"
-                        data-i18n-alt="kaphraoAlt"
                     >
 
                 </div>
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="kaphraoName">
+                    <h3
+                        data-en="Thai Basil Chicken"
+                        data-th="ผัดกะเพราไก่">
                         Thai Basil Chicken
                     </h3>
 
-                    <p data-i18n="kaphraoDesc">
+                    <p
+                        data-en="Thai holy basil chicken stir-fried with aromatic chili and basil."
+                        data-th="ไก่ผัดกะเพราหอมๆ ผัดกับพริกและใบกะเพราสด รสชาติเข้มข้น">
                         Thai holy basil chicken stir-fried
                         with aromatic chili and basil.
                     </p>
@@ -1010,18 +1024,21 @@ footer {
                     <img
                         src="Chicken-fried-rice.png"
                         alt="Chicken Fried Rice"
-                        data-i18n-alt="friedRiceAlt"
                     >
 
                 </div>
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="friedRiceName">
+                    <h3
+                        data-en="Chicken Fried Rice"
+                        data-th="ข้าวผัดไก่">
                         Chicken Fried Rice
                     </h3>
 
-                    <p data-i18n="friedRiceDesc">
+                    <p
+                        data-en="Fragrant wok-fried rice with chicken and classic Thai seasoning."
+                        data-th="ข้าวผัดไก่หอมกลิ่นกระทะ ปรุงรสแบบไทยอย่างลงตัว">
                         Fragrant wok-fried rice with chicken
                         and classic Thai seasoning.
                     </p>
@@ -1048,18 +1065,21 @@ footer {
                     <img
                         src="vegetable-spring-roll.png"
                         alt="Vegetable Spring Rolls"
-                        data-i18n-alt="springRollAlt"
                     >
 
                 </div>
 
                 <div class="menu-info">
 
-                    <h3 data-i18n="springRollName">
+                    <h3
+                        data-en="Vegetable Spring Rolls"
+                        data-th="ปอเปี๊ยะไส้ผัก">
                         Vegetable Spring Rolls
                     </h3>
 
-                    <p data-i18n="springRollDesc">
+                    <p
+                        data-en="Crispy spring rolls filled with seasoned vegetables."
+                        data-th="ปอเปี๊ยะทอดกรอบ ไส้ผักปรุงรสอย่างกลมกล่อม">
                         Crispy spring rolls filled with
                         seasoned vegetables.
                     </p>
@@ -1093,29 +1113,31 @@ footer {
 
         <div>
 
-            <div
-                class="eyebrow"
-                style="color:#ffd166;"
-                data-i18n="signatureEyebrow"
-            >
+            <div class="eyebrow"
+                 style="color:#ffd166;"
+                 data-en="SIGNATURE DISH"
+                 data-th="เมนูซิกเนเจอร์">
                 SIGNATURE DISH
             </div>
 
-            <h2 data-i18n="signatureTitle">
+            <h2
+                data-en="Thai Basil Chicken"
+                data-th="ผัดกะเพราไก่">
                 Thai Basil Chicken
             </h2>
 
-            <p data-i18n="signatureText">
+            <p
+                data-en="One of the most beloved Thai comfort foods: aromatic holy basil, fragrant garlic, fresh chili and savory stir-fried chicken."
+                data-th="หนึ่งในเมนูอาหารไทยยอดนิยม ผัดกะเพราหอมๆ พร้อมกระเทียม พริกสด และเนื้อไก่ผัดจนเข้าเนื้อ">
                 One of the most beloved Thai comfort foods:
                 aromatic holy basil, fragrant garlic,
                 fresh chili and savory stir-fried chicken.
             </p>
 
-            <a
-                href="#order"
-                class="btn btn-primary"
-                data-i18n="orderNow"
-            >
+            <a href="#order"
+               class="btn btn-primary"
+               data-en="Order Now"
+               data-th="สั่งอาหารตอนนี้">
                 Order Now
             </a>
 
@@ -1126,7 +1148,6 @@ footer {
             <img
                 src="kaphrao-chicken.png"
                 alt="Signature Thai Basil Chicken"
-                data-i18n-alt="signatureImageAlt"
             >
 
         </div>
@@ -1146,15 +1167,21 @@ footer {
 
         <div class="section-heading">
 
-            <div class="eyebrow" data-i18n="orderEyebrow">
+            <div class="eyebrow"
+                 data-en="ORDER NOW"
+                 data-th="สั่งอาหาร">
                 ORDER NOW
             </div>
 
-            <h2 data-i18n="orderTitle">
+            <h2
+                data-en="How would you like to order?"
+                data-th="คุณต้องการสั่งอาหารทางไหน?">
                 How would you like to order?
             </h2>
 
-            <p data-i18n="orderSubtitle">
+            <p
+                data-en="Contact Tony's Kitchen directly or order online."
+                data-th="ติดต่อ Tony's Kitchen โดยตรง หรือสั่งอาหารออนไลน์">
                 Contact Tony's Kitchen directly or order online.
             </p>
 
@@ -1172,18 +1199,21 @@ footer {
                     ☎
                 </div>
 
-                <h3 data-i18n="phoneTitle">
+                <h3
+                    data-en="Phone"
+                    data-th="โทรศัพท์">
                     Phone
                 </h3>
 
-                <p data-i18n="phoneDesc">
+                <p
+                    data-en="Call us directly"
+                    data-th="โทรหาเราโดยตรง">
                     Call us directly
                 </p>
 
                 <a
                     href="tel:0841536498"
-                    class="order-button"
-                >
+                    class="order-button">
                     084-153-6498
                 </a>
 
@@ -1202,7 +1232,9 @@ footer {
                     LINE
                 </h3>
 
-                <p data-i18n="lineDesc">
+                <p
+                    data-en="Chat and order directly"
+                    data-th="แชทและสั่งอาหารโดยตรง">
                     Chat and order directly
                 </p>
 
@@ -1211,8 +1243,8 @@ footer {
                     target="_blank"
                     rel="noopener"
                     class="order-button"
-                    data-i18n="addLine"
-                >
+                    data-en="Add LINE"
+                    data-th="เพิ่ม LINE">
                     Add LINE
                 </a>
 
@@ -1231,7 +1263,9 @@ footer {
                     GrabFood
                 </h3>
 
-                <p data-i18n="grabDesc">
+                <p
+                    data-en="Order online through GrabFood"
+                    data-th="สั่งอาหารออนไลน์ผ่าน GrabFood">
                     Order online through GrabFood
                 </p>
 
@@ -1240,8 +1274,8 @@ footer {
                     target="_blank"
                     rel="noopener"
                     class="order-button"
-                    data-i18n="orderOnGrab"
-                >
+                    data-en="Order on Grab"
+                    data-th="สั่งผ่าน Grab">
                     Order on Grab
                 </a>
 
@@ -1264,11 +1298,15 @@ footer {
 
         <div class="section-heading">
 
-            <div class="eyebrow" data-i18n="visitEyebrow">
+            <div class="eyebrow"
+                 data-en="VISIT US"
+                 data-th="แวะมาหาเรา">
                 VISIT US
             </div>
 
-            <h2 data-i18n="hoursTitle">
+            <h2
+                data-en="Opening Hours"
+                data-th="เวลาเปิดทำการ">
                 Opening Hours
             </h2>
 
@@ -1277,73 +1315,66 @@ footer {
         <div class="hours-box">
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="monday">
+                <span class="hours-day"
+                      data-en="Monday"
+                      data-th="วันจันทร์">
                     Monday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="tuesday">
+                <span class="hours-day"
+                      data-en="Tuesday"
+                      data-th="วันอังคาร">
                     Tuesday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="wednesday">
+                <span class="hours-day"
+                      data-en="Wednesday"
+                      data-th="วันพุธ">
                     Wednesday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="thursday">
+                <span class="hours-day"
+                      data-en="Thursday"
+                      data-th="วันพฤหัสบดี">
                     Thursday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="friday">
+                <span class="hours-day"
+                      data-en="Friday"
+                      data-th="วันศุกร์">
                     Friday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="saturday">
+                <span class="hours-day"
+                      data-en="Saturday"
+                      data-th="วันเสาร์">
                     Saturday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
             <div class="hours-row">
-                <span class="hours-day" data-i18n="sunday">
+                <span class="hours-day"
+                      data-en="Sunday"
+                      data-th="วันอาทิตย์">
                     Sunday
                 </span>
-
-                <span class="hours-time">
-                    10:00 – 21:00
-                </span>
+                <span class="hours-time">10:00 – 21:00</span>
             </div>
 
         </div>
@@ -1361,11 +1392,15 @@ footer {
 
     <div class="section">
 
-        <h2 data-i18n="contactTitle">
+        <h2
+            data-en="Ready to eat?"
+            data-th="พร้อมอร่อยหรือยัง?">
             Ready to eat?
         </h2>
 
-        <p data-i18n="contactText">
+        <p
+            data-en="Order your favorite Thai dishes from Tony's Kitchen today."
+            data-th="สั่งอาหารไทยจานโปรดจาก Tony's Kitchen ได้เลยวันนี้">
             Order your favorite Thai dishes from Tony's Kitchen today.
         </p>
 
@@ -1374,8 +1409,8 @@ footer {
             <a
                 href="tel:0841536498"
                 class="contact-button"
-                data-i18n="callButton"
-            >
+                data-en="Call 084-153-6498"
+                data-th="โทร 084-153-6498">
                 Call 084-153-6498
             </a>
 
@@ -1383,8 +1418,7 @@ footer {
                 href="https://line.me/ti/p/~padaroisauce"
                 target="_blank"
                 rel="noopener"
-                class="contact-button"
-            >
+                class="contact-button">
                 LINE
             </a>
 
@@ -1392,8 +1426,7 @@ footer {
                 href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
                 target="_blank"
                 rel="noopener"
-                class="contact-button"
-            >
+                class="contact-button">
                 GrabFood
             </a>
 
@@ -1418,19 +1451,17 @@ footer {
                 Tony's Kitchen
             </div>
 
-            <div
-                class="footer-text"
-                data-i18n="footerTagline"
-            >
+            <div class="footer-text"
+                 data-en="Authentic Thai Food"
+                 data-th="อาหารไทยต้นตำรับ">
                 Authentic Thai Food
             </div>
 
         </div>
 
-        <div
-            class="footer-address"
-            data-i18n="footerAddress"
-        >
+        <div class="footer-address"
+             data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120"
+             data-th="ตั้งอยู่ด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">
             Located in front of the entrance to
             Nichada Thani Village,
             Samakkhi 29 Alley,
@@ -1439,10 +1470,9 @@ footer {
             Nonthaburi 11120
         </div>
 
-        <div
-            class="footer-text"
-            data-i18n="copyright"
-        >
+        <div class="footer-text"
+             data-en="© 2026 Tony's Kitchen. All rights reserved."
+             data-th="© 2026 Tony's Kitchen สงวนลิขสิทธิ์">
             © 2026 Tony's Kitchen.
             All rights reserved.
         </div>
@@ -1458,298 +1488,75 @@ footer {
 
 <script>
 
-const translations = {
-
-    en: {
-
-        navHome: "Home",
-        navMenu: "Menu",
-        navAbout: "About",
-        navOrder: "Order",
-        navContact: "Contact",
-
-        heroTag: "AUTHENTIC THAI FOOD",
-        heroTitle1: "Real Thai Food.",
-        heroTitle2: "Made with Passion.",
-        heroText:
-            "Authentic Thai dishes prepared fresh with bold flavors, quality ingredients and the comfort of a home-style kitchen.",
-        viewMenu: "View Our Menu",
-        orderFood: "Order Food",
-
-        aboutEyebrow: "ABOUT TONY'S KITCHEN",
-        aboutTitle: "Thai food with bold, authentic flavor.",
-        aboutText1:
-            "Tony's Kitchen brings together classic Thai comfort food with carefully prepared dishes made for everyday dining.",
-        aboutText2:
-            "From fragrant Thai basil chicken to wok-fried noodles, every dish is prepared with the goal of delivering satisfying Thai flavors in every bite.",
-        locationTitle: "Our Location",
-        locationText:
-            "Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120",
-
-        menuEyebrow: "OUR MENU",
-        menuTitle: "Customer Favorites",
-        menuSubtitle:
-            "Classic Thai dishes prepared fresh and packed with flavor.",
-
-        padThaiName: "Pad Thai Shrimp",
-        padThaiDesc:
-            "Classic Thai stir-fried rice noodles with shrimp and traditional flavors.",
-
-        kaphraoName: "Thai Basil Chicken",
-        kaphraoDesc:
-            "Thai holy basil chicken stir-fried with aromatic chili and basil.",
-
-        friedRiceName: "Chicken Fried Rice",
-        friedRiceDesc:
-            "Fragrant wok-fried rice with chicken and classic Thai seasoning.",
-
-        springRollName: "Vegetable Spring Rolls",
-        springRollDesc:
-            "Crispy spring rolls filled with seasoned vegetables.",
-
-        signatureEyebrow: "SIGNATURE DISH",
-        signatureTitle: "Thai Basil Chicken",
-        signatureText:
-            "One of the most beloved Thai comfort foods: aromatic holy basil, fragrant garlic, fresh chili and savory stir-fried chicken.",
-        orderNow: "Order Now",
-
-        orderEyebrow: "ORDER NOW",
-        orderTitle: "How would you like to order?",
-        orderSubtitle:
-            "Contact Tony's Kitchen directly or order online.",
-
-        phoneTitle: "Phone",
-        phoneDesc: "Call us directly",
-
-        lineDesc: "Chat and order directly",
-        addLine: "Add LINE",
-
-        grabDesc: "Order online through GrabFood",
-        orderOnGrab: "Order on Grab",
-
-        visitEyebrow: "VISIT US",
-        hoursTitle: "Opening Hours",
-
-        monday: "Monday",
-        tuesday: "Tuesday",
-        wednesday: "Wednesday",
-        thursday: "Thursday",
-        friday: "Friday",
-        saturday: "Saturday",
-        sunday: "Sunday",
-
-        contactTitle: "Ready to eat?",
-        contactText:
-            "Order your favorite Thai dishes from Tony's Kitchen today.",
-        callButton: "Call 084-153-6498",
-
-        footerTagline: "Authentic Thai Food",
-        footerAddress:
-            "Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120",
-        copyright:
-            "© 2026 Tony's Kitchen. All rights reserved.",
-
-        aboutImageAlt: "Thai Basil Chicken - Tony's Kitchen",
-        padThaiAlt: "Pad Thai Shrimp",
-        kaphraoAlt: "Thai Basil Chicken",
-        friedRiceAlt: "Chicken Fried Rice",
-        springRollAlt: "Vegetable Spring Rolls",
-        signatureImageAlt: "Signature Thai Basil Chicken"
-    },
-
-
-    th: {
-
-        navHome: "หน้าหลัก",
-        navMenu: "เมนู",
-        navAbout: "เกี่ยวกับเรา",
-        navOrder: "สั่งอาหาร",
-        navContact: "ติดต่อเรา",
-
-        heroTag: "อาหารไทยแท้",
-        heroTitle1: "อาหารไทยรสชาติแท้",
-        heroTitle2: "ทำด้วยความตั้งใจ",
-        heroText:
-            "อาหารไทยแท้ ปรุงสดใหม่ทุกจาน ด้วยรสชาติจัดจ้าน วัตถุดิบคุณภาพ และความพิถีพิถันแบบอาหารทำเองที่บ้าน",
-        viewMenu: "ดูเมนูอาหาร",
-        orderFood: "สั่งอาหาร",
-
-        aboutEyebrow: "เกี่ยวกับ TONY'S KITCHEN",
-        aboutTitle: "อาหารไทยรสชาติจัดจ้านและเป็นเอกลักษณ์",
-        aboutText1:
-            "Tony's Kitchen นำเสนออาหารไทยสไตล์โฮมเมดและอาหารไทยจานโปรดที่ปรุงอย่างพิถีพิถัน เหมาะสำหรับมื้ออาหารในทุกวัน",
-        aboutText2:
-            "ตั้งแต่ผัดกะเพราไก่หอมกรุ่นไปจนถึงเมนูผัดด้วยกระทะร้อน ทุกจานตั้งใจปรุงเพื่อมอบรสชาติอาหารไทยที่อร่อยและน่าประทับใจในทุกคำ",
-        locationTitle: "ที่ตั้งร้าน",
-        locationText:
-            "ตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120",
-
-        menuEyebrow: "เมนูของเรา",
-        menuTitle: "เมนูยอดนิยมของลูกค้า",
-        menuSubtitle:
-            "อาหารไทยคลาสสิก ปรุงสดใหม่ และอัดแน่นด้วยรสชาติ",
-
-        padThaiName: "ผัดไทยกุ้ง",
-        padThaiDesc:
-            "ผัดไทยเส้นจันท์แบบดั้งเดิม เสิร์ฟพร้อมกุ้งและรสชาติไทยแท้",
-
-        kaphraoName: "ผัดกะเพราไก่",
-        kaphraoDesc:
-            "ไก่ผัดกะเพราหอมกรุ่น พร้อมพริกและใบกะเพราสด รสชาติเข้มข้นแบบไทย",
-
-        friedRiceName: "ข้าวผัดไก่",
-        friedRiceDesc:
-            "ข้าวผัดไก่หอมกระทะ ปรุงด้วยเครื่องปรุงแบบไทยคลาสสิก",
-
-        springRollName: "ปอเปี๊ยะผัก",
-        springRollDesc:
-            "ปอเปี๊ยะทอดกรอบ สอดไส้ผักปรุงรสอย่างลงตัว",
-
-        signatureEyebrow: "เมนูซิกเนเจอร์",
-        signatureTitle: "ผัดกะเพราไก่",
-        signatureText:
-            "หนึ่งในเมนูอาหารไทยยอดนิยม ใบกะเพราหอม ๆ กระเทียม พริกสด และเนื้อไก่ผัดจนหอมกลมกล่อม",
-        orderNow: "สั่งตอนนี้",
-
-        orderEyebrow: "สั่งอาหาร",
-        orderTitle: "คุณต้องการสั่งอาหารแบบไหน?",
-        orderSubtitle:
-            "ติดต่อ Tony's Kitchen โดยตรง หรือสั่งอาหารออนไลน์",
-
-        phoneTitle: "โทรศัพท์",
-        phoneDesc: "โทรหาเราโดยตรง",
-
-        lineDesc: "แชทและสั่งอาหารโดยตรง",
-        addLine: "เพิ่ม LINE",
-
-        grabDesc: "สั่งอาหารออนไลน์ผ่าน GrabFood",
-        orderOnGrab: "สั่งผ่าน Grab",
-
-        visitEyebrow: "มาเยี่ยมเรา",
-        hoursTitle: "เวลาเปิดทำการ",
-
-        monday: "วันจันทร์",
-        tuesday: "วันอังคาร",
-        wednesday: "วันพุธ",
-        thursday: "วันพฤหัสบดี",
-        friday: "วันศุกร์",
-        saturday: "วันเสาร์",
-        sunday: "วันอาทิตย์",
-
-        contactTitle: "พร้อมอร่อยแล้วหรือยัง?",
-        contactText:
-            "สั่งอาหารไทยจานโปรดจาก Tony's Kitchen ได้เลยวันนี้",
-        callButton: "โทร 084-153-6498",
-
-        footerTagline: "อาหารไทยแท้",
-        footerAddress:
-            "ตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120",
-        copyright:
-            "© 2026 Tony's Kitchen สงวนลิขสิทธิ์",
-
-        aboutImageAlt: "ผัดกะเพราไก่ - Tony's Kitchen",
-        padThaiAlt: "ผัดไทยกุ้ง",
-        kaphraoAlt: "ผัดกะเพราไก่",
-        friedRiceAlt: "ข้าวผัดไก่",
-        springRollAlt: "ปอเปี๊ยะผัก",
-        signatureImageAlt: "ผัดกะเพราไก่ซิกเนเจอร์"
-    }
-
-};
-
-
-/* =========================
-   CHANGE LANGUAGE
-========================= */
-
 function setLanguage(language) {
 
-    const selectedLanguage =
-        translations[language] ? language : "en";
+    /*
+     * Change every element that has
+     * data-en and data-th
+     */
 
-    const textElements =
-        document.querySelectorAll("[data-i18n]");
+    const elements = document.querySelectorAll(
+        "[data-en][data-th]"
+    );
 
-    textElements.forEach(function(element) {
+    elements.forEach(function(element) {
 
-        const key = element.getAttribute("data-i18n");
+        if (language === "th") {
 
-        if (translations[selectedLanguage][key]) {
+            element.innerHTML = element.getAttribute("data-th");
 
-            element.textContent =
-                translations[selectedLanguage][key];
+        } else {
+
+            element.innerHTML = element.getAttribute("data-en");
 
         }
 
     });
 
 
-    /* Change image ALT text */
+    /*
+     * Change HTML language
+     */
 
-    const altElements =
-        document.querySelectorAll("[data-i18n-alt]");
-
-    altElements.forEach(function(element) {
-
-        const key =
-            element.getAttribute("data-i18n-alt");
-
-        if (translations[selectedLanguage][key]) {
-
-            element.alt =
-                translations[selectedLanguage][key];
-
-        }
-
-    });
+    document.documentElement.lang = language;
 
 
-    /* Change HTML language */
+    /*
+     * Change active button
+     */
 
-    document.documentElement.lang =
-        selectedLanguage === "th" ? "th" : "en";
+    document.getElementById("enBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
 
-
-    /* Change browser title */
-
-    document.title =
-        selectedLanguage === "th"
-            ? "Tony's Kitchen - อาหารไทย"
-            : "Tony's Kitchen";
-
-
-    /* Update language buttons */
-
-    const englishBtn =
-        document.getElementById("englishBtn");
-
-    const thaiBtn =
-        document.getElementById("thaiBtn");
-
-    englishBtn.classList.toggle(
-        "active",
-        selectedLanguage === "en"
-    );
-
-    thaiBtn.classList.toggle(
-        "active",
-        selectedLanguage === "th"
-    );
+    document.getElementById("thBtn")
+        .classList.toggle(
+            "active",
+            language === "th"
+        );
 
 
-    /* Save selected language */
+    /*
+     * Save language selection
+     */
 
     localStorage.setItem(
         "tonysKitchenLanguage",
-        selectedLanguage
+        language
     );
-
 }
 
 
-/* =========================
-   START WEBSITE
-========================= */
+/*
+ * IMPORTANT:
+ * English is ALWAYS the default language
+ * for a new visitor.
+ *
+ * If the visitor previously selected Thai,
+ * we remember their choice.
+ */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -1760,19 +1567,15 @@ document.addEventListener(
                 "tonysKitchenLanguage"
             );
 
-        /*
-         * New visitors:
-         * English by default.
-         *
-         * Returning visitors:
-         * Use their previously selected language.
-         */
+        if (savedLanguage === "th") {
 
-        setLanguage(
-            savedLanguage === "th"
-                ? "th"
-                : "en"
-        );
+            setLanguage("th");
+
+        } else {
+
+            setLanguage("en");
+
+        }
 
     }
 );
