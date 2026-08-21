@@ -699,6 +699,80 @@ footer {
         flex-direction: column;
     }
 }
+    /* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.mobile-menu-button {
+    display: none;
+    border: none;
+    background: #b42318;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 700px) {
+
+    .nav-inner {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+        order: 3;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        order: 5;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: white;
+        border-top: 1px solid #eee;
+        margin-top: 12px;
+        padding-top: 8px;
+    }
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 14px 8px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-links .nav-button {
+        text-align: center;
+        margin: 10px 0;
+        padding: 12px 18px;
+    }
+
+    .language-switch {
+        order: 2;
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .language-switch button {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+}
 </style>
 </head>
 
@@ -744,7 +818,9 @@ footer {
                 </a>
 
             </nav>
-
+            <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()" aria-label="Open menu">
+               ☰
+            </button>
 
             <!-- LANGUAGE BUTTON -->
 
@@ -1589,6 +1665,37 @@ document.addEventListener(
 );
 
 </script>
+<script>
 
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMobileMenu() {
+
+    const menu = document.querySelector(".nav-links");
+
+    menu.classList.toggle("mobile-open");
+
+}
+
+
+/* =========================
+   CLOSE MENU AFTER CLICK
+========================= */
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        document
+            .querySelector(".nav-links")
+            .classList.remove("mobile-open");
+
+    });
+
+});
+
+</script>
 </body>
 </html>
