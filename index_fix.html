@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony's Kitchen | Authentic Thai Food</title>
+<meta name="description" content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Fresh Thai food, Pad Thai, Thai Basil Chicken, Fried Rice and more.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Arial,Helvetica,sans-serif;background:#fffaf3;color:#222;line-height:1.6}
+body.no-scroll{overflow:hidden}
+img{display:block;width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);border-bottom:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-link{display:flex;align-items:center}.logo-image{width:170px;height:58px;object-fit:contain}
+.nav-right{display:flex;align-items:center;gap:22px}.nav-links{display:flex;gap:22px;align-items:center;font-size:15px;font-weight:700}
+.nav-links a{transition:.2s}.nav-links a:hover{color:#b42318}.nav-button{background:#b42318;color:#fff!important;padding:10px 18px;border-radius:999px}
+.language-switcher{display:flex;align-items:center;gap:5px;background:#f5f5f5;border:1px solid #e5e5e5;padding:4px;border-radius:999px}
+.language-switcher button{border:none;background:transparent;cursor:pointer;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800;color:#555}
+.language-switcher button.active{background:#b42318;color:#fff}.language-switcher button:hover{color:#b42318}.language-switcher button.active:hover{color:#fff}
+
+.hero{min-height:650px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.60) 42%,rgba(0,0,0,.12) 100%),url("p1.png") center/cover no-repeat}
+.hero-content{width:100%;max-width:1200px;margin:auto;padding:80px 22px;color:#fff}
+.hero-tag{display:inline-block;background:#f4b400;color:#241700;font-weight:800;padding:7px 15px;border-radius:999px;margin-bottom:20px;font-size:14px}
+.hero h1{font-size:clamp(42px,7vw,82px);line-height:.98;max-width:720px;margin-bottom:25px;letter-spacing:-2px}.hero h1 span{color:#ffd166}
+.hero p{max-width:620px;font-size:20px;color:#f5f5f5;margin-bottom:30px}.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:800;transition:.2s;cursor:pointer}.btn-primary{background:#b42318;color:#fff}.btn-primary:hover{background:#8f1c14;transform:translateY(-2px)}.btn-secondary{background:#fff;color:#222}.btn-secondary:hover{background:#f1f1f1;transform:translateY(-2px)}
+
+.section{max-width:1200px;margin:auto;padding:85px 22px}.section-heading{text-align:center;margin-bottom:45px}
+.section-heading .eyebrow{color:#b42318;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;margin-bottom:8px}
+.section-heading h2{font-size:clamp(32px,5vw,48px);line-height:1.1;margin-bottom:12px}.section-heading p{max-width:650px;margin:auto;color:#666}
+
+.about{background:#fff}.about-grid{max-width:1200px;margin:auto;padding:85px 22px;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-image{overflow:hidden;border-radius:24px;box-shadow:0 20px 45px rgba(0,0,0,.12)}.about-image img{height:500px;object-fit:cover}
+.about-text .eyebrow{color:#b42318;font-weight:800;margin-bottom:10px}.about-text h2{font-size:46px;line-height:1.08;margin-bottom:20px}.about-text p{color:#555;margin-bottom:18px}
+.location-box{margin-top:25px;background:#fff7e6;border-left:5px solid #f4b400;padding:18px 20px;border-radius:10px}.map-button{display:inline-block;margin-top:15px;background:#b42318;color:#fff;padding:10px 18px;border-radius:999px;font-weight:800}.map-button:hover{background:#8f1c14}
+
+.menu-section{background:#fffaf3}
+.menu-category-bar{position:sticky;top:79px;z-index:900;background:rgba(255,255,255,.96);border:1px solid #eee;border-radius:16px;padding:10px;margin-bottom:42px;box-shadow:0 8px 25px rgba(0,0,0,.06);overflow-x:auto;white-space:nowrap}
+.menu-category-bar::-webkit-scrollbar{height:5px}.menu-category-bar::-webkit-scrollbar-thumb{background:#ddd;border-radius:99px}
+.category-link{display:inline-block;border:1px solid #e8e8e8;background:#fff;padding:9px 14px;border-radius:999px;margin:2px;font-size:13px;font-weight:800;transition:.2s}
+.category-link:hover,.category-link.active{background:#b42318;color:#fff;border-color:#b42318}
+.menu-category{scroll-margin-top:145px;margin-bottom:70px}.menu-category:last-child{margin-bottom:0}
+.category-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px;border-bottom:2px solid #eee;padding-bottom:12px}
+.category-heading h3{font-size:28px;line-height:1.1}.category-heading p{color:#777;font-size:14px}
+.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.menu-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.07);transition:.25s}
+.menu-card:hover{transform:translateY(-7px);box-shadow:0 18px 38px rgba(0,0,0,.12)}.menu-image{height:235px;overflow:hidden;background:#eee;cursor:pointer}
+.menu-image img{width:100%;height:100%;object-fit:cover;transition:.35s}.menu-card:hover .menu-image img{transform:scale(1.04)}
+.menu-info{padding:20px}.menu-info h4{font-size:20px;margin-bottom:7px}.menu-info p{color:#666;font-size:14px;margin-bottom:0}
+
+.feature{background:#181818;color:#fff}.feature-grid{max-width:1200px;margin:auto;padding:85px 22px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.feature h2{font-size:clamp(34px,5vw,55px);line-height:1.05;margin-bottom:20px}.feature p{color:#ccc;margin-bottom:25px}.feature-image{border-radius:25px;overflow:hidden;cursor:pointer}.feature-image img{height:500px;object-fit:cover}
+
+.order-section{background:#fff}.order-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:auto}
+.order-card{border:1px solid #eee;border-radius:18px;padding:30px 22px;text-align:center;background:#fff;transition:.2s}.order-card:hover{box-shadow:0 15px 35px rgba(0,0,0,.08);transform:translateY(-4px)}
+.order-icon{width:65px;height:65px;margin:0 auto 15px;border-radius:50%;display:grid;place-items:center;background:#fff0e8;padding:12px;overflow:hidden}.order-icon img{width:100%;height:100%;object-fit:contain}
+.order-card h3{margin-bottom:8px}.order-card p{color:#666;margin-bottom:18px}.order-button{display:inline-block;padding:10px 20px;border-radius:999px;background:#b42318;color:#fff;font-weight:700}.order-button:hover{background:#8f1c14}
+
+.hours{background:#fff7e6}.hours-box{max-width:650px;margin:auto;background:#fff;border-radius:20px;padding:35px;box-shadow:0 10px 35px rgba(0,0,0,.06)}
+.hours-row{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid #eee}.hours-row:last-child{border-bottom:none}.hours-day{font-weight:700}.hours-time{color:#b42318;font-weight:800}
+.contact{background:#b42318;color:#fff;text-align:center}.contact h2{font-size:clamp(35px,5vw,55px);margin-bottom:15px}.contact p{max-width:700px;margin:0 auto 28px;color:#ffe5e0}
+.contact-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}.contact-button{background:#fff;color:#b42318;padding:13px 22px;border-radius:999px;font-weight:800}.contact-button:hover{background:#fff0e8}
+footer{background:#111;color:#fff;padding:35px 22px}.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-logo{font-size:23px;font-weight:800}.footer-text{color:#aaa;font-size:14px}.footer-address{color:#aaa;max-width:500px;font-size:14px}
+
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:25px}.lightbox.show{display:flex}
+.lightbox-image{max-width:92vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:fixed;top:18px;right:25px;width:48px;height:48px;border:none;border-radius:50%;background:#fff;color:#222;font-size:30px;line-height:1;cursor:pointer;z-index:10001}.lightbox-close:hover{background:#f4b400}
+.lightbox-caption{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(0,0,0,.65);color:#fff;padding:8px 16px;border-radius:999px;font-size:14px;max-width:90vw;text-align:center}
+
+@media(max-width:1100px){.menu-grid{grid-template-columns:repeat(2,1fr)}.order-grid{grid-template-columns:repeat(2,1fr)}.about-grid,.feature-grid{grid-template-columns:1fr}.about-image img,.feature-image img{height:420px}}
+@media(max-width:800px){.nav-inner{padding:10px 16px}.logo-image{width:135px;height:50px}.nav-right{gap:10px}.nav-links{display:none}.language-switcher button{padding:6px 9px}.hero{min-height:600px}.hero-content{padding:70px 20px}.hero h1{font-size:48px}.hero p{font-size:17px}.section{padding:65px 18px}.about-grid,.feature-grid{padding:65px 18px;gap:35px}.about-text h2{font-size:37px}.menu-category-bar{top:70px}}
+@media(max-width:600px){.menu-grid{grid-template-columns:1fr}.menu-image{height:260px}.order-grid{grid-template-columns:1fr}.hours-box{padding:25px 20px}.hours-row{gap:15px}.footer-inner{flex-direction:column}.logo-image{width:120px;height:46px}.language-switcher{gap:2px}.language-switcher button{font-size:11px;padding:6px 8px}.category-heading{display:block}.category-heading p{margin-top:7px}}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="nav-inner">
+<a href="#home" class="logo-link" aria-label="Tony's Kitchen"><img src="Logo-Ex.png" alt="Tony's Kitchen" class="logo-image"></a>
+<div class="nav-right">
+<nav class="nav-links">
+<a href="#home" data-en="Home" data-th="หน้าแรก">Home</a>
+<a href="#menu" data-en="Menu" data-th="เมนู">Menu</a>
+<a href="#about" data-en="About" data-th="เกี่ยวกับเรา">About</a>
+<a href="#order" data-en="Order" data-th="สั่งอาหาร">Order</a>
+<a href="#contact" class="nav-button" data-en="Contact" data-th="ติดต่อเรา">Contact</a>
+</nav>
+<div class="language-switcher">
+<button type="button" id="langEN" class="active" onclick="setLanguage('en')">EN</button>
+<button type="button" id="langTH" onclick="setLanguage('th')">ไทย</button>
+</div>
+</div>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="hero-tag" data-en="AUTHENTIC THAI FOOD" data-th="อาหารไทยต้นตำรับ">AUTHENTIC THAI FOOD</div>
+<h1><span data-en="Real Thai Food." data-th="อาหารไทยแท้">Real Thai Food.</span><br><span data-en="Made with Passion." data-th="ปรุงด้วยความใส่ใจ">Made with Passion.</span></h1>
+<p data-en="Authentic Thai dishes prepared fresh with bold flavors, quality ingredients and the comfort of a home-style kitchen." data-th="อาหารไทยต้นตำรับ ปรุงสดใหม่ด้วยรสชาติเข้มข้น วัตถุดิบคุณภาพ และความพิถีพิถันแบบอาหารโฮมเมด">Authentic Thai dishes prepared fresh with bold flavors, quality ingredients and the comfort of a home-style kitchen.</p>
+<div class="hero-buttons">
+<a href="#menu" class="btn btn-primary" data-en="View Our Menu" data-th="ดูเมนูของเรา">View Our Menu</a>
+<a href="#order" class="btn btn-secondary" data-en="Order Food" data-th="สั่งอาหาร">Order Food</a>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="about-grid">
+<div class="about-image"><img src="kaphrao-chicken.png" alt="Thai Basil Chicken - Tony's Kitchen"></div>
+<div class="about-text">
+<div class="eyebrow" data-en="ABOUT TONY'S KITCHEN" data-th="เกี่ยวกับ TONY'S KITCHEN">ABOUT TONY'S KITCHEN</div>
+<h2 data-en="Thai food with bold, authentic flavor." data-th="อาหารไทยรสชาติเข้มข้นและต้นตำรับ">Thai food with bold, authentic flavor.</h2>
+<p data-en="Tony's Kitchen brings together classic Thai comfort food with carefully prepared dishes made for everyday dining." data-th="Tony's Kitchen นำเสนออาหารไทยคลาสสิกและอาหารจานโปรดที่ปรุงอย่างพิถีพิถัน เหมาะสำหรับมื้ออาหารในทุกวัน">Tony's Kitchen brings together classic Thai comfort food with carefully prepared dishes made for everyday dining.</p>
+<p data-en="From fragrant Thai basil chicken to wok-fried noodles, every dish is prepared with the goal of delivering satisfying Thai flavors in every bite." data-th="ตั้งแต่ผัดกะเพราไก่หอมกรุ่นไปจนถึงเส้นผัดแบบกระทะร้อน ทุกจานตั้งใจปรุงเพื่อมอบรสชาติไทยที่อร่อยและน่าประทับใจในทุกคำ">From fragrant Thai basil chicken to wok-fried noodles, every dish is prepared with the goal of delivering satisfying Thai flavors in every bite.</p>
+<div class="location-box">
+<strong data-en="Our Location" data-th="ที่ตั้งร้าน">Our Location</strong><br><br>
+<span data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120" data-th="ตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120</span><br>
+<a href="https://maps.app.goo.gl/xPiuy6PjgREHUBDMA" target="_blank" rel="noopener" class="map-button" data-en="Open in Google Maps" data-th="เปิดใน Google Maps">Open in Google Maps</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="menu-section" id="menu">
+<div class="section">
+<div class="section-heading">
+<div class="eyebrow" data-en="OUR MENU" data-th="เมนูของเรา">OUR MENU</div>
+<h2 data-en="Explore Our Menu" data-th="เลือกชมเมนูของเรา">Explore Our Menu</h2>
+<p data-en="Browse our Thai dishes by category. Food photos and individual dishes can be added to each category later." data-th="เลือกชมอาหารไทยตามหมวดหมู่ โดยสามารถเพิ่มรูปและรายการอาหารของแต่ละหมวดได้ภายหลัง">Browse our Thai dishes by category. Food photos and individual dishes can be added to each category later.</p>
+</div>
+
+<div class="menu-category-bar" id="categoryBar">
+<a class="category-link active" href="#cat-appetizer">Appetizer</a>
+<a class="category-link" href="#cat-thai-salad">Thai Salad</a>
+<a class="category-link" href="#cat-pad-thai">Pad Thai</a>
+<a class="category-link" href="#cat-pad-see-ew">Pad See EW</a>
+<a class="category-link" href="#cat-yaki-soba">Yaki Soba</a>
+<a class="category-link" href="#cat-pad-kee-mao">Pad Kee Mao</a>
+<a class="category-link" href="#cat-stir-fried-macaroni">Stir Fried Macaroni</a>
+<a class="category-link" href="#cat-suki-yaki">Suki Yaki</a>
+<a class="category-link" href="#cat-thai-fried-rice">Thai Fried Rice</a>
+<a class="category-link" href="#cat-traditional-fried-rice">Traditional Fried Rice</a>
+<a class="category-link" href="#cat-tom-yum-fried-rice">Tom Yum Fried Rice</a>
+<a class="category-link" href="#cat-pad-kaphrao">Pad Kaphrao</a>
+<a class="category-link" href="#cat-pad-holapa">Pad Holapa</a>
+<a class="category-link" href="#cat-garlic-pepper">Garlic &amp; Pepper</a>
+<a class="category-link" href="#cat-cashew">Cashew Nut Stir Fried</a>
+<a class="category-link" href="#cat-chili-salt">Chili &amp; Salt Stir Fried</a>
+<a class="category-link" href="#cat-green-curry">Green Curry Stir Fried</a>
+<a class="category-link" href="#cat-red-curry">Red Curry Stir Fried</a>
+<a class="category-link" href="#cat-panang">Panang Curry Stir Fried</a>
+<a class="category-link" href="#cat-bell-pepper">Bell Pepper Stir Fried</a>
+<a class="category-link" href="#cat-ginger">Ginger Stir Fried</a>
+<a class="category-link" href="#cat-chilli-jam">Chilli Jam Stir Fried</a>
+<a class="category-link" href="#cat-thai-omelet">Thai Omelet</a>
+<a class="category-link" href="#cat-thai-rice-soup">Thai Rice Soup</a>
+<a class="category-link" href="#cat-bean-sprouts">Bean Sprouts Stir Fried</a>
+<a class="category-link" href="#cat-chinese-kale">Chinese Kale Stir Fried</a>
+<a class="category-link" href="#cat-morning-glory">Morning Glory Stir Fried</a>
+<a class="category-link" href="#cat-cabbage">Cabbage Stir Fried</a>
+<a class="category-link" href="#cat-mix-vegetable">Mix Vegetable Stir Fried</a>
+<a class="category-link" href="#cat-soup">Soup</a>
+<a class="category-link" href="#cat-drinks">Drinks</a>
+</div>
+
+<div id="menuCategories"></div>
+</div>
+</section>
+
+<section class="feature">
+<div class="feature-grid">
+<div>
+<div class="eyebrow" style="color:#ffd166" data-en="SIGNATURE DISH" data-th="เมนูซิกเนเจอร์">SIGNATURE DISH</div>
+<h2 data-en="Thai Basil Chicken" data-th="ผัดกะเพราไก่">Thai Basil Chicken</h2>
+<p data-en="One of the most beloved Thai comfort foods: aromatic holy basil, fragrant garlic, fresh chili and savory stir-fried chicken." data-th="หนึ่งในเมนูอาหารไทยยอดนิยม ผัดด้วยใบกะเพราหอม ๆ กระเทียม พริกสด และไก่ปรุงรสอย่างลงตัว">One of the most beloved Thai comfort foods: aromatic holy basil, fragrant garlic, fresh chili and savory stir-fried chicken.</p>
+<a href="#order" class="btn btn-primary" data-en="Order Now" data-th="สั่งอาหารตอนนี้">Order Now</a>
+</div>
+<div class="feature-image" onclick="openLightbox('kaphrao-chicken.png','Thai Basil Chicken')"><img src="kaphrao-chicken.png" alt="Signature Thai Basil Chicken"></div>
+</div>
+</section>
+
+<section class="order-section" id="order">
+<div class="section">
+<div class="section-heading">
+<div class="eyebrow" data-en="ORDER NOW" data-th="สั่งอาหาร">ORDER NOW</div>
+<h2 data-en="How would you like to order?" data-th="คุณต้องการสั่งอาหารแบบไหน?">How would you like to order?</h2>
+<p data-en="Contact Tony's Kitchen directly or order online." data-th="ติดต่อ Tony's Kitchen โดยตรง หรือสั่งอาหารออนไลน์">Contact Tony's Kitchen directly or order online.</p>
+</div>
+<div class="order-grid">
+<div class="order-card"><div class="order-icon">☎</div><h3 data-en="Phone" data-th="โทรศัพท์">Phone</h3><p data-en="Call us directly" data-th="โทรหาเราโดยตรง">Call us directly</p><a href="tel:0841536498" class="order-button">084-153-6498</a></div>
+<div class="order-card"><div class="order-icon"><img src="line.png" alt="LINE"></div><h3>LINE</h3><p data-en="Chat and order directly" data-th="แชตและสั่งอาหารโดยตรง">Chat and order directly</p><a href="https://line.me/ti/p/~padaroisauce" target="_blank" rel="noopener" class="order-button" data-en="Add LINE" data-th="เพิ่ม LINE">Add LINE</a></div>
+<div class="order-card"><div class="order-icon"><img src="grabfood.png" alt="GrabFood"></div><h3>GrabFood</h3><p data-en="Order online through GrabFood" data-th="สั่งอาหารออนไลน์ผ่าน GrabFood">Order online through GrabFood</p><a href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE" target="_blank" rel="noopener" class="order-button" data-en="Order on Grab" data-th="สั่งผ่าน Grab">Order on Grab</a></div>
+<div class="order-card"><div class="order-icon"><img src="whatsapp.png" alt="WhatsApp"></div><h3>WhatsApp</h3><p data-en="Chat with us on WhatsApp" data-th="แชตกับเราผ่าน WhatsApp">Chat with us on WhatsApp</p><a href="https://wa.me/66841536498" target="_blank" rel="noopener" class="order-button" data-en="Chat on WhatsApp" data-th="แชตผ่าน WhatsApp">Chat on WhatsApp</a></div>
+</div>
+</div>
+</section>
+
+<section class="hours">
+<div class="section"><div class="section-heading"><div class="eyebrow" data-en="VISIT US" data-th="แวะมาหาเรา">VISIT US</div><h2 data-en="Opening Hours" data-th="เวลาเปิดร้าน">Opening Hours</h2></div>
+<div class="hours-box">
+<div class="hours-row"><span class="hours-day" data-en="Monday" data-th="วันจันทร์">Monday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Tuesday" data-th="วันอังคาร">Tuesday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Wednesday" data-th="วันพุธ">Wednesday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Thursday" data-th="วันพฤหัสบดี">Thursday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Friday" data-th="วันศุกร์">Friday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Saturday" data-th="วันเสาร์">Saturday</span><span class="hours-time">10:00 – 21:00</span></div>
+<div class="hours-row"><span class="hours-day" data-en="Sunday" data-th="วันอาทิตย์">Sunday</span><span class="hours-time">10:00 – 21:00</span></div>
+</div></div>
+</section>
+
+<section class="contact" id="contact"><div class="section">
+<h2 data-en="Ready to eat?" data-th="พร้อมอร่อยแล้วหรือยัง?">Ready to eat?</h2>
+<p data-en="Order your favorite Thai dishes from Tony's Kitchen today." data-th="สั่งอาหารไทยจานโปรดจาก Tony's Kitchen ได้แล้ววันนี้">Order your favorite Thai dishes from Tony's Kitchen today.</p>
+<div class="contact-buttons">
+<a href="tel:0841536498" class="contact-button">Call 084-153-6498</a>
+<a href="https://line.me/ti/p/~padaroisauce" target="_blank" rel="noopener" class="contact-button">LINE</a>
+<a href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE" target="_blank" rel="noopener" class="contact-button">GrabFood</a>
+<a href="https://wa.me/66841536498" target="_blank" rel="noopener" class="contact-button">WhatsApp</a>
+</div></div></section>
+
+<footer><div class="footer-inner">
+<div><div class="footer-logo">Tony's Kitchen</div><div class="footer-text" data-en="Authentic Thai Food" data-th="อาหารไทยต้นตำรับ">Authentic Thai Food</div></div>
+<div class="footer-address"><span data-en="Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120" data-th="ตั้งอยู่บริเวณด้านหน้าทางเข้าหมู่บ้านนิชดาธานี ซอยสามัคคี 29 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120">Located in front of the entrance to Nichada Thani Village, Samakkhi 29 Alley, Bang Talat, Pak Kret District, Nonthaburi 11120</span></div>
+<div class="footer-text" data-en="© 2026 Tony's Kitchen. All rights reserved." data-th="© 2026 Tony's Kitchen สงวนลิขสิทธิ์">© 2026 Tony's Kitchen. All rights reserved.</div>
+</div></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)" aria-hidden="true">
+<button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close">×</button>
+<img id="lightboxImage" class="lightbox-image" src="" alt="">
+<div id="lightboxCaption" class="lightbox-caption"></div>
+</div>
+
+<script>
+let currentLanguage="en";
+
+const categories=[
+["appetizer","Appetizer","อาหารเรียกน้ำย่อย"],
+["thai-salad","Thai Salad","สลัดไทย"],
+["pad-thai","Pad Thai","ผัดไทย"],
+["pad-see-ew","Pad See EW","ผัดซีอิ๊ว"],
+["yaki-soba","Yaki Soba","ยากิโซบะ"],
+["pad-kee-mao","Pad Kee Mao","ผัดขี้เมา"],
+["stir-fried-macaroni","Stir Fried Macaroni","มักกะโรนีผัด"],
+["suki-yaki","Suki Yaki","สุกี้ยากี้"],
+["thai-fried-rice","Thai Fried Rice","ข้าวผัดไทย"],
+["traditional-fried-rice","Traditional Fried Rice","ข้าวผัดแบบดั้งเดิม"],
+["tom-yum-fried-rice","Tom Yum Fried Rice","ข้าวผัดต้มยำ"],
+["pad-kaphrao","Pad Kaphrao","ผัดกะเพรา"],
+["pad-holapa","Pad Holapa","ผัดโหระพา"],
+["garlic-pepper","Garlic & Pepper","กระเทียมพริกไทย"],
+["cashew","Cashew Nut Stir Fried","ผัดเม็ดมะม่วงหิมพานต์"],
+["chili-salt","Chili & Salt Stir Fried","ผัดพริกเกลือ"],
+["green-curry","Green Curry Stir Fried","ผัดแกงเขียวหวาน"],
+["red-curry","Red Curry Stir Fried","ผัดแกงเผ็ด"],
+["panang","Panang Curry Stir Fried","ผัดพะแนง"],
+["bell-pepper","Bell Pepper Stir Fried","ผัดพริกหวาน"],
+["ginger","Ginger Stir Fried","ผัดขิง"],
+["chilli-jam","Chilli Jam Stir Fried","ผัดน้ำพริกเผา"],
+["thai-omelet","Thai Omelet","ไข่เจียวไทย"],
+["thai-rice-soup","Thai Rice Soup","ข้าวต้ม"],
+["bean-sprouts","Bean Sprouts Stir Fried","ผัดถั่วงอก"],
+["chinese-kale","Chinese Kale Stir Fried","ผัดคะน้า"],
+["morning-glory","Morning Glory Stir Fried","ผัดผักบุ้ง"],
+["cabbage","Cabbage Stir Fried","ผัดกะหล่ำปลี"],
+["mix-vegetable","Mix Vegetable Stir Fried","ผัดผักรวม"],
+["soup","Soup","ซุป"],
+["drinks","Drinks","เครื่องดื่ม"]
+];
+
+function buildMenuCategories(){
+ const wrap=document.getElementById("menuCategories");
+ if(!wrap)return;
+ wrap.innerHTML=categories.map(function(c){
+   return '<section class="menu-category" id="cat-'+c[0]+'">'+
+   '<div class="category-heading">'+
+   '<h3 data-en="'+escapeAttr(c[1])+'" data-th="'+escapeAttr(c[2])+'">'+escapeHtml(c[1])+'</h3>'+
+   '<p data-en="Photos and dishes for this category will be added here." data-th="จะเพิ่มรูปและรายการอาหารของหมวดนี้ในขั้นตอนถัดไป">Photos and dishes for this category will be added here.</p>'+
+   '</div>'+
+   '<div class="menu-grid">'+
+   '<article class="menu-card">'+
+   '<div class="menu-image"><img src="p1.png" alt="'+escapeAttr(c[1])+'"></div>'+
+   '<div class="menu-info"><h4 data-en="'+escapeAttr(c[1])+'" data-th="'+escapeAttr(c[2])+'">'+escapeHtml(c[1])+'</h4>'+
+   '<p data-en="Add the dishes and food photos for this category here." data-th="เพิ่มรายการอาหารและรูปอาหารของหมวดนี้ได้ที่นี่">Add the dishes and food photos for this category here.</p></div>'+
+   '</article></div></section>';
+ }).join("");
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]})}
+function escapeAttr(s){return escapeHtml(s)}
+
+function setLanguage(language){
+ currentLanguage=language;
+ document.documentElement.lang=language;
+ document.querySelectorAll("[data-en][data-th]").forEach(function(el){
+   const text=el.getAttribute(language==="th"?"data-th":"data-en");
+   if(text!==null)el.textContent=text;
+ });
+ document.getElementById("langEN")?.classList.toggle("active",language==="en");
+ document.getElementById("langTH")?.classList.toggle("active",language==="th");
+ localStorage.setItem("tonysKitchenLanguage",language);
+}
+
+function openLightbox(imageSrc,caption){
+ const box=document.getElementById("lightbox"),img=document.getElementById("lightboxImage"),cap=document.getElementById("lightboxCaption");
+ if(!box||!img)return;
+ img.src=imageSrc;img.alt=caption||"Tony's Kitchen food";if(cap)cap.textContent=caption||"";
+ box.classList.add("show");box.setAttribute("aria-hidden","false");document.body.classList.add("no-scroll");
+}
+function closeLightbox(event){
+ if(event&&event.target&&event.target.id!=="lightbox"&&!event.target.classList.contains("lightbox-close"))return;
+ const box=document.getElementById("lightbox"),img=document.getElementById("lightboxImage");
+ if(!box)return;box.classList.remove("show");box.setAttribute("aria-hidden","true");document.body.classList.remove("no-scroll");if(img)img.src="";
+}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&document.getElementById("lightbox")?.classList.contains("show"))closeLightbox()});
+
+document.addEventListener("DOMContentLoaded",function(){
+ buildMenuCategories();
+ const saved=localStorage.getItem("tonysKitchenLanguage");
+ setLanguage(saved==="th"?"th":"en");
+
+ const links=[...document.querySelectorAll(".category-link")];
+ const sections=[...document.querySelectorAll(".menu-category")];
+ const observer=new IntersectionObserver(function(entries){
+   entries.forEach(function(entry){
+     if(entry.isIntersecting){
+       links.forEach(function(l){l.classList.toggle("active",l.getAttribute("href")==="#"+entry.target.id)});
+     }
+   });
+ },{rootMargin:"-25% 0px -65% 0px",threshold:0});
+ sections.forEach(function(s){observer.observe(s)});
+});
+</script>
+</body>
+</html>
