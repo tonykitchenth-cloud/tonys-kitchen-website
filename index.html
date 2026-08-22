@@ -6,9 +6,16 @@
 
 <title>Tony's Kitchen | Authentic Thai Food</title>
 
-<meta name="description" content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Fresh Thai food, Pad Thai, Thai Basil Chicken, Fried Rice and more.">
+<meta
+    name="description"
+    content="Tony's Kitchen - Authentic Thai food in Nonthaburi. Fresh Thai food, Pad Thai, Thai Basil Chicken, Fried Rice and more."
+>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -21,7 +28,7 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:#fffaf3;
     color:#222;
     line-height:1.6;
@@ -45,9 +52,10 @@ button{
     font:inherit;
 }
 
-/* =========================
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 .navbar{
     position:sticky;
@@ -82,31 +90,13 @@ button{
 .nav-right{
     display:flex;
     align-items:center;
-    gap:22px;
+    gap:20px;
 }
 
-.nav-links{
-    display:flex;
-    gap:22px;
-    align-items:center;
-    font-size:15px;
-    font-weight:700;
-}
 
-.nav-links a{
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:#b42318;
-}
-
-.nav-button{
-    background:#b42318;
-    color:#fff!important;
-    padding:10px 18px;
-    border-radius:999px;
-}
+/* =========================================================
+   LANGUAGE SWITCHER
+========================================================= */
 
 .language-switcher{
     display:flex;
@@ -143,9 +133,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:650px;
@@ -210,7 +200,7 @@ button{
 
 .btn{
     display:inline-block;
-    padding:14px 24px;
+    padding:14px 26px;
     border-radius:999px;
     font-weight:800;
     transition:.2s;
@@ -228,20 +218,10 @@ button{
     transform:translateY(-2px);
 }
 
-.btn-secondary{
-    background:#fff;
-    color:#222;
-}
 
-.btn-secondary:hover{
-    background:#f1f1f1;
-    transform:translateY(-2px);
-}
-
-
-/* =========================
+/* =========================================================
    GENERAL
-========================= */
+========================================================= */
 
 .section{
     max-width:1200px;
@@ -276,9 +256,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about{
     background:#fff;
@@ -345,12 +325,13 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    MENU SYSTEM
-========================= */
+========================================================= */
 
 .menu-section{
     background:#fffaf3;
+    min-height:100vh;
 }
 
 .menu-view{
@@ -383,7 +364,9 @@ button{
 }
 
 
-/* CATEGORY GRID */
+/* =========================================================
+   CATEGORY GRID
+========================================================= */
 
 .category-grid{
     display:grid;
@@ -429,7 +412,8 @@ button{
 }
 
 .category-info h3{
-    font-size:22px;
+    font-size:21px;
+    line-height:1.2;
     margin-bottom:7px;
 }
 
@@ -439,7 +423,9 @@ button{
 }
 
 
-/* DISH GRID */
+/* =========================================================
+   DISH GRID
+========================================================= */
 
 .category-title{
     margin-bottom:35px;
@@ -479,6 +465,7 @@ button{
 .dish-image{
     height:260px;
     overflow:hidden;
+    background:#eee;
 }
 
 .dish-image img{
@@ -514,21 +501,80 @@ button{
 }
 
 
-/* EMPTY CATEGORY */
+/* =========================================================
+   EMPTY CATEGORY
+========================================================= */
 
 .empty-category{
+    grid-column:1/-1;
     background:#fff;
     border:1px dashed #ddd;
     border-radius:20px;
-    padding:50px 25px;
+    padding:60px 25px;
     text-align:center;
     color:#777;
 }
 
 
-/* =========================
+/* =========================================================
+   CUSTOMER FAVORITES
+========================================================= */
+
+.favorites{
+    background:#fff;
+}
+
+.favorite-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+}
+
+.favorite-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.favorite-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 38px rgba(0,0,0,.12);
+}
+
+.favorite-image{
+    height:250px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#eee;
+}
+
+.favorite-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.35s;
+}
+
+.favorite-image:hover img{
+    transform:scale(1.05);
+}
+
+.favorite-info{
+    padding:18px;
+    text-align:center;
+}
+
+.favorite-info h3{
+    font-size:19px;
+    line-height:1.25;
+}
+
+
+/* =========================================================
    FEATURE
-========================= */
+========================================================= */
 
 .feature{
     background:#181818;
@@ -568,9 +614,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    ORDER
-========================= */
+========================================================= */
 
 .order-section{
     background:#fff;
@@ -608,6 +654,7 @@ button{
     background:#fff0e8;
     padding:12px;
     overflow:hidden;
+    font-size:26px;
 }
 
 .order-icon img{
@@ -639,9 +686,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    HOURS
-========================= */
+========================================================= */
 
 .hours{
     background:#fff7e6;
@@ -677,9 +724,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact{
     background:#b42318;
@@ -718,9 +765,9 @@ button{
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
     background:#111;
@@ -754,15 +801,15 @@ footer{
 }
 
 
-/* =========================
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 .lightbox{
     position:fixed;
     inset:0;
     z-index:9999;
-    background:rgba(0,0,0,.92);
+    background:rgba(0,0,0,.94);
     display:none;
     align-items:center;
     justify-content:center;
@@ -818,9 +865,9 @@ footer{
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -829,6 +876,10 @@ footer{
     }
 
     .dish-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .favorite-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -847,7 +898,8 @@ footer{
     }
 }
 
-@media(max-width:800px){
+
+@media(max-width:700px){
 
     .nav-inner{
         padding:10px 16px;
@@ -859,11 +911,7 @@ footer{
     }
 
     .nav-right{
-        gap:10px;
-    }
-
-    .nav-links{
-        display:none;
+        gap:8px;
     }
 
     .language-switcher button{
@@ -901,6 +949,7 @@ footer{
     }
 }
 
+
 @media(max-width:600px){
 
     .category-grid{
@@ -908,6 +957,10 @@ footer{
     }
 
     .dish-grid{
+        grid-template-columns:1fr;
+    }
+
+    .favorite-grid{
         grid-template-columns:1fr;
     }
 
@@ -921,6 +974,10 @@ footer{
 
     .dish-image{
         height:260px;
+    }
+
+    .favorite-image{
+        height:280px;
     }
 
     .hours-box{
@@ -957,9 +1014,9 @@ footer{
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      NAVIGATION
-========================= -->
+========================================================= -->
 
 <header class="navbar">
 
@@ -971,65 +1028,15 @@ footer{
             aria-label="Tony's Kitchen"
             onclick="goHome(event)"
         >
-
             <img
                 src="Logo-Ex.png"
                 alt="Tony's Kitchen"
                 class="logo-image"
             >
-
         </a>
 
 
         <div class="nav-right">
-
-            <nav class="nav-links">
-
-                <a
-                    href="#home"
-                    data-en="Home"
-                    data-th="หน้าแรก"
-                    onclick="goHome(event)"
-                >
-                    Home
-                </a>
-
-                <a
-                    href="#menu"
-                    data-en="Menu"
-                    data-th="เมนู"
-                    onclick="openCategoryHome(event)"
-                >
-                    Menu
-                </a>
-
-                <a
-                    href="#about"
-                    data-en="About"
-                    data-th="เกี่ยวกับเรา"
-                >
-                    About
-                </a>
-
-                <a
-                    href="#order"
-                    data-en="Order"
-                    data-th="สั่งอาหาร"
-                >
-                    Order
-                </a>
-
-                <a
-                    href="#contact"
-                    class="nav-button"
-                    data-en="Contact"
-                    data-th="ติดต่อเรา"
-                >
-                    Contact
-                </a>
-
-            </nav>
-
 
             <div class="language-switcher">
 
@@ -1059,16 +1066,19 @@ footer{
 </header>
 
 
-<!-- =========================
+<!-- =========================================================
      HOME
-========================= -->
+========================================================= -->
 
 <main id="homePage">
 
 
     <!-- HERO -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-content">
 
@@ -1111,27 +1121,19 @@ footer{
             </p>
 
 
+            <!-- ONLY HOME BUTTON -->
+
             <div class="hero-buttons">
 
                 <button
-                    class="btn btn-primary"
                     type="button"
+                    class="btn btn-primary"
                     onclick="openCategoryHome()"
-                    data-en="Discover Our Menu"
+                    data-en="View Our Menu"
                     data-th="เชิญชมเมนูของเรา"
                 >
-                    Discover Our Menu
+                    View Our Menu
                 </button>
-
-
-                <a
-                    href="#order"
-                    class="btn btn-secondary"
-                    data-en="Order Food"
-                    data-th="สั่งอาหาร"
-                >
-                    Order Food
-                </a>
 
             </div>
 
@@ -1140,10 +1142,12 @@ footer{
     </section>
 
 
-
     <!-- ABOUT -->
 
-    <section class="about" id="about">
+    <section
+        class="about"
+        id="about"
+    >
 
         <div class="about-grid">
 
@@ -1238,12 +1242,268 @@ footer{
     </section>
 
 
+    <!-- =====================================================
+         CUSTOMER FAVORITES
+    ====================================================== -->
+
+    <section class="favorites">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <div
+                    class="eyebrow"
+                    data-en="CUSTOMER FAVORITES"
+                    data-th="เมนูยอดนิยม"
+                >
+                    CUSTOMER FAVORITES
+                </div>
+
+
+                <h2
+                    data-en="Customer Favorites"
+                    data-th="เมนูยอดนิยมของลูกค้า"
+                >
+                    Customer Favorites
+                </h2>
+
+
+                <p
+                    data-en="A few dishes our customers love."
+                    data-th="ตัวอย่างเมนูที่ลูกค้าของเราชื่นชอบ"
+                >
+                    A few dishes our customers love.
+                </p>
+
+            </div>
+
+
+            <div class="favorite-grid">
+
+
+                <!-- EXISTING 4 -->
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('Pad-Thai-shrimp.png','Pad Thai Shrimp')"
+                    >
+                        <img
+                            src="Pad-Thai-shrimp.png"
+                            alt="Pad Thai Shrimp"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Pad Thai Shrimp"
+                            data-th="ผัดไทยกุ้ง"
+                        >
+                            Pad Thai Shrimp
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('kaphrao-chicken.png','Thai Basil Chicken')"
+                    >
+                        <img
+                            src="kaphrao-chicken.png"
+                            alt="Thai Basil Chicken"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Thai Basil Chicken"
+                            data-th="ผัดกะเพราไก่"
+                        >
+                            Thai Basil Chicken
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('Chicken-fried-rice.png','Chicken Fried Rice')"
+                    >
+                        <img
+                            src="Chicken-fried-rice.png"
+                            alt="Chicken Fried Rice"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Chicken Fried Rice"
+                            data-th="ข้าวผัดไก่"
+                        >
+                            Chicken Fried Rice
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('vegetable-spring-roll.png','Vegetable Spring Rolls')"
+                    >
+                        <img
+                            src="vegetable-spring-roll.png"
+                            alt="Vegetable Spring Rolls"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Vegetable Spring Rolls"
+                            data-th="ปอเปี๊ยะทอดผัก"
+                        >
+                            Vegetable Spring Rolls
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <!-- nr1 -->
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('nr1.png','Customer Favorite 1')"
+                    >
+                        <img
+                            src="nr1.png"
+                            alt="Customer Favorite 1"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Customer Favorite"
+                            data-th="เมนูยอดนิยม"
+                        >
+                            Customer Favorite
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <!-- nr2 -->
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('nr2.png','Customer Favorite 2')"
+                    >
+                        <img
+                            src="nr2.png"
+                            alt="Customer Favorite 2"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Customer Favorite"
+                            data-th="เมนูยอดนิยม"
+                        >
+                            Customer Favorite
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <!-- nr3 -->
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('nr3.png','Customer Favorite 3')"
+                    >
+                        <img
+                            src="nr3.png"
+                            alt="Customer Favorite 3"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Customer Favorite"
+                            data-th="เมนูยอดนิยม"
+                        >
+                            Customer Favorite
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <!-- nr4 -->
+
+                <article class="favorite-card">
+
+                    <div
+                        class="favorite-image"
+                        onclick="openLightbox('nr4.png','Customer Favorite 4')"
+                    >
+                        <img
+                            src="nr4.png"
+                            alt="Customer Favorite 4"
+                            onerror="this.src='p1.png'"
+                        >
+                    </div>
+
+                    <div class="favorite-info">
+                        <h3
+                            data-en="Customer Favorite"
+                            data-th="เมนูยอดนิยม"
+                        >
+                            Customer Favorite
+                        </h3>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 </main>
 
 
-<!-- =========================
+<!-- =========================================================
      MENU AREA
-========================= -->
+========================================================= -->
 
 <section
     class="menu-section"
@@ -1251,10 +1511,10 @@ footer{
     style="display:none;"
 >
 
-    <!-- =====================
-         VIEW 1
-         CATEGORY HOME
-    ====================== -->
+
+    <!-- =====================================================
+         VIEW 1 — CATEGORY LIST
+    ====================================================== -->
 
     <div
         class="menu-view active"
@@ -1269,12 +1529,14 @@ footer{
                 onclick="goHome()"
             >
                 ←
+
                 <span
                     data-en="Back to Home"
                     data-th="กลับหน้าแรก"
                 >
                     Back to Home
                 </span>
+
             </button>
 
 
@@ -1290,18 +1552,18 @@ footer{
 
 
                 <h2
-                    data-en="Our Menu"
-                    data-th="เมนูของเรา"
+                    data-en="Menu Categories"
+                    data-th="หมวดหมู่เมนู"
                 >
-                    Our Menu
+                    Menu Categories
                 </h2>
 
 
                 <p
-                    data-en="Explore our Thai dishes by category."
-                    data-th="เลือกชมอาหารไทยของเราแยกตามหมวดหมู่"
+                    data-en="Choose a category to explore our menu."
+                    data-th="เลือกหมวดหมู่เพื่อชมเมนูอาหารของเรา"
                 >
-                    Explore our Thai dishes by category.
+                    Choose a category to explore our menu.
                 </p>
 
             </div>
@@ -1317,10 +1579,9 @@ footer{
     </div>
 
 
-    <!-- =====================
-         VIEW 2
-         CATEGORY DISHES
-    ====================== -->
+    <!-- =====================================================
+         VIEW 2 — DISHES
+    ====================================================== -->
 
     <div
         class="menu-view"
@@ -1335,12 +1596,14 @@ footer{
                 onclick="openCategoryHome()"
             >
                 ←
+
                 <span
-                    data-en="Back to Categories"
+                    data-en="Back to Menu Categories"
                     data-th="กลับไปหน้าหมวดหมู่"
                 >
-                    Back to Categories
+                    Back to Menu Categories
                 </span>
+
             </button>
 
 
@@ -1369,9 +1632,9 @@ footer{
 </section>
 
 
-<!-- =========================
-     FEATURE
-========================= -->
+<!-- =========================================================
+     FEATURED DISH
+========================================================= -->
 
 <section
     class="feature"
@@ -1410,21 +1673,25 @@ footer{
             </p>
 
 
-            <a
-                href="#order"
+            <button
+                type="button"
                 class="btn btn-primary"
-                data-en="Order Now"
-                data-th="สั่งอาหารตอนนี้"
+                onclick="openCategory('pad-kaphrao')"
+                data-en="Explore Menu"
+                data-th="ชมเมนู"
             >
-                Order Now
-            </a>
+                Explore Menu
+            </button>
 
         </div>
 
 
         <div
             class="feature-image"
-            onclick="openLightbox('kaphrao-chicken.png','Thai Basil Chicken')"
+            onclick="openLightbox(
+                'kaphrao-chicken.png',
+                'Thai Basil Chicken'
+            )"
         >
 
             <img
@@ -1439,9 +1706,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      ORDER
-========================= -->
+========================================================= -->
 
 <section
     class="order-section"
@@ -1482,6 +1749,8 @@ footer{
         <div class="order-grid">
 
 
+            <!-- PHONE -->
+
             <div class="order-card">
 
                 <div class="order-icon">
@@ -1511,6 +1780,8 @@ footer{
 
             </div>
 
+
+            <!-- LINE -->
 
             <div class="order-card">
 
@@ -1546,6 +1817,8 @@ footer{
             </div>
 
 
+            <!-- GRAB -->
+
             <div class="order-card">
 
                 <div class="order-icon">
@@ -1579,6 +1852,8 @@ footer{
 
             </div>
 
+
+            <!-- WHATSAPP -->
 
             <div class="order-card">
 
@@ -1620,9 +1895,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      HOURS
-========================= -->
+========================================================= -->
 
 <section class="hours">
 
@@ -1638,6 +1913,7 @@ footer{
                 VISIT US
             </div>
 
+
             <h2
                 data-en="Opening Hours"
                 data-th="เวลาเปิดร้าน"
@@ -1650,7 +1926,9 @@ footer{
 
         <div class="hours-box">
 
+
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Monday"
@@ -1662,10 +1940,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Tuesday"
@@ -1677,10 +1957,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Wednesday"
@@ -1692,10 +1974,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Thursday"
@@ -1707,10 +1991,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Friday"
@@ -1722,10 +2008,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Saturday"
@@ -1737,10 +2025,12 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
 
             <div class="hours-row">
+
                 <span
                     class="hours-day"
                     data-en="Sunday"
@@ -1752,6 +2042,7 @@ footer{
                 <span class="hours-time">
                     10:00 – 21:00
                 </span>
+
             </div>
 
         </div>
@@ -1761,9 +2052,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      CONTACT
-========================= -->
+========================================================= -->
 
 <section
     class="contact"
@@ -1834,9 +2125,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
@@ -1887,9 +2178,9 @@ footer{
 </footer>
 
 
-<!-- =========================
+<!-- =========================================================
      LIGHTBOX
-========================= -->
+========================================================= -->
 
 <div
     class="lightbox"
@@ -1926,9 +2217,9 @@ footer{
 
 <script>
 
-/* =====================================================
+/* =========================================================
    LANGUAGE
-===================================================== */
+========================================================= */
 
 let currentLanguage = "en";
 
@@ -1939,15 +2230,15 @@ function setLanguage(language){
 
     document.documentElement.lang = language;
 
+
     document
         .querySelectorAll("[data-en][data-th]")
         .forEach(function(el){
 
-            const text = el.getAttribute(
+            const text =
                 language === "th"
-                ? "data-th"
-                : "data-en"
-            );
+                ? el.getAttribute("data-th")
+                : el.getAttribute("data-en");
 
             if(text !== null){
                 el.textContent = text;
@@ -1985,292 +2276,389 @@ function setLanguage(language){
     );
 
 
-    /* Refresh menu text if currently inside menu */
+    renderCategoryGrid();
 
-    if(
-        document.getElementById("menu").style.display !== "none"
-    ){
-        renderCategoryGrid();
 
-        if(selectedCategoryId){
-            renderDishes(selectedCategoryId);
-        }
+    if(selectedCategoryId){
+        renderDishes(selectedCategoryId);
     }
 
 }
 
 
-/* =====================================================
-   MENU DATA
-===================================================== */
-
-/*
-   IMPORTANT:
-
-   This is the structure for the future
-   50+ real dishes.
-
-   We will replace/add the real menu items
-   from your restaurant PDF later.
-
-*/
+/* =========================================================
+   CATEGORY DATA — EXACTLY 31 CATEGORIES
+========================================================= */
 
 const categories = [
 
     {
         id:"appetizer",
-
         image:"vegetable-spring-roll.png",
-
-        en:"Appetizers",
-
+        en:"Appetizer",
         th:"อาหารเรียกน้ำย่อย",
-
-        descEn:"Crispy and delicious Thai starters to begin your meal.",
-
-        descTh:"อาหารเรียกน้ำย่อยแบบไทย ๆ สำหรับเริ่มต้นมื้ออาหาร"
+        descEn:"Delicious Thai starters to begin your meal.",
+        descTh:"อาหารเรียกน้ำย่อยสำหรับเริ่มต้นมื้ออาหาร"
     },
 
+    {
+        id:"thai-salad",
+        image:"p1.png",
+        en:"Thai salad",
+        th:"ยำไทย",
+        descEn:"Fresh Thai salads with bright flavors.",
+        descTh:"ยำไทยรสสดชื่นและจัดจ้าน"
+    },
 
     {
         id:"pad-thai",
-
         image:"Pad-Thai-shrimp.png",
-
-        en:"Pad Thai & Noodles",
-
-        th:"ผัดไทยและเมนูเส้น",
-
-        descEn:"Classic Thai noodles prepared fresh to order.",
-
-        descTh:"เมนูเส้นไทยคลาสสิก ปรุงสดใหม่ตามออเดอร์"
+        en:"Pad Thai",
+        th:"ผัดไทย",
+        descEn:"Classic Thai stir-fried rice noodles.",
+        descTh:"ผัดไทยแบบไทยคลาสสิก"
     },
 
-
     {
-        id:"rice",
-
-        image:"Chicken-fried-rice.png",
-
-        en:"Rice Dishes",
-
-        th:"เมนูข้าว",
-
-        descEn:"Fragrant Thai rice dishes cooked with bold flavors.",
-
-        descTh:"เมนูข้าวหอม ๆ ปรุงด้วยรสชาติแบบไทย"
-    },
-
-
-    {
-        id:"kaphrao",
-
-        image:"kaphrao-chicken.png",
-
-        en:"Thai Basil & Stir-Fry",
-
-        th:"ผัดกะเพราและเมนูผัด",
-
-        descEn:"Aromatic Thai stir-fried dishes made fresh.",
-
-        descTh:"อาหารผัดหอม ๆ สไตล์ไทย ปรุงสดใหม่"
-    },
-
-
-    {
-        id:"curry",
-
+        id:"pad-see-ew",
         image:"p1.png",
-
-        en:"Thai Curries",
-
-        th:"แกงไทย",
-
-        descEn:"Rich and aromatic Thai curry dishes.",
-
-        descTh:"เมนูแกงไทยรสเข้มข้นและหอมเครื่องแกง"
+        en:"Pad see ew",
+        th:"ผัดซีอิ๊ว",
+        descEn:"Wok-fried noodles with savory soy sauce.",
+        descTh:"เส้นผัดซีอิ๊วหอม ๆ"
     },
 
+    {
+        id:"yaki-soba",
+        image:"p1.png",
+        en:"Yaki Soba",
+        th:"ยากิโซบะ",
+        descEn:"Wok-fried Japanese-style noodles.",
+        descTh:"ยากิโซบะผัดกระทะร้อน"
+    },
+
+    {
+        id:"pad-kee-mao",
+        image:"p1.png",
+        en:"Pad kee mao",
+        th:"ผัดขี้เมา",
+        descEn:"Spicy Thai drunken noodles.",
+        descTh:"ผัดขี้เมารสจัดจ้าน"
+    },
+
+    {
+        id:"stir-fried-macaroni",
+        image:"p1.png",
+        en:"Stir fried macaroni",
+        th:"มักกะโรนีผัด",
+        descEn:"Thai-style stir-fried macaroni.",
+        descTh:"มักกะโรนีผัดแบบไทย"
+    },
+
+    {
+        id:"suki-yaki",
+        image:"p1.png",
+        en:"Suki yaki",
+        th:"สุกี้ยากี้",
+        descEn:"Thai-style sukiyaki with fresh ingredients.",
+        descTh:"สุกี้ยากี้สไตล์ไทย"
+    },
+
+    {
+        id:"thai-fried-rice",
+        image:"Chicken-fried-rice.png",
+        en:"Thai fried rice",
+        th:"ข้าวผัดไทย",
+        descEn:"Fragrant Thai-style fried rice.",
+        descTh:"ข้าวผัดสไตล์ไทยหอม ๆ"
+    },
+
+    {
+        id:"traditional-fried-rice",
+        image:"Chicken-fried-rice.png",
+        en:"Traditional fried rice",
+        th:"ข้าวผัดสูตรดั้งเดิม",
+        descEn:"Classic traditional fried rice.",
+        descTh:"ข้าวผัดสูตรดั้งเดิม"
+    },
+
+    {
+        id:"tom-yum-fried-rice",
+        image:"p1.png",
+        en:"Tom Yum fried rice",
+        th:"ข้าวผัดต้มยำ",
+        descEn:"Fried rice with aromatic Tom Yum flavors.",
+        descTh:"ข้าวผัดหอมเครื่องต้มยำ"
+    },
+
+    {
+        id:"pad-kaphrao",
+        image:"kaphrao-chicken.png",
+        en:"Pad kaphrao",
+        th:"ผัดกะเพรา",
+        descEn:"Aromatic Thai holy basil stir-fry.",
+        descTh:"ผัดกะเพราหอม ๆ"
+    },
+
+    {
+        id:"pad-holapa",
+        image:"p1.png",
+        en:"Pad Holapa",
+        th:"ผัดโหระพา",
+        descEn:"Fragrant Thai basil stir-fried dishes.",
+        descTh:"เมนูผัดใบโหระพาหอม ๆ"
+    },
+
+    {
+        id:"garlic-pepper",
+        image:"p1.png",
+        en:"Garlic & Pepper stir fried",
+        th:"ผัดกระเทียมพริกไทย",
+        descEn:"Savory stir-fried dishes with garlic and pepper.",
+        descTh:"เมนูผัดกระเทียมพริกไทย"
+    },
+
+    {
+        id:"cashew-nut",
+        image:"p1.png",
+        en:"Cashew nut stir fried",
+        th:"ผัดเม็ดมะม่วงหิมพานต์",
+        descEn:"Stir-fried dishes with roasted cashew nuts.",
+        descTh:"เมนูผัดเม็ดมะม่วงหิมพานต์"
+    },
+
+    {
+        id:"chili-salt",
+        image:"p1.png",
+        en:"Chili & Salt stir fried",
+        th:"ผัดพริกเกลือ",
+        descEn:"Savory stir-fried dishes with chili and salt.",
+        descTh:"เมนูผัดพริกเกลือ"
+    },
+
+    {
+        id:"green-curry-stir-fried",
+        image:"p1.png",
+        en:"Green curry stir fried",
+        th:"ผัดแกงเขียวหวาน",
+        descEn:"Stir-fried dishes inspired by green curry.",
+        descTh:"เมนูผัดรสแกงเขียวหวาน"
+    },
+
+    {
+        id:"red-curry-stir-fried",
+        image:"p1.png",
+        en:"Red curry stir fried",
+        th:"ผัดแกงแดง",
+        descEn:"Stir-fried dishes with red curry flavors.",
+        descTh:"เมนูผัดรสแกงแดง"
+    },
+
+    {
+        id:"panang-curry-stir-fried",
+        image:"p1.png",
+        en:"Panang curry stir fried",
+        th:"ผัดพะแนง",
+        descEn:"Stir-fried dishes with rich Panang curry flavors.",
+        descTh:"เมนูผัดรสพะแนงเข้มข้น"
+    },
+
+    {
+        id:"bell-pepper",
+        image:"p1.png",
+        en:"Bell pepper stir fried",
+        th:"ผัดพริกหวาน",
+        descEn:"Colorful stir-fried dishes with bell peppers.",
+        descTh:"เมนูผัดพริกหวาน"
+    },
+
+    {
+        id:"ginger",
+        image:"p1.png",
+        en:"Ginger stir fried",
+        th:"ผัดขิง",
+        descEn:"Fragrant stir-fried dishes with fresh ginger.",
+        descTh:"เมนูผัดขิงหอม ๆ"
+    },
+
+    {
+        id:"chilli-jam",
+        image:"p1.png",
+        en:"Chilli Jam stir fried",
+        th:"ผัดน้ำพริกเผา",
+        descEn:"Stir-fried dishes with Thai chili jam.",
+        descTh:"เมนูผัดน้ำพริกเผา"
+    },
+
+    {
+        id:"thai-omelet",
+        image:"p1.png",
+        en:"Thai omelet",
+        th:"ไข่เจียว",
+        descEn:"Crispy and fluffy Thai-style omelet.",
+        descTh:"ไข่เจียวสไตล์ไทย"
+    },
+
+    {
+        id:"thai-rice-soup",
+        image:"p1.png",
+        en:"Thai rice soup",
+        th:"ข้าวต้ม",
+        descEn:"Comforting Thai-style rice soup.",
+        descTh:"ข้าวต้มร้อน ๆ สไตล์ไทย"
+    },
+
+    {
+        id:"bean-sprouts",
+        image:"p1.png",
+        en:"Bean spouts stir fried",
+        th:"ผัดถั่วงอก",
+        descEn:"Fresh bean sprouts stir-fried Thai-style.",
+        descTh:"ถั่วงอกผัดแบบไทย"
+    },
+
+    {
+        id:"chinese-kale",
+        image:"p1.png",
+        en:"Chinese kale stir fried",
+        th:"ผัดคะน้า",
+        descEn:"Fresh Chinese kale stir-fried to order.",
+        descTh:"ผัดคะน้าปรุงสดใหม่"
+    },
+
+    {
+        id:"morning-glory",
+        image:"p1.png",
+        en:"Morning glory stir fried",
+        th:"ผัดผักบุ้ง",
+        descEn:"Classic Thai stir-fried morning glory.",
+        descTh:"ผัดผักบุ้งแบบไทย"
+    },
+
+    {
+        id:"cabbage",
+        image:"p1.png",
+        en:"Cabbage stir fried",
+        th:"ผัดกะหล่ำปลี",
+        descEn:"Fresh cabbage stir-fried Thai-style.",
+        descTh:"ผัดกะหล่ำปลีแบบไทย"
+    },
+
+    {
+        id:"mix-vegetable",
+        image:"p1.png",
+        en:"Mix vegetable stir fried",
+        th:"ผัดผักรวม",
+        descEn:"Colorful mixed vegetables stir-fried fresh.",
+        descTh:"ผัดผักรวมสดใหม่"
+    },
 
     {
         id:"soup",
-
         image:"p1.png",
-
-        en:"Soups",
-
-        th:"ซุปและต้ม",
-
-        descEn:"Comforting Thai soups and traditional favorites.",
-
-        descTh:"เมนูซุปและต้มแบบไทย ๆ"
+        en:"Soup",
+        th:"ซุป",
+        descEn:"Comforting soups and traditional Thai favorites.",
+        descTh:"ซุปและเมนูต้มแบบไทย"
     },
-
-
-    {
-        id:"salad",
-
-        image:"p1.png",
-
-        en:"Thai Salads",
-
-        th:"ยำและสลัดไทย",
-
-        descEn:"Fresh Thai salads with bright and balanced flavors.",
-
-        descTh:"ยำและสลัดไทยรสสดชื่นและกลมกล่อม"
-    },
-
-
-    {
-        id:"vegetables",
-
-        image:"p1.png",
-
-        en:"Vegetables",
-
-        th:"เมนูผัก",
-
-        descEn:"Fresh vegetable dishes prepared Thai-style.",
-
-        descTh:"เมนูผักสดปรุงแบบไทย"
-    },
-
 
     {
         id:"drinks",
-
         image:"p1.png",
-
         en:"Drinks",
-
         th:"เครื่องดื่ม",
-
         descEn:"Refreshing drinks to enjoy with your meal.",
-
         descTh:"เครื่องดื่มสดชื่นสำหรับทานคู่กับอาหาร"
-    },
-
-
-    {
-        id:"desserts",
-
-        image:"p1.png",
-
-        en:"Desserts",
-
-        th:"ของหวาน",
-
-        descEn:"Sweet Thai treats to finish your meal.",
-
-        descTh:"ของหวานไทยสำหรับปิดท้ายมื้ออาหาร"
     }
 
 ];
 
 
-/* =====================================================
-   REAL DISHES CURRENTLY AVAILABLE
-===================================================== */
-
-/*
-   Only dishes that already exist in the
-   current website are included here.
-
-   We will add the remaining real dishes
-   from your PDF later.
-*/
+/* =========================================================
+   DISH DATA
+   CURRENT REAL DISHES
+========================================================= */
 
 const dishes = [
 
     {
         id:"pad-thai-shrimp",
-
         category:"pad-thai",
-
         image:"Pad-Thai-shrimp.png",
-
         en:"Pad Thai Shrimp",
-
         th:"ผัดไทยกุ้ง",
-
         price:"฿169",
-
         descEn:"Classic Thai stir-fried rice noodles with shrimp and traditional flavors.",
-
         descTh:"ผัดไทยเส้นข้าวแบบคลาสสิก ผัดกับกุ้งและเครื่องปรุงแบบไทย"
     },
 
-
     {
         id:"thai-basil-chicken",
-
-        category:"kaphrao",
-
+        category:"pad-kaphrao",
         image:"kaphrao-chicken.png",
-
         en:"Thai Basil Chicken",
-
         th:"ผัดกะเพราไก่",
-
         price:"฿89",
-
         descEn:"Thai holy basil chicken stir-fried with aromatic chili and basil.",
-
         descTh:"ผัดกะเพราไก่หอม ๆ พร้อมพริกและใบกะเพรา"
     },
 
-
     {
         id:"chicken-fried-rice",
-
-        category:"rice",
-
+        category:"thai-fried-rice",
         image:"Chicken-fried-rice.png",
-
         en:"Chicken Fried Rice",
-
         th:"ข้าวผัดไก่",
-
         price:"฿89",
-
         descEn:"Fragrant wok-fried rice with chicken and classic Thai seasoning.",
-
         descTh:"ข้าวผัดไก่หอม ๆ ผัดในกระทะด้วยเครื่องปรุงแบบไทย"
     },
 
-
     {
         id:"spring-rolls",
-
         category:"appetizer",
-
         image:"vegetable-spring-roll.png",
-
         en:"Vegetable Spring Rolls",
-
         th:"ปอเปี๊ยะทอดผัก",
-
         price:"฿89",
-
         descEn:"Crispy spring rolls filled with seasoned vegetables.",
-
         descTh:"ปอเปี๊ยะทอดกรอบไส้ผักปรุงรส"
     }
 
 ];
 
 
-/* =====================================================
+/* =========================================================
    MENU STATE
-===================================================== */
+========================================================= */
 
 let selectedCategoryId = null;
 
 
-/* =====================================================
+/* =========================================================
+   SAFE HTML HELPERS
+========================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+    return escapeHtml(value);
+}
+
+
+/* =========================================================
    OPEN CATEGORY HOME
-===================================================== */
+========================================================= */
 
 function openCategoryHome(event){
 
@@ -2300,8 +2688,10 @@ function openCategoryHome(event){
 
     showMenuView("categoryHomeView");
 
-
     renderCategoryGrid();
+
+
+    selectedCategoryId = null;
 
 
     window.scrollTo({
@@ -2310,21 +2700,53 @@ function openCategoryHome(event){
     });
 
 
-    history.pushState(
-        {page:"categories"},
-        "",
-        "#menu"
-    );
+    if(
+        window.location.hash !== "#menu"
+    ){
+        history.pushState(
+            {page:"categories"},
+            "",
+            "#menu"
+        );
+    }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    OPEN CATEGORY
-===================================================== */
+========================================================= */
 
 function openCategory(categoryId){
 
+    const category =
+        categories.find(function(item){
+            return item.id === categoryId;
+        });
+
+
+    if(!category){
+        return;
+    }
+
+
     selectedCategoryId = categoryId;
+
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("signatureSection").style.display = "none";
+
+    document.querySelector(".order-section").style.display = "none";
+
+    document.querySelector(".hours").style.display = "none";
+
+    document.querySelector(".contact").style.display = "none";
+
+    document.querySelector("footer").style.display = "none";
+
+    document.getElementById("menu").style.display = "block";
+
 
     showMenuView("categoryDishesView");
 
@@ -2343,14 +2765,15 @@ function openCategory(categoryId){
             category:categoryId
         },
         "",
-        "#menu-"+categoryId
+        "#menu-" + categoryId
     );
+
 }
 
 
-/* =====================================================
+/* =========================================================
    SHOW MENU VIEW
-===================================================== */
+========================================================= */
 
 function showMenuView(viewId){
 
@@ -2366,6 +2789,7 @@ function showMenuView(viewId){
     const view =
         document.getElementById(viewId);
 
+
     if(view){
         view.classList.add("active");
     }
@@ -2373,14 +2797,15 @@ function showMenuView(viewId){
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER CATEGORY GRID
-===================================================== */
+========================================================= */
 
 function renderCategoryGrid(){
 
     const grid =
         document.getElementById("categoryGrid");
+
 
     if(!grid){
         return;
@@ -2412,9 +2837,9 @@ function renderCategoryGrid(){
                     <div class="category-image">
 
                         <img
-                            src="${category.image}"
-                            alt="${title}"
-                            onerror="this.src='p1.png'"
+                            src="${escapeAttr(category.image)}"
+                            alt="${escapeAttr(title)}"
+                            onerror="this.onerror=null;this.src='p1.png';"
                         >
 
                     </div>
@@ -2423,11 +2848,11 @@ function renderCategoryGrid(){
                     <div class="category-info">
 
                         <h3>
-                            ${title}
+                            ${escapeHtml(title)}
                         </h3>
 
                         <p>
-                            ${description}
+                            ${escapeHtml(description)}
                         </p>
 
                     </div>
@@ -2441,17 +2866,15 @@ function renderCategoryGrid(){
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER DISHES
-===================================================== */
+========================================================= */
 
 function renderDishes(categoryId){
 
     const category =
         categories.find(function(item){
-
             return item.id === categoryId;
-
         });
 
 
@@ -2512,8 +2935,8 @@ function renderDishes(categoryId){
 
                     ${
                         currentLanguage === "th"
-                        ? "เราจะเพิ่มรายการอาหารจริงจากเมนูของร้านในขั้นตอนถัดไป"
-                        : "The real dishes from Tony's Kitchen menu will be added here next."
+                        ? "รายการอาหารจริงจากเมนูของร้านจะถูกเพิ่มในขั้นตอนถัดไป"
+                        : "The real dishes from Tony's Kitchen menu will be added here."
                     }
 
                 </p>
@@ -2546,7 +2969,7 @@ function renderDishes(categoryId){
                 <article
                     class="dish-card"
                     onclick="openLightbox(
-                        '${dish.image}',
+                        '${escapeAttr(dish.image)}',
                         '${escapeJs(name)}'
                     )"
                 >
@@ -2554,9 +2977,9 @@ function renderDishes(categoryId){
                     <div class="dish-image">
 
                         <img
-                            src="${dish.image}"
+                            src="${escapeAttr(dish.image)}"
                             alt="${escapeAttr(name)}"
-                            onerror="this.src='p1.png'"
+                            onerror="this.onerror=null;this.src='p1.png';"
                         >
 
                     </div>
@@ -2573,7 +2996,7 @@ function renderDishes(categoryId){
                         </p>
 
                         <div class="dish-price">
-                            ${dish.price}
+                            ${escapeHtml(dish.price)}
                         </div>
 
                     </div>
@@ -2587,9 +3010,25 @@ function renderDishes(categoryId){
 }
 
 
-/* =====================================================
-   HOME
-===================================================== */
+/* =========================================================
+   ESCAPE JAVASCRIPT STRING
+========================================================= */
+
+function escapeJs(value){
+
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'\\"')
+        .replace(/\r/g,"\\r")
+        .replace(/\n/g,"\\n");
+
+}
+
+
+/* =========================================================
+   GO HOME
+========================================================= */
 
 function goHome(event){
 
@@ -2623,17 +3062,24 @@ function goHome(event){
     });
 
 
-    history.pushState(
-        {page:"home"},
-        "",
-        "#home"
-    );
+    if(
+        window.location.hash !== "#home"
+    ){
+
+        history.pushState(
+            {page:"home"},
+            "",
+            "#home"
+        );
+
+    }
+
 }
 
 
-/* =====================================================
-   LIGHTBOX
-===================================================== */
+/* =========================================================
+   LIGHTBOX OPEN
+========================================================= */
 
 function openLightbox(imageSrc,caption){
 
@@ -2671,11 +3117,17 @@ function openLightbox(imageSrc,caption){
         "false"
     );
 
+
     document.body.classList.add(
         "no-scroll"
     );
+
 }
 
+
+/* =========================================================
+   LIGHTBOX CLOSE
+========================================================= */
 
 function closeLightbox(event){
 
@@ -2721,9 +3173,9 @@ function closeLightbox(event){
 }
 
 
-/* =====================================================
-   ESCAPE LIGHTBOX
-===================================================== */
+/* =========================================================
+   ESCAPE KEY CLOSES LIGHTBOX
+========================================================= */
 
 document.addEventListener(
     "keydown",
@@ -2744,9 +3196,9 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   BACK BUTTON
-===================================================== */
+/* =========================================================
+   BROWSER BACK BUTTON
+========================================================= */
 
 window.addEventListener(
     "popstate",
@@ -2764,6 +3216,7 @@ window.addEventListener(
             openCategoryHome();
 
         }
+
         else if(
             hash.startsWith("#menu-")
         ){
@@ -2774,6 +3227,7 @@ window.addEventListener(
             openCategory(categoryId);
 
         }
+
         else{
 
             goHome();
@@ -2784,9 +3238,9 @@ window.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    INITIALIZE
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -2798,24 +3252,49 @@ document.addEventListener(
             );
 
 
-        setLanguage(
+        currentLanguage =
             saved === "th"
             ? "th"
-            : "en"
+            : "en";
+
+
+        setLanguage(
+            currentLanguage
         );
 
 
-        renderCategoryGrid();
-
-
         /*
-           Default website language:
-           ENGLISH
+            IMPORTANT:
+            English is the default language.
         */
 
-        if(!saved){
 
-            setLanguage("en");
+        const hash =
+            window.location.hash;
+
+
+        if(
+            hash === "#menu"
+        ){
+
+            openCategoryHome();
+
+        }
+
+        else if(
+            hash.startsWith("#menu-")
+        ){
+
+            const categoryId =
+                hash.replace("#menu-","");
+
+            openCategory(categoryId);
+
+        }
+
+        else{
+
+            goHome();
 
         }
 
