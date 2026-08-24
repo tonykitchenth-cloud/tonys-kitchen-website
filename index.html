@@ -2563,14 +2563,27 @@ function renderCategoryTypes(c){
   grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3></div></article>`;}).join("");return;
  }
  const types=categoryTypes[c.id]||[];
- grid.innerHTML=types.map(t=>{const title=currentLanguage==="th"?t.th:t.en,sub=currentLanguage==="th"?t.en:t.th;return `<article class="type-card" onclick="openCategoryType('${escapeJs(t.id)}')"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(sub)}</p><div class="type-card-action">${currentLanguage==="th"?"ดูรายการอาหาร":"View dishes"} →</div></div></article>`;}).join("");
+ grid.innerHTML=types.map(t=>{const title=currentLanguage==="th"?t.th:t.en,sub=currentLanguage==="th"?t.en:t.th;return `<article class="type-card" onclick="openCategoryType('${escapeJs(t.id)}')"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(sub)}</p><div class="type-card-action">${currentLanguage==="th"?"ขยายรูป":"View photo"} →</div></div></article>`;}).join("");
 }
 
 function openCategoryType(typeId){
- const t=(categoryTypes[selectedCategoryId]||[]).find(x=>x.id===typeId);if(!t)return;selectedTypeId=typeId;showMenuView("categoryDishesView");
- const list=dishes.filter(d=>typeof t.filter==="function"?t.filter(d):t.groups&&t.groups.includes(d.category));
- renderDishList(t.en,t.th,list);window.scrollTo({top:0,behavior:"smooth"});
- history.pushState({page:"type",category:selectedCategoryId,type:typeId},"","#menu-"+selectedCategoryId+"-"+typeId);
+ const t=(categoryTypes[selectedCategoryId]||[]).find(x=>x.id===typeId);
+ if(!t)return;
+
+ selectedTypeId=typeId;
+
+ /*
+    Food types are now VIEW-ONLY preview cards.
+    Clicking a food type opens its representative image
+    directly in the existing Lightbox.
+
+    IMPORTANT:
+    - Do NOT open categoryDishesView here.
+    - Do NOT push a new browser-history level.
+    - Appetizer keeps its existing dish-list behavior.
+ */
+ const title=currentLanguage==="th"?t.th:t.en;
+ openLightbox(t.image,title);
 }
 
 function renderDishList(en,th,list){
