@@ -1850,11 +1850,25 @@ function setLanguage(language) {
         menu.style.display !== "none"
     ) {
 
-        renderCategoryList();
-
-
-        if (selectedCategoryId) {
-
+        if (selectedTypeId && selectedCategoryId) {
+            const currentType =
+                (categoryTypes[selectedCategoryId] || [])
+                    .find(function(type) { return type.id === selectedTypeId; });
+            if (currentType) {
+                const currentList = dishes.filter(function(dish) {
+                    return typeof currentType.filter === "function"
+                        ? currentType.filter(dish)
+                        : currentType.groups && currentType.groups.includes(dish.category);
+                });
+                renderDishList(currentType.en, currentType.th, currentList);
+            }
+        } else if (selectedCategoryId) {
+            const currentCategory = categories.find(function(category) {
+                return category.id === selectedCategoryId;
+            });
+            if (currentCategory) renderCategoryTypes(currentCategory);
+        } else {
+            renderCategoryList();
         }
 
     }
@@ -2514,13 +2528,11 @@ const dishes = [
 ========================================================= */
 
 let selectedCategoryId = null;
-
+let selectedTypeId = null;
 
 /* =========================================================
    CATEGORY NAVIGATION
 ========================================================= */
-let selectedCategoryId = null;
-let selectedTypeId = null;
 
 function openCategory(categoryId){
  selectedCategoryId=categoryId; selectedTypeId=null;
