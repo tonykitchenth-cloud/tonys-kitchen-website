@@ -1774,107 +1774,36 @@ footer {
 <script>
 
 /* =========================================================
-   LANGUAGE
+   REFRESH MENU AFTER LANGUAGE CHANGE
 ========================================================= */
 
-let currentLanguage = "en";
+const menu =
+    document.getElementById("menu");
 
+if (
+    menu &&
+    menu.style.display !== "none"
+) {
 
-function setLanguage(language) {
+    /*
+       If customer is looking at a specific
+       food category, refresh ONLY that page.
+       This is important for Appetizer.
+    */
 
-    currentLanguage = language;
+    if (selectedCategoryId) {
 
-    document.documentElement.lang = language;
-
-
-    document
-        .querySelectorAll("[data-en][data-th]")
-        .forEach(function(element) {
-
-            const text =
-                language === "th"
-                ? element.getAttribute("data-th")
-                : element.getAttribute("data-en");
-
-
-            if (text !== null) {
-
-                element.textContent = text;
-
-            }
-
-        });
-
-
-    const enButton =
-        document.getElementById("langEN");
-
-    const thButton =
-        document.getElementById("langTH");
-
-
-    if (enButton) {
-
-        enButton.classList.toggle(
-            "active",
-            language === "en"
+        renderDishes(
+            selectedCategoryId
         );
 
-    }
+    } else {
 
-
-    if (thButton) {
-
-        thButton.classList.toggle(
-            "active",
-            language === "th"
-        );
-
-    }
-
-
-    localStorage.setItem(
-        "tonysKitchenLanguage",
-        language
-    );
-
-
-    /* Refresh menu if currently open */
-
-    const menu =
-        document.getElementById("menu");
-
-
-    if (
-        menu &&
-        menu.style.display !== "none"
-    ) {
-
-        if (selectedTypeId && selectedCategoryId) {
-            const currentType =
-                (categoryTypes[selectedCategoryId] || [])
-                    .find(function(type) { return type.id === selectedTypeId; });
-            if (currentType) {
-                const currentList = dishes.filter(function(dish) {
-                    return typeof currentType.filter === "function"
-                        ? currentType.filter(dish)
-                        : currentType.groups && currentType.groups.includes(dish.category);
-                });
-                renderDishList(currentType.en, currentType.th, currentList);
-            }
-        } else if (selectedCategoryId) {
-            const currentCategory = categories.find(function(category) {
-                return category.id === selectedCategoryId;
-            });
-            if (currentCategory) renderCategoryTypes(currentCategory);
-        } else {
-            renderCategoryList();
-        }
+        renderCategoryGrid();
 
     }
 
 }
-
 
 /* =========================================================
    CATEGORY DATA
