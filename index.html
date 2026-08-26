@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1781,30 +1782,25 @@ let currentLanguage = "en";
 
 
 function setLanguage(language) {
-
-    if (language !== "en" && language !== "th") {
-        return;
-    }
+    if (language !== "en" && language !== "th") return;
 
     currentLanguage = language;
     document.documentElement.lang = language;
 
-    /*
-       Update every static element that carries both translations.
-    */
-    document.querySelectorAll("[data-en][data-th]").forEach(function(element) {
-        const text = language === "th"
+    try {
+        localStorage.setItem("tonysKitchenLanguage", language);
+    } catch (e) {}
+
+    /* Static HTML text */
+    document.querySelectorAll("[data-en][data-th]").forEach(function (element) {
+        const value = language === "th"
             ? element.getAttribute("data-th")
             : element.getAttribute("data-en");
 
-        if (text !== null) {
-            element.textContent = text;
-        }
+        if (value !== null) element.textContent = value;
     });
 
-    /*
-       Update the language buttons.
-    */
+    /* Language buttons */
     const enButton = document.getElementById("langEN");
     const thButton = document.getElementById("langTH");
 
@@ -1818,73 +1814,50 @@ function setLanguage(language) {
         thButton.setAttribute("aria-pressed", language === "th" ? "true" : "false");
     }
 
-    try {
-        localStorage.setItem("tonysKitchenLanguage", language);
-    } catch (error) {
-        /* Ignore storage errors; language switching must still work. */
-    }
-
     /*
-       IMPORTANT:
-       The menu is rendered dynamically. Therefore changing only
-       data-en/data-th is not enough. We must render the currently
-       visible menu page again.
-
-       Page hierarchy:
-       1. Category list
-       2. Food-type list
-       3. Dish list
-       4. Lightbox
+      IMPORTANT:
+      The menu pages are generated dynamically. Therefore changing only
+      [data-en][data-th] is not enough. Re-render the page that is currently
+      visible, without changing navigation state or any other website feature.
     */
     const menu = document.getElementById("menu");
 
     if (menu && menu.style.display !== "none") {
 
-        /*
-           PAGE 3: Dish list
-           This covers both normal food types and Appetizer's
-           direct-dishes page.
-        */
-        if (selectedCategoryId) {
+        /* 1. Final dish page */
+        if (selectedTypeId && selectedCategoryId) {
+            const typeList = categoryTypes[selectedCategoryId] || [];
+            const currentType = typeList.find(function (type) {
+                return type.id === selectedTypeId;
+            });
 
-            const currentCategory = categories.find(function(category) {
+            if (currentType) {
+                const currentList = dishes.filter(function (dish) {
+                    return typeof currentType.filter === "function"
+                        ? currentType.filter(dish)
+                        : currentType.groups &&
+                          currentType.groups.includes(dish.category);
+                });
+
+                renderDishList(
+                    currentType.en,
+                    currentType.th,
+                    currentList
+                );
+            }
+        }
+
+        /* 2. Category page / direct Appetizer page */
+        else if (selectedCategoryId) {
+            const currentCategory = categories.find(function (category) {
                 return category.id === selectedCategoryId;
             });
 
             if (currentCategory) {
-
-                if (selectedTypeId) {
-
-                    const currentType =
-                        (categoryTypes[selectedCategoryId] || [])
-                            .find(function(type) {
-                                return type.id === selectedTypeId;
-                            });
-
-                    if (currentType) {
-
-                        const currentList = dishes.filter(function(dish) {
-                            return typeof currentType.filter === "function"
-                                ? currentType.filter(dish)
-                                : currentType.groups &&
-                                  currentType.groups.includes(dish.category);
-                        });
-
-                        renderDishList(
-                            currentType.en,
-                            currentType.th,
-                            currentList
-                        );
-                    }
-
-                } else if (currentCategory.directDishes) {
-
-                    /*
-                       Appetizer has no intermediate type page.
-                       It goes directly from category to the dish list.
-                       This was the missing case in the previous version.
-                    */
-                    const currentList = dishes.filter(function(dish) {
+                if (currentCategory.directDishes) {
+                    /* Direct category pages (e.g. Appetizer) use the same
+                       dish renderer as the final menu page. */
+                    const currentList = dishes.filter(function (dish) {
                         return currentCategory.groups &&
                                currentCategory.groups.includes(dish.category);
                     });
@@ -1894,51 +1867,78 @@ function setLanguage(language) {
                         currentCategory.th,
                         currentList
                     );
-
                 } else {
-
-                    /*
-                       PAGE 2: Food-type list
-                    */
                     renderCategoryTypes(currentCategory);
                 }
             }
+        }
 
-        } else {
-
-            /*
-               PAGE 1: Category list
-            */
+        /* 3. Main category page */
+        else {
             renderCategoryList();
         }
     }
 
     /*
-       If the lightbox is currently open, update its caption too.
-       The image itself remains unchanged.
+      If a Lightbox is open, update its caption too.
+      This does not alter the image, navigation, or Lightbox behavior.
     */
     const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCaption = document.getElementById("lightboxCaption");
 
     if (
         lightbox &&
-        lightbox.classList.contains("show") &&
-        lightboxCaption
+        lightboxImage &&
+        lightbox.classList.contains("active")
     ) {
-        const imageSrc =
-            document.getElementById("lightboxImage")?.getAttribute("src");
+        const imageSrc = lightboxImage.getAttribute("src") || "";
+        let caption = "";
 
-        if (imageSrc) {
-            const currentDish = dishes.find(function(dish) {
-                return dish.image === imageSrc;
+        /* Real dish */
+        const dish = dishes.find(function (item) {
+            return item.image === imageSrc;
+        });
+
+        if (dish) {
+            caption = language === "th" ? dish.th : dish.en;
+        }
+
+        /* Food type */
+        if (!caption && typeof categoryTypes !== "undefined") {
+            Object.values(categoryTypes).some(function (typeList) {
+                const type = typeList.find(function (item) {
+                    return item.image === imageSrc;
+                });
+
+                if (type) {
+                    caption = language === "th" ? type.th : type.en;
+                    return true;
+                }
+
+                return false;
             });
+        }
 
-            if (currentDish) {
-                lightboxCaption.textContent =
-                    language === "th"
-                        ? currentDish.th
-                        : currentDish.en;
-            }
+        /* Drinks / Dessert overview */
+        if (!caption && typeof categoryOverview !== "undefined") {
+            Object.values(categoryOverview).some(function (itemList) {
+                const item = itemList.find(function (entry) {
+                    return entry.image === imageSrc;
+                });
+
+                if (item) {
+                    caption = language === "th" ? item.th : item.en;
+                    return true;
+                }
+
+                return false;
+            });
+        }
+
+        if (caption) {
+            if (lightboxCaption) lightboxCaption.textContent = caption;
+            lightboxImage.alt = caption;
         }
     }
 }
@@ -1964,7 +1964,7 @@ const categories = [
 const categoryTypes={
 "thai-salad":[
 {id:"glass-noodle-salad",image:"ts1.png",en:"Glass Noodle Salad",th:"ยำวุ้นเส้น",filter:d=>/^thai-salad-[1-7]$/.test(d.id)},
-{id:"instant-noodle-salad",image:"ts10.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
+{id:"instant-noodle-salad",image:"ts8.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
 {id:"larb",image:"ts15.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
 {id:"tuna-thai-salad",image:"ts21.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
 "fried-rice":[
@@ -2631,7 +2631,29 @@ function renderCategoryTypes(c){
   grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3></div></article>`;}).join("");return;
  }
  const types=categoryTypes[c.id]||[];
- grid.innerHTML=types.map(t=>{const title=currentLanguage==="th"?t.th:t.en,sub=currentLanguage==="th"?t.en:t.th;return `<article class="type-card" onclick="openCategoryType('${escapeJs(t.id)}')"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(sub)}</p><div class="type-card-action">${currentLanguage==="th"?"ดูรายการอาหาร":"View dishes"} →</div></div></article>`;}).join("");
+ grid.innerHTML=types.map(t=>{
+   const title=currentLanguage==="th"?t.th:t.en;
+   const sub=currentLanguage==="th"?t.en:t.th;
+   const typeImage=t.image || "p1.png";
+   return `<article class="type-card">
+     <div class="type-image" role="button" tabindex="0"
+       aria-label="${escapeAttr(currentLanguage==="th"?"ขยายรูป "+title:"Enlarge "+title)}"
+       onclick="event.stopPropagation();openLightbox('${escapeJs(typeImage)}','${escapeJs(title)}')"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(typeImage)}','${escapeJs(title)}')}">
+       <img src="${escapeAttr(typeImage)}" alt="${escapeAttr(title)}"
+         onerror="this.onerror=null;this.src='p1.png';">
+     </div>
+     <div class="type-card-content">
+       <h3>${escapeHtml(title)}</h3>
+       <p>${escapeHtml(sub)}</p>
+       <div class="type-card-action" role="button" tabindex="0"
+         onclick="event.stopPropagation();openCategoryType('${escapeJs(t.id)}')"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openCategoryType('${escapeJs(t.id)}')}">
+         ${currentLanguage==="th"?"ดูรายการอาหาร":"View dishes"} →
+       </div>
+     </div>
+   </article>`;
+ }).join("");
 }
 
 function openCategoryType(typeId){
@@ -2646,7 +2668,23 @@ function renderDishList(en,th,list){
  document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
  const grid=document.getElementById("dishGrid");
  if(!list.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3><p style="margin-top:8px;">${currentLanguage==="th"?"เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป":"More real dishes from Tony's Kitchen will be added to this category."}</p></div>`;return;}
- grid.innerHTML=list.map(d=>{const name=currentLanguage==="th"?d.th:d.en,desc=currentLanguage==="th"?d.descTh:d.descEn;return `<article class="dish-card" onclick="openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')"><div class="dish-image"><img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;}).join("");
+ grid.innerHTML=list.map(d=>{
+  const name=currentLanguage==="th"?d.th:d.en;
+  const desc=currentLanguage==="th"?d.descTh:d.descEn;
+  return `<article class="dish-card">
+    <div class="dish-image" role="button" tabindex="0"
+      aria-label="${escapeAttr(currentLanguage==="th"?"ขยายรูป "+name:"Enlarge "+name)}"
+      onclick="event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')}">
+      <img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}"
+        onerror="this.onerror=null;this.src='p1.png';">
+    </div>
+    <div class="dish-info">
+      <h3>${escapeHtml(name)}</h3>
+      <p>${escapeHtml(desc)}</p>
+    </div>
+  </article>`;
+}).join("");
 }
 
 function openOverviewItem(cat,i){const x=(categoryOverview[cat]||[])[i];if(!x)return;openLightbox(x.image,currentLanguage==="th"?x.th:x.en);}
