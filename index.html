@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -551,82 +552,6 @@ button {
 }
 
 
-.type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1100px;margin:0 auto}.type-card{background:#fff;border:1px solid #ececec;border-radius:22px;overflow:hidden;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.06);transition:transform .25s ease,box-shadow .25s ease}.type-card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(0,0,0,.12)}.type-image{aspect-ratio:4/3;overflow:hidden;background:#eee}.type-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.type-card:hover .type-image img{transform:scale(1.05)}.type-card-content{padding:20px 20px 22px}.type-card-content h3{margin:0;font-size:22px;line-height:1.2;font-weight:900}.type-card-content p{margin:7px 0 12px;color:#777;font-size:14px}.type-card-action{color:#b42318;font-size:14px;font-weight:900}@media(max-width:900px){.type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.type-grid{grid-template-columns:1fr}}
-
-
-/* =========================================================
-   MENU CATEGORY LIST
-   Left image / Right category information
-========================================================= */
-.category-list {
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-    max-width:1050px;
-    margin:0 auto;
-}
-.category-row {
-    display:grid;
-    grid-template-columns:340px 1fr;
-    min-height:220px;
-    background:#fff;
-    border:1px solid #ececec;
-    border-radius:24px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
-    cursor:pointer;
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-.category-row:hover {
-    transform:translateY(-5px);
-    box-shadow:0 18px 42px rgba(0,0,0,.12);
-}
-.category-row-image {
-    min-height:220px;
-    background:#eee;
-    overflow:hidden;
-}
-.category-row-image img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .35s ease;
-}
-.category-row:hover .category-row-image img { transform:scale(1.05); }
-.category-row-content {
-    padding:36px 42px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-.category-row-number {
-    color:#b42318;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:2px;
-    margin-bottom:8px;
-}
-.category-row h3 {
-    font-size:clamp(30px,4vw,46px);
-    line-height:1.05;
-    letter-spacing:-.8px;
-    margin:0 0 13px;
-    font-weight:900;
-}
-.category-row p {
-    color:#666;
-    font-size:16px;
-    line-height:1.7;
-    max-width:650px;
-    margin:0 0 18px;
-}
-.category-row-action {
-    font-size:14px;
-    font-weight:900;
-    color:#b42318;
-}
-.category-row-action::after { content:"  →"; }
-
 /* =========================================================
    DISH PAGE
 ========================================================= */
@@ -1141,15 +1066,6 @@ footer {
     }
 }
 
-@media (max-width: 800px) {
-    .category-row { grid-template-columns:280px 1fr; }
-}
-@media (max-width: 620px) {
-    .category-row { grid-template-columns:1fr; }
-    .category-row-image { height:250px; min-height:250px; }
-    .category-row-content { padding:28px 25px 30px; }
-    .category-row h3 { font-size:34px; }
-}
 </style>
 
 </head>
@@ -1498,8 +1414,8 @@ footer {
 
 
         <div
-            class="category-list"
-            id="categoryList"
+            class="category-grid"
+            id="categoryGrid"
         ></div>
 
 
@@ -1509,26 +1425,60 @@ footer {
 
 
 <!-- =====================================================
-     VIEW 2 : CATEGORY TYPES
+     VIEW 2
+     CATEGORY DISHES
 ===================================================== -->
-<div class="menu-view" id="categoryTypesView">
-  <div class="section">
-    <button type="button" class="menu-back" onclick="openCategoryHome()">← <span data-en="Back to Categories" data-th="กลับไปหน้าหมวดหมู่">Back to Categories</span></button>
-    <div class="category-title"><h2 id="selectedCategoryTitle">Menu</h2><p id="selectedCategoryDescription">Choose a food type.</p></div>
-    <div class="type-grid" id="categoryTypeGrid"></div>
-  </div>
+
+<div
+    class="menu-view"
+    id="categoryDishesView"
+>
+
+    <div class="section">
+
+
+        <button
+            type="button"
+            class="menu-back"
+            onclick="openCategoryHome()"
+        >
+
+            ←
+
+            <span
+                data-en="Back to Categories"
+                data-th="กลับไปหน้าหมวดหมู่"
+            >
+                Back to Categories
+            </span>
+
+        </button>
+
+
+        <div class="category-title">
+
+            <h2 id="selectedCategoryTitle">
+                Menu
+            </h2>
+
+
+            <p id="selectedCategoryDescription">
+                Explore our dishes.
+            </p>
+
+        </div>
+
+
+        <div
+            class="dish-grid"
+            id="dishGrid"
+        ></div>
+
+
+    </div>
+
 </div>
 
-<!-- =====================================================
-     VIEW 3 : DISHES
-===================================================== -->
-<div class="menu-view" id="categoryDishesView">
-  <div class="section">
-    <button type="button" class="menu-back" onclick="backToCategoryTypes()">← <span data-en="Back to Food Types" data-th="กลับไปหน้าประเภทอาหาร">Back to Food Types</span></button>
-    <div class="category-title"><h2 id="selectedTypeTitle">Menu</h2><p id="selectedTypeDescription">Explore our dishes.</p></div>
-    <div class="dish-grid" id="dishGrid"></div>
-  </div>
-</div>
 
 </section>
 
@@ -1774,106 +1724,388 @@ footer {
 <script>
 
 /* =========================================================
-   REFRESH MENU AFTER LANGUAGE CHANGE
+   LANGUAGE
 ========================================================= */
 
-const menu =
-    document.getElementById("menu");
+let currentLanguage = "en";
 
-if (
-    menu &&
-    menu.style.display !== "none"
-) {
 
-    /*
-       If customer is looking at a specific
-       food category, refresh ONLY that page.
-       This is important for Appetizer.
-    */
+function setLanguage(language) {
 
-    if (selectedCategoryId) {
+    language = language === "th" ? "th" : "en";
+    currentLanguage = language;
+    document.documentElement.lang = language;
 
-        renderDishes(
-            selectedCategoryId
-        );
+    document.querySelectorAll("[data-en][data-th]").forEach(function(element) {
+        const text = language === "th"
+            ? element.getAttribute("data-th")
+            : element.getAttribute("data-en");
 
-    } else {
+        if (text !== null) {
+            element.textContent = text;
+        }
+    });
 
-        renderCategoryGrid();
+    const enButton = document.getElementById("langEN");
+    const thButton = document.getElementById("langTH");
 
+    if (enButton) {
+        enButton.classList.toggle("active", language === "en");
+        enButton.setAttribute("aria-pressed", language === "en" ? "true" : "false");
     }
 
+    if (thButton) {
+        thButton.classList.toggle("active", language === "th");
+        thButton.setAttribute("aria-pressed", language === "th" ? "true" : "false");
+    }
+
+    try {
+        localStorage.setItem("tonysKitchenLanguage", language);
+    } catch (error) {
+        console.warn("Could not save language preference.", error);
+    }
+
+    const menu = document.getElementById("menu");
+    const categoryHomeView = document.getElementById("categoryHomeView");
+    const categoryDishesView = document.getElementById("categoryDishesView");
+
+    if (menu && menu.style.display !== "none") {
+
+        if (
+            categoryDishesView &&
+            categoryDishesView.classList.contains("active") &&
+            selectedCategoryId
+        ) {
+            renderDishes(selectedCategoryId);
+        }
+        else if (
+            categoryHomeView &&
+            categoryHomeView.classList.contains("active")
+        ) {
+            renderCategoryGrid();
+        }
+    }
 }
+
 
 /* =========================================================
    CATEGORY DATA
-   MENU CATEGORIES
+   EXACTLY 31 CATEGORIES
 ========================================================= */
 
 const categories = [
-    {id:"appetizer",image:"az(1).png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
-    {id:"thai-salad",image:"ts1.png",en:"Thai Salad",th:"ยำไทย",descEn:"Fresh and vibrant Thai salads with noodles, herbs, seafood and bold, tangy Thai flavors.",descTh:"รวมเมนูยำไทยรสจัดจ้าน ทั้งยำวุ้นเส้น ยำมาม่า ลาบ และเมนูยำที่สดชื่นเข้มข้น"},
-    {id:"fried-rice",image:"Chicken-fried-rice.png",en:"Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
-    {id:"noodles",image:"pt1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
-    {id:"stir-fried",image:"kaphrao-chicken.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
-    {id:"vegetable-stir-fried",image:"p1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
-    {id:"soup",image:"p1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
-    {id:"drinks",image:"p1.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
-    {id:"dessert",image:"p1.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
+
+    {
+        id: "appetizer",
+        image: "az(1).png",
+        en: "Appetizer",
+        th: "อาหารเรียกน้ำย่อย",
+        descEn: "Delicious starters and appetizers.",
+        descTh: "อาหารเรียกน้ำย่อยและของทานเล่น"
+    },
+
+
+    {
+        id: "thai-salad",
+        image: "p1.png",
+        en: "Thai salad",
+        th: "ยำไทย",
+        descEn: "Fresh Thai salads with vibrant flavors.",
+        descTh: "ยำไทยรสสดชื่นและจัดจ้าน"
+    },
+
+
+    {
+        id: "pad-thai",
+        image: "Pad-Thai-shrimp.png",
+        en: "Pad Thai",
+        th: "ผัดไทย",
+        descEn: "Classic Thai stir-fried rice noodles.",
+        descTh: "ผัดไทยเส้นข้าวแบบคลาสสิก"
+    },
+
+
+    {
+        id: "pad-see-ew",
+        image: "p1.png",
+        en: "Pad see ew",
+        th: "ผัดซีอิ๊ว",
+        descEn: "Thai-style stir-fried noodles with savory sauce.",
+        descTh: "เส้นผัดซีอิ๊วรสกลมกล่อม"
+    },
+
+
+    {
+        id: "yaki-soba",
+        image: "p1.png",
+        en: "Yaki Soba",
+        th: "ยากิโซบะ",
+        descEn: "Wok-fried noodles with a Japanese-inspired style.",
+        descTh: "ยากิโซบะผัดกระทะร้อน"
+    },
+
+
+    {
+        id: "pad-kee-mao",
+        image: "p1.png",
+        en: "Pad kee mao",
+        th: "ผัดขี้เมา",
+        descEn: "Spicy stir-fried noodles with aromatic herbs.",
+        descTh: "ผัดขี้เมารสจัดจ้านและหอมสมุนไพร"
+    },
+
+
+    {
+        id: "stir-fried-macaroni",
+        image: "p1.png",
+        en: "Stir fried macaroni",
+        th: "มักกะโรนีผัด",
+        descEn: "Wok-fried macaroni prepared Thai-style.",
+        descTh: "มักกะโรนีผัดแบบไทย"
+    },
+
+
+    {
+        id: "suki-yaki",
+        image: "p1.png",
+        en: "Suki yaki",
+        th: "สุกี้",
+        descEn: "Thai-style sukiyaki with fresh ingredients.",
+        descTh: "สุกี้สไตล์ไทยพร้อมวัตถุดิบสดใหม่"
+    },
+
+
+    {
+        id: "thai-fried-rice",
+        image: "Chicken-fried-rice.png",
+        en: "Thai fried rice",
+        th: "ข้าวผัดไทย",
+        descEn: "Classic Thai-style fried rice.",
+        descTh: "ข้าวผัดสไตล์ไทย"
+    },
+
+
+    {
+        id: "traditional-fried-rice",
+        image: "p1.png",
+        en: "Traditional fried rice",
+        th: "ข้าวผัดแบบดั้งเดิม",
+        descEn: "Traditional fried rice with comforting flavors.",
+        descTh: "ข้าวผัดรสชาติแบบดั้งเดิม"
+    },
+
+
+    {
+        id: "tom-yum-fried-rice",
+        image: "p1.png",
+        en: "Tom Yum fried rice",
+        th: "ข้าวผัดต้มยำ",
+        descEn: "Fried rice with aromatic Tom Yum flavors.",
+        descTh: "ข้าวผัดหอมเครื่องต้มยำ"
+    },
+
+
+    {
+        id: "pad-kaphrao",
+        image: "kaphrao-chicken.png",
+        en: "Pad kaphrao",
+        th: "ผัดกะเพรา",
+        descEn: "Aromatic Thai basil stir-fried dishes.",
+        descTh: "เมนูผัดกะเพราหอม ๆ สไตล์ไทย"
+    },
+
+
+    {
+        id: "pad-holapa",
+        image: "p1.png",
+        en: "Pad Holapa",
+        th: "ผัดโหระพา",
+        descEn: "Fragrant Thai basil stir-fried dishes.",
+        descTh: "เมนูผัดโหระพาหอม ๆ"
+    },
+
+
+    {
+        id: "garlic-pepper",
+        image: "p1.png",
+        en: "Garlic & Pepper stir fried",
+        th: "ผัดกระเทียมพริกไทย",
+        descEn: "Savory stir-fried dishes with garlic and pepper.",
+        descTh: "เมนูผัดกระเทียมพริกไทยหอม ๆ"
+    },
+
+
+    {
+        id: "cashew-nut",
+        image: "p1.png",
+        en: "Cashew nut stir fried",
+        th: "ผัดเม็ดมะม่วงหิมพานต์",
+        descEn: "Stir-fried dishes with roasted cashew nuts.",
+        descTh: "เมนูผัดเม็ดมะม่วงหิมพานต์"
+    },
+
+
+    {
+        id: "chili-salt",
+        image: "p1.png",
+        en: "Chili & Salt stir fried",
+        th: "ผัดพริกเกลือ",
+        descEn: "Savory stir-fried dishes with chili and salt.",
+        descTh: "เมนูผัดพริกเกลือรสจัดจ้าน"
+    },
+
+
+    {
+        id: "green-curry-stir-fried",
+        image: "p1.png",
+        en: "Green curry stir fried",
+        th: "ผัดแกงเขียวหวาน",
+        descEn: "Stir-fried dishes inspired by Thai green curry.",
+        descTh: "เมนูผัดรสแกงเขียวหวาน"
+    },
+
+
+    {
+        id: "red-curry-stir-fried",
+        image: "p1.png",
+        en: "Red curry stir fried",
+        th: "ผัดแกงแดง",
+        descEn: "Stir-fried dishes inspired by Thai red curry.",
+        descTh: "เมนูผัดรสแกงแดง"
+    },
+
+
+    {
+        id: "panang-curry-stir-fried",
+        image: "p1.png",
+        en: "Panang curry stir fried",
+        th: "ผัดพะแนง",
+        descEn: "Stir-fried dishes with rich Panang curry flavors.",
+        descTh: "เมนูผัดรสพะแนงเข้มข้น"
+    },
+
+
+    {
+        id: "bell-pepper",
+        image: "p1.png",
+        en: "Bell pepper stir fried",
+        th: "ผัดพริกหวาน",
+        descEn: "Fresh stir-fried dishes with bell peppers.",
+        descTh: "เมนูผัดพริกหวาน"
+    },
+
+
+    {
+        id: "ginger",
+        image: "p1.png",
+        en: "Ginger stir fried",
+        th: "ผัดขิง",
+        descEn: "Aromatic stir-fried dishes with fresh ginger.",
+        descTh: "เมนูผัดขิงหอม ๆ"
+    },
+
+
+    {
+        id: "chilli-jam",
+        image: "p1.png",
+        en: "Chilli Jam stir fried",
+        th: "ผัดน้ำพริกเผา",
+        descEn: "Stir-fried dishes with Thai roasted chili jam.",
+        descTh: "เมนูผัดน้ำพริกเผา"
+    },
+
+
+    {
+        id: "thai-omelet",
+        image: "p1.png",
+        en: "Thai omelet",
+        th: "ไข่เจียว",
+        descEn: "Classic Thai-style fluffy omelet.",
+        descTh: "ไข่เจียวสไตล์ไทย"
+    },
+
+
+    {
+        id: "thai-rice-soup",
+        image: "p1.png",
+        en: "Thai rice soup",
+        th: "ข้าวต้ม",
+        descEn: "Comforting Thai rice soup.",
+        descTh: "ข้าวต้มร้อน ๆ แบบไทย"
+    },
+
+
+    {
+        id: "bean-sprouts",
+        image: "p1.png",
+        en: "Bean spouts stir fried",
+        th: "ผัดถั่วงอก",
+        descEn: "Fresh bean sprouts stir-fried Thai-style.",
+        descTh: "ถั่วงอกผัดแบบไทย"
+    },
+
+
+    {
+        id: "chinese-kale",
+        image: "p1.png",
+        en: "Chinese kale stir fried",
+        th: "ผัดคะน้า",
+        descEn: "Fresh Chinese kale stir-fried Thai-style.",
+        descTh: "คะน้าผัดแบบไทย"
+    },
+
+
+    {
+        id: "morning-glory",
+        image: "p1.png",
+        en: "Morning glory stir fried",
+        th: "ผัดผักบุ้ง",
+        descEn: "Classic Thai stir-fried morning glory.",
+        descTh: "ผัดผักบุ้งแบบไทย"
+    },
+
+
+    {
+        id: "cabbage",
+        image: "p1.png",
+        en: "Cabbage stir fried",
+        th: "ผัดกะหล่ำปลี",
+        descEn: "Fresh cabbage stir-fried Thai-style.",
+        descTh: "กะหล่ำปลีผัดแบบไทย"
+    },
+
+
+    {
+        id: "mix-vegetable",
+        image: "p1.png",
+        en: "Mix vegetable stir fried",
+        th: "ผัดผักรวม",
+        descEn: "A colorful mix of fresh vegetables.",
+        descTh: "ผัดผักรวมหลากหลายชนิด"
+    },
+
+
+    {
+        id: "soup",
+        image: "p1.png",
+        en: "Soup",
+        th: "ซุป",
+        descEn: "Comforting Thai soups and traditional favorites.",
+        descTh: "ซุปและเมนูต้มแบบไทย"
+    },
+
+
+    {
+        id: "drinks",
+        image: "p1.png",
+        en: "Drinks",
+        th: "เครื่องดื่ม",
+        descEn: "Refreshing drinks to enjoy.",
+        descTh: "เครื่องดื่มสดชื่น"
+    }
+
 ];
 
-const categoryTypes={
-"thai-salad":[
-{id:"glass-noodle-salad",image:"ts1.png",en:"Glass Noodle Salad",th:"ยำวุ้นเส้น",filter:d=>/^thai-salad-[1-7]$/.test(d.id)},
-{id:"instant-noodle-salad",image:"ts8.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
-{id:"larb",image:"ts15.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
-{id:"tuna-thai-salad",image:"ts21.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
-"fried-rice":[
-{id:"thai-fried-rice",image:"Chicken-fried-rice.png",en:"Thai Fried Rice",th:"ข้าวผัด",groups:["thai-fried-rice"]},
-{id:"traditional-fried-rice",image:"Chicken-fried-rice.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",groups:["traditional-fried-rice"]},
-{id:"tom-yum-fried-rice",image:"Chicken-fried-rice.png",en:"Tom Yum Fried Rice",th:"ข้าวผัดต้มยำ",groups:["tom-yum-fried-rice"]}],
-"noodles":[
-{id:"pad-thai",image:"pt1.png",en:"Pad Thai",th:"ผัดไทย",groups:["pad-thai"]},
-{id:"pad-see-ew",image:"se1.png",en:"Pad See Ew",th:"ผัดซีอิ๊ว",groups:["pad-see-ew"]},
-{id:"yaki-soba",image:"pt1.png",en:"Yaki Soba",th:"ยากิโซบะ",groups:["yaki-soba"]},
-{id:"pad-kee-mao",image:"pt1.png",en:"Pad Kee Mao",th:"ผัดขี้เมา",groups:["pad-kee-mao"]},
-{id:"stir-fried-macaroni",image:"pt1.png",en:"Stir Fried Macaroni",th:"มักกะโรนี",groups:["stir-fried-macaroni"]},
-{id:"suki-yaki-stir-fried",image:"pt1.png",en:"Suki Yaki Stir Fried",th:"สุกี้แห้ง",groups:["suki-yaki-stir-fried"]},
-{id:"suki-yaki-soup",image:"p1.png",en:"Suki Yaki Soup",th:"สุกี้น้ำ",groups:["suki-yaki-soup"]}],
-"stir-fried":[
-{id:"pad-kaphrao",image:"kaphrao-chicken.png",en:"Pad Kaphrao",th:"ผัดกะเพรา",groups:["pad-kaphrao"]},
-{id:"pad-holapa",image:"kaphrao-chicken.png",en:"Pad Holapa",th:"ผัดโหระพา",groups:["pad-holapa"]},
-{id:"garlic-pepper",image:"kaphrao-chicken.png",en:"Garlic & Pepper",th:"กระเทียมพริกไทย",groups:["garlic-pepper"]},
-{id:"cashew-nut",image:"kaphrao-chicken.png",en:"Cashew Nut Stir Fried",th:"ผัดเม็ดมะม่วงหิมพานต์",groups:["cashew-nut"]},
-{id:"chili-salt",image:"kaphrao-chicken.png",en:"Chili & Salt Stir Fried",th:"คั่วพริกเกลือ",groups:["chili-salt"]},
-{id:"green-curry-stir-fried",image:"kaphrao-chicken.png",en:"Green Curry Stir Fried",th:"เขียวหวานผัดแห้ง",groups:["green-curry-stir-fried"]},
-{id:"red-curry-stir-fried",image:"kaphrao-chicken.png",en:"Red Curry Stir Fried",th:"ผัดพริกแกง",groups:["red-curry-stir-fried"]},
-{id:"panang-curry-stir-fried",image:"kaphrao-chicken.png",en:"Panang Curry Stir Fried",th:"พะแนง",groups:["panang-curry-stir-fried"]},
-{id:"bell-pepper",image:"kaphrao-chicken.png",en:"Bell Pepper Stir Fried",th:"ผัดพริกหยวก",groups:["bell-pepper"]},
-{id:"ginger",image:"kaphrao-chicken.png",en:"Ginger Stir Fried",th:"ผัดขิงสด",groups:["ginger"]},
-{id:"chilli-jam",image:"kaphrao-chicken.png",en:"Chilli Jam Stir Fried",th:"ผัดน้ำพริกเผา",groups:["chilli-jam"]},
-{id:"thai-omelet",image:"p1.png",en:"Thai Omelet",th:"ไข่เจียว",groups:["thai-omelet"]}],
-"vegetable-stir-fried":[
-{id:"morning-glory",image:"p1.png",en:"Morning Glory Stir Fried",th:"ผัดผักบุ้ง",groups:["morning-glory"]},
-{id:"chinese-kale",image:"p1.png",en:"Chinese Kale Stir Fried",th:"ผัดผักคะน้า",groups:["chinese-kale"]},
-{id:"cabbage",image:"p1.png",en:"Cabbage Stir Fried",th:"กะหล่ำฉ่าน้ำปลา",groups:["cabbage"]},
-{id:"mix-vegetable",image:"p1.png",en:"Mix Vegetable Stir Fried",th:"ผัดผักรวมมิตร",groups:["mix-vegetable"]},
-{id:"bean-sprouts",image:"p1.png",en:"Bean Spouts Stir Fried",th:"ผัดถั่วงอก",groups:["bean-sprouts"]}],
-"soup":[
-{id:"thai-rice-soup",image:"p1.png",en:"Thai Rice Soup",th:"ข้าวต้ม",groups:["thai-rice-soup"]},
-{id:"tofu-soup",image:"p1.png",en:"Tofu Soup",th:"แกงจืดเต้าหู้ไข่",groups:["tofu-soup"]},
-{id:"omelet-soup",image:"p1.png",en:"Omelet Soup",th:"แกงจืดไข่น้ำ",groups:["omelet-soup"]},
-{id:"tom-yum",image:"p1.png",en:"Tom Yum",th:"ต้มยำ",groups:["tom-yum"]},
-{id:"tom-kha",image:"p1.png",en:"Tom Kha",th:"ต้มข่า",groups:["tom-kha"]}]
-};
-
-const categoryOverview={
-"drinks":[
-{image:"p1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
-{image:"p2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
-{image:"p3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
-"dessert":[{image:"d1.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
-};
 
 /* =========================================================
    DISH DATA
@@ -2048,383 +2280,18 @@ const dishes = [
         descTh: "นักเก็ตไก่ทอดกรอบ"
     },
 
-    /* Thai Salad - 21 real dishes */
-
-    {
-        id: "thai-salad-1",
-        category: "thai-salad",
-        image: "ts1.png",
-        en: "Glass Noodle Salad with Minced Chicken",
-        th: "ยำวุ้นเส้นไก่สับ",
-        descEn: "Glass noodle salad with minced chicken, fresh herbs and Thai dressing.",
-        descTh: "ยำวุ้นเส้นไก่สับ พร้อมสมุนไพรสดและน้ำยำรสจัดจ้าน"
-    },
-
-    {
-        id: "thai-salad-2",
-        category: "thai-salad",
-        image: "ts2.png",
-        en: "Glass Noodle Salad with Mushroom",
-        th: "ยำวุ้นเส้นเห็ด",
-        descEn: "Glass noodle salad with mushrooms and fresh Thai herbs.",
-        descTh: "ยำวุ้นเส้นเห็ด พร้อมสมุนไพรสดและน้ำยำแบบไทย"
-    },
-
-    {
-        id: "thai-salad-3",
-        category: "thai-salad",
-        image: "ts3.png",
-        en: "Glass Noodle Salad with Shrimp",
-        th: "ยำวุ้นเส้นกุ้ง",
-        descEn: "Glass noodle salad with shrimp and a bright Thai dressing.",
-        descTh: "ยำวุ้นเส้นกุ้ง รสจัดจ้านแบบไทย"
-    },
-
-    {
-        id: "thai-salad-4",
-        category: "thai-salad",
-        image: "ts4.png",
-        en: "Glass Noodle Salad with Squid",
-        th: "ยำวุ้นเส้นปลาหมึก",
-        descEn: "Glass noodle salad with tender squid and Thai dressing.",
-        descTh: "ยำวุ้นเส้นปลาหมึก พร้อมน้ำยำรสจัดจ้าน"
-    },
-
-    {
-        id: "thai-salad-5",
-        category: "thai-salad",
-        image: "ts5.png",
-        en: "Glass Noodle Salad with Chicken Yor Black Pepper",
-        th: "ยำวุ้นเส้นไก่ยอ",
-        descEn: "Glass noodle salad with chicken yor and Thai herbs.",
-        descTh: "ยำวุ้นเส้นไก่ยอ พร้อมสมุนไพรสดและน้ำยำแบบไทย"
-    },
-
-    {
-        id: "thai-salad-6",
-        category: "thai-salad",
-        image: "ts6.png",
-        en: "Glass Noodle Salad with Seafood",
-        th: "ยำวุ้นเส้นทะเล",
-        descEn: "Glass noodle salad with mixed seafood and Thai dressing.",
-        descTh: "ยำวุ้นเส้นทะเลรวมมิตร พร้อมน้ำยำรสจัดจ้าน"
-    },
-
-    {
-        id: "thai-salad-7",
-        category: "thai-salad",
-        image: "ts7.png",
-        en: "Glass Noodle Salad with Sausage",
-        th: "ยำวุ้นเส้นไส้กรอก",
-        descEn: "Glass noodle salad with sausage and fresh Thai herbs.",
-        descTh: "ยำวุ้นเส้นไส้กรอก พร้อมสมุนไพรสดและน้ำยำแบบไทย"
-    },
-
-    {
-        id: "thai-salad-8",
-        category: "thai-salad",
-        image: "ts8.png",
-        en: "Instant Noodle Salad with Minced Chicken",
-        th: "ยำมาม่าไก่สับ",
-        descEn: "Instant noodle salad with minced chicken and Thai dressing.",
-        descTh: "ยำมาม่าไก่สับ รสจัดจ้านแบบไทย"
-    },
-
-    {
-        id: "thai-salad-9",
-        category: "thai-salad",
-        image: "ts9.png",
-        en: "Instant Noodle Salad with Mushroom",
-        th: "ยำมาม่าเห็ด",
-        descEn: "Instant noodle salad with mushrooms and fresh Thai herbs.",
-        descTh: "ยำมาม่าเห็ด พร้อมสมุนไพรสดและน้ำยำแบบไทย"
-    },
-
-    {
-        id: "thai-salad-10",
-        category: "thai-salad",
-        image: "ts10.png",
-        en: "Instant Noodle Salad with Shrimp",
-        th: "ยำมาม่ากุ้ง",
-        descEn: "Instant noodle salad with shrimp and a vibrant Thai dressing.",
-        descTh: "ยำมาม่ากุ้ง รสจัดจ้านแบบไทย"
-    },
-
-    {
-        id: "thai-salad-11",
-        category: "thai-salad",
-        image: "ts11.png",
-        en: "Instant Noodle Salad with Squid",
-        th: "ยำมาม่าปลาหมึก",
-        descEn: "Instant noodle salad with squid and Thai dressing.",
-        descTh: "ยำมาม่าปลาหมึก พร้อมน้ำยำรสจัดจ้าน"
-    },
-
-    {
-        id: "thai-salad-12",
-        category: "thai-salad",
-        image: "ts12.png",
-        en: "Instant Noodle Salad with Chicken Yor Black Pepper",
-        th: "ยำมาม่าไก่ยอ",
-        descEn: "Instant noodle salad with chicken yor and Thai herbs.",
-        descTh: "ยำมาม่าไก่ยอ พร้อมสมุนไพรสดและน้ำยำแบบไทย"
-    },
-
-    {
-        id: "thai-salad-13",
-        category: "thai-salad",
-        image: "ts13.png",
-        en: "Instant Noodle Salad with Seafood",
-        th: "ยำมาม่าทะเล",
-        descEn: "Instant noodle salad with mixed seafood and Thai dressing.",
-        descTh: "ยำมาม่าทะเลรวมมิตร พร้อมน้ำยำรสจัดจ้าน"
-    },
-
-    {
-        id: "thai-salad-14",
-        category: "thai-salad",
-        image: "ts14.png",
-        en: "Instant Noodle Salad with Sausage",
-        th: "ยำมาม่าไส้กรอก",
-        descEn: "Instant noodle salad with sausage and Thai dressing.",
-        descTh: "ยำมาม่าไส้กรอก รสจัดจ้านแบบไทย"
-    },
-
-    {
-        id: "thai-salad-15",
-        category: "thai-salad",
-        image: "ts15.png",
-        en: "Larb Chicken",
-        th: "ลาบไก่",
-        descEn: "Thai-style chicken larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบไก่สไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-16",
-        category: "thai-salad",
-        image: "ts16.png",
-        en: "Larb Mushroom",
-        th: "ลาบเห็ด",
-        descEn: "Thai-style mushroom larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบเห็ดสไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-17",
-        category: "thai-salad",
-        image: "ts17.png",
-        en: "Larb Shrimp",
-        th: "ลาบกุ้ง",
-        descEn: "Thai-style shrimp larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบกุ้งสไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-18",
-        category: "thai-salad",
-        image: "ts18.png",
-        en: "Larb Squid",
-        th: "ลาบปลาหมึก",
-        descEn: "Thai-style squid larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบปลาหมึกสไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-19",
-        category: "thai-salad",
-        image: "ts19.png",
-        en: "Larb Chicken Yor Black Pepper",
-        th: "ลาบไก่ยอ",
-        descEn: "Thai-style chicken yor larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบไก่ยอสไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-20",
-        category: "thai-salad",
-        image: "ts20.png",
-        en: "Larb Seafood",
-        th: "ลาบทะเล",
-        descEn: "Thai-style seafood larb with fresh herbs and aromatic seasoning.",
-        descTh: "ลาบทะเลสไตล์ไทย พร้อมสมุนไพรและเครื่องปรุงหอม ๆ"
-    },
-
-    {
-        id: "thai-salad-21",
-        category: "thai-salad",
-        image: "ts21.png",
-        en: "Tuna Thai Salad",
-        th: "ยำปลาทูน่า",
-        descEn: "Thai-style tuna salad with fresh herbs and a vibrant dressing.",
-        descTh: "ยำปลาทูน่าสไตล์ไทย พร้อมสมุนไพรสดและน้ำยำรสจัดจ้าน"
-    },
-
-    /* Pad Thai - 8 real dishes */
-
-    {
-        id: "pad-thai-1",
-        category: "pad-thai",
-        image: "pt1.png",
-        en: "Tofu Pad Thai",
-        th: "ผัดไทยเต้าหู้",
-        descEn: "Thai stir-fried rice noodles with tofu.",
-        descTh: "ผัดไทยเต้าหู้ สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-2",
-        category: "pad-thai",
-        image: "pt2.png",
-        en: "Chicken Pad Thai",
-        th: "ผัดไทย",
-        descEn: "Thai stir-fried rice noodles with chicken.",
-        descTh: "ผัดไทย สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-3",
-        category: "pad-thai",
-        image: "pt3.png",
-        en: "Mix Vegetable Pad Thai",
-        th: "ผัดไทยผัก",
-        descEn: "Thai stir-fried rice noodles with mixed vegetables.",
-        descTh: "ผัดไทยผัก สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-4",
-        category: "pad-thai",
-        image: "pt4.png",
-        en: "Mushroom Pad Thai",
-        th: "ผัดไทยเห็ด",
-        descEn: "Thai stir-fried rice noodles with mushrooms.",
-        descTh: "ผัดไทยเห็ด สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-5",
-        category: "pad-thai",
-        image: "pt5.png",
-        en: "Shrimp Pad Thai",
-        th: "ผัดไทยกุ้งสด",
-        descEn: "Thai stir-fried rice noodles with fresh shrimp.",
-        descTh: "ผัดไทยกุ้งสด สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-6",
-        category: "pad-thai",
-        image: "pt6.png",
-        en: "Squid Pad Thai",
-        th: "ผัดไทยปลาหมึก",
-        descEn: "Thai stir-fried rice noodles with squid.",
-        descTh: "ผัดไทยปลาหมึก สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-7",
-        category: "pad-thai",
-        image: "pt7.png",
-        en: "Beef Pad Thai",
-        th: "ผัดไทยเนื้อ",
-        descEn: "Thai stir-fried rice noodles with beef.",
-        descTh: "ผัดไทยเนื้อ สไตล์ไทย"
-    },
-
-    {
-        id: "pad-thai-8",
-        category: "pad-thai",
-        image: "pt8.png",
-        en: "Seafood Pad Thai",
-        th: "ผัดไทยทะเล",
-        descEn: "Thai stir-fried rice noodles with mixed seafood.",
-        descTh: "ผัดไทยทะเล สไตล์ไทย"
-    },
-
-    /* Pad See Ew - 8 real dishes */
-
-    {
-        id: "pad-see-ew-1",
-        category: "pad-see-ew",
-        image: "se1.png",
-        en: "Pad See Ew Chicken",
-        th: "ผัดซีอิ๊วไก่",
-        descEn: "Thai stir-fried wide rice noodles with chicken.",
-        descTh: "ผัดซีอิ๊วไก่ สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-2",
-        category: "pad-see-ew",
-        image: "se2.png",
-        en: "Pad See Ew Tofu",
-        th: "ผัดซีอิ๊วเต้าหู้",
-        descEn: "Thai stir-fried wide rice noodles with tofu.",
-        descTh: "ผัดซีอิ๊วเต้าหู้ สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-3",
-        category: "pad-see-ew",
-        image: "se3.png",
-        en: "Pad See Ew Mix Vegetable",
-        th: "ผัดซีอิ๊วผัก",
-        descEn: "Thai stir-fried wide rice noodles with mixed vegetables.",
-        descTh: "ผัดซีอิ๊วผัก สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-4",
-        category: "pad-see-ew",
-        image: "se4.png",
-        en: "Pad See Ew Mushroom",
-        th: "ผัดซีอิ๊วเห็ด",
-        descEn: "Thai stir-fried wide rice noodles with mushrooms.",
-        descTh: "ผัดซีอิ๊วเห็ด สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-5",
-        category: "pad-see-ew",
-        image: "se5.png",
-        en: "Pad See Ew Shrimp",
-        th: "ผัดซีอิ๊วกุ้ง",
-        descEn: "Thai stir-fried wide rice noodles with shrimp.",
-        descTh: "ผัดซีอิ๊วกุ้ง สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-6",
-        category: "pad-see-ew",
-        image: "se6.png",
-        en: "Pad See Ew Squid",
-        th: "ผัดซีอิ๊วปลาหมึก",
-        descEn: "Thai stir-fried wide rice noodles with squid.",
-        descTh: "ผัดซีอิ๊วปลาหมึก สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-7",
-        category: "pad-see-ew",
-        image: "se7.png",
-        en: "Pad See Ew Beef",
-        th: "ผัดซีอิ๊วเนื้อ",
-        descEn: "Thai stir-fried wide rice noodles with beef.",
-        descTh: "ผัดซีอิ๊วเนื้อ สไตล์ไทย"
-    },
-
-    {
-        id: "pad-see-ew-8",
-        category: "pad-see-ew",
-        image: "se8.png",
-        en: "Pad See Ew Seafood",
-        th: "ผัดซีอิ๊วทะเล",
-        descEn: "Thai stir-fried wide rice noodles with mixed seafood.",
-        descTh: "ผัดซีอิ๊วทะเล สไตล์ไทย"
-    },
-
     /* Existing real dishes */
+
+    {
+        id: "pad-thai-shrimp",
+        category: "pad-thai",
+        image: "Pad-Thai-shrimp.png",
+        en: "Pad Thai Shrimp",
+        th: "ผัดไทยกุ้ง",
+        descEn: "Classic Thai stir-fried rice noodles with shrimp.",
+        descTh: "ผัดไทยเส้นข้าวแบบคลาสสิกพร้อมกุ้ง"
+    },
+
 
     {
         id: "thai-basil-chicken",
@@ -2457,86 +2324,399 @@ const dishes = [
 ========================================================= */
 
 let selectedCategoryId = null;
-let selectedTypeId = null;
+
 
 /* =========================================================
-   CATEGORY NAVIGATION
+   OPEN CATEGORY HOME
 ========================================================= */
 
-function openCategory(categoryId){
- selectedCategoryId=categoryId; selectedTypeId=null;
- const c=categories.find(x=>x.id===categoryId); if(!c)return;
- document.getElementById("homePage").style.display="none";
- document.getElementById("signatureSection").style.display="none";
- document.getElementById("contact").style.display="none";
- document.getElementById("menu").style.display="block";
- if(c.directDishes){showMenuView("categoryDishesView");renderDishList(c.en,c.th,dishes.filter(d=>c.groups.includes(d.category)));}
- else {showMenuView("categoryTypesView");renderCategoryTypes(c);}
- window.scrollTo({top:0,behavior:"smooth"});
- history.pushState({page:"category",category:categoryId},"","#menu-"+categoryId);
+function openCategoryHome(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "signatureSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "menu"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "contact"
+    ).style.display = "none";
+
+
+    showMenuView(
+        "categoryHomeView"
+    );
+
+
+    selectedCategoryId = null;
+
+
+    renderCategoryGrid();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    history.pushState(
+        { page: "categories" },
+        "",
+        "#menu"
+    );
+
 }
 
-function showMenuView(id){document.querySelectorAll(".menu-view").forEach(v=>v.classList.remove("active"));const v=document.getElementById(id);if(v)v.classList.add("active");}
 
-function renderCategoryList(){
- const list=document.getElementById("categoryList");if(!list)return;
- list.innerHTML=categories.map((c,i)=>{const title=currentLanguage==="th"?c.th:c.en,desc=currentLanguage==="th"?c.descTh:c.descEn,act=currentLanguage==="th"?"ชมเมนูในหมวดนี้":"Explore this category";return `<article class="category-row" onclick="openCategory('${escapeJs(c.id)}')"><div class="category-row-image"><img src="${escapeAttr(c.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="category-row-content"><div class="category-row-number">${String(i+1).padStart(2,"0")}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(desc)}</p><div class="category-row-action">${escapeHtml(act)}</div></div></article>`;}).join("");
+/* =========================================================
+   OPEN CATEGORY
+========================================================= */
+
+function openCategory(categoryId) {
+
+    selectedCategoryId = categoryId;
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "signatureSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "contact"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "menu"
+    ).style.display = "block";
+
+
+    showMenuView(
+        "categoryDishesView"
+    );
+
+
+    renderDishes(
+        categoryId
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    history.pushState(
+        {
+            page: "category",
+            category: categoryId
+        },
+        "",
+        "#menu-" + categoryId
+    );
+
 }
 
-function renderCategoryTypes(c){
- document.getElementById("selectedCategoryTitle").textContent=currentLanguage==="th"?c.th:c.en;
- document.getElementById("selectedCategoryDescription").textContent=currentLanguage==="th"?"เลือกประเภทอาหารที่ต้องการชม":"Choose a food type to explore.";
- const grid=document.getElementById("categoryTypeGrid");if(!grid)return;
- if(c.overview){
-  const items=categoryOverview[c.id]||[];
-  grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3></div></article>`;}).join("");return;
- }
- const types=categoryTypes[c.id]||[];
- grid.innerHTML=types.map(t=>{const title=currentLanguage==="th"?t.th:t.en,sub=currentLanguage==="th"?t.en:t.th;return `<article class="type-card" onclick="openCategoryType('${escapeJs(t.id)}')"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(sub)}</p><div class="type-card-action">${currentLanguage==="th"?"ขยายรูป":"View photo"} →</div></div></article>`;}).join("");
+
+/* =========================================================
+   SHOW MENU VIEW
+========================================================= */
+
+function showMenuView(viewId) {
+
+    document
+        .querySelectorAll(".menu-view")
+        .forEach(function(view) {
+
+            view.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    const view =
+        document.getElementById(viewId);
+
+
+    if (view) {
+
+        view.classList.add(
+            "active"
+        );
+
+    }
+
 }
 
-function openCategoryType(typeId){
- const t=(categoryTypes[selectedCategoryId]||[]).find(x=>x.id===typeId);
- if(!t)return;
 
- selectedTypeId=typeId;
+/* =========================================================
+   RENDER CATEGORY GRID
+========================================================= */
 
- /*
-    Food types are now VIEW-ONLY preview cards.
-    Clicking a food type opens its representative image
-    directly in the existing Lightbox.
+function renderCategoryGrid() {
 
-    IMPORTANT:
-    - Do NOT open categoryDishesView here.
-    - Do NOT push a new browser-history level.
-    - Appetizer keeps its existing dish-list behavior.
- */
- const title=currentLanguage==="th"?t.th:t.en;
- openLightbox(t.image,title);
+    const grid =
+        document.getElementById(
+            "categoryGrid"
+        );
+
+
+    if (!grid) {
+        return;
+    }
+
+
+    grid.innerHTML =
+        categories.map(function(category) {
+
+            const title =
+                currentLanguage === "th"
+                ? category.th
+                : category.en;
+
+
+            const description =
+                currentLanguage === "th"
+                ? category.descTh
+                : category.descEn;
+
+
+            return `
+
+                <article
+                    class="category-card"
+                    onclick="openCategory('${category.id}')"
+                >
+
+                    <div class="category-image">
+
+                        <img
+                            src="${category.image}"
+                            alt="${title}"
+                            onerror="this.onerror=null;this.src='p1.png';"
+                        >
+
+                    </div>
+
+
+                    <div class="category-info">
+
+                        <h3>
+                            ${escapeHtml(title)}
+                        </h3>
+
+                        <p>
+                            ${escapeHtml(description)}
+                        </p>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
 }
 
-function renderDishList(en,th,list){
- document.getElementById("selectedTypeTitle").textContent=currentLanguage==="th"?th:en;
- document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
- const grid=document.getElementById("dishGrid");
- if(!list.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3><p style="margin-top:8px;">${currentLanguage==="th"?"เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป":"More real dishes from Tony's Kitchen will be added to this category."}</p></div>`;return;}
- grid.innerHTML=list.map(d=>{const name=currentLanguage==="th"?d.th:d.en,desc=currentLanguage==="th"?d.descTh:d.descEn;return `<article class="dish-card" onclick="openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')"><div class="dish-image"><img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;}).join("");
+
+/* =========================================================
+   RENDER DISHES
+========================================================= */
+
+function renderDishes(categoryId) {
+
+    const category = categories.find(function(item) {
+        return item.id === categoryId;
+    });
+
+    const titleElement =
+        document.getElementById("selectedCategoryTitle");
+
+    const descriptionElement =
+        document.getElementById("selectedCategoryDescription");
+
+    const grid =
+        document.getElementById("dishGrid");
+
+    if (!category || !grid) {
+        if (titleElement) {
+            titleElement.textContent =
+                currentLanguage === "th"
+                    ? "ไม่พบหมวดหมู่"
+                    : "Category not found";
+        }
+
+        if (descriptionElement) {
+            descriptionElement.textContent =
+                currentLanguage === "th"
+                    ? "ไม่สามารถแสดงหมวดหมู่นี้ได้"
+                    : "This category could not be displayed.";
+        }
+
+        if (grid) {
+            grid.innerHTML = "";
+        }
+
+        return;
+    }
+
+    const title =
+        currentLanguage === "th"
+            ? category.th
+            : category.en;
+
+    const description =
+        currentLanguage === "th"
+            ? category.descTh
+            : category.descEn;
+
+    titleElement.textContent = title;
+    descriptionElement.textContent = description;
+
+    const categoryDishes =
+        dishes.filter(function(dish) {
+            return dish.category === categoryId;
+        });
+
+    if (categoryDishes.length === 0) {
+
+        grid.innerHTML = `
+            <div class="empty-category">
+                <h3>
+                    ${
+                        currentLanguage === "th"
+                            ? "กำลังเตรียมเมนูในหมวดนี้"
+                            : "More dishes coming soon"
+                    }
+                </h3>
+
+                <p style="margin-top:8px;">
+                    ${
+                        currentLanguage === "th"
+                            ? "เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป"
+                            : "More real dishes from Tony's Kitchen will be added to this category."
+                    }
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML =
+        categoryDishes.map(function(dish) {
+
+            const name =
+                currentLanguage === "th"
+                    ? dish.th
+                    : dish.en;
+
+            const description =
+                currentLanguage === "th"
+                    ? dish.descTh
+                    : dish.descEn;
+
+            return `
+                <article
+                    class="dish-card"
+                    onclick="openLightbox(
+                        '${escapeJs(dish.image)}',
+                        '${escapeJs(name)}'
+                    )"
+                >
+
+                    <div class="dish-image">
+                        <img
+                            src="${escapeAttr(dish.image)}"
+                            alt="${escapeAttr(name)}"
+                            onerror="this.onerror=null;this.src='p1.png';"
+                        >
+                    </div>
+
+                    <div class="dish-info">
+                        <h3>${escapeHtml(name)}</h3>
+                        <p>${escapeHtml(description)}</p>
+                    </div>
+
+                </article>
+            `;
+
+        }).join("");
 }
 
-function openOverviewItem(cat,i){const x=(categoryOverview[cat]||[])[i];if(!x)return;openLightbox(x.image,currentLanguage==="th"?x.th:x.en);}
-function backToCategoryTypes(){const c=categories.find(x=>x.id===selectedCategoryId);if(!c||c.directDishes){openCategoryHome();return;}selectedTypeId=null;showMenuView("categoryTypesView");renderCategoryTypes(c);window.scrollTo({top:0,behavior:"smooth"});}
 
-function openCategoryHome(event){
- if(event)event.preventDefault();
- document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("menu").style.display="block";document.getElementById("contact").style.display="none";
- showMenuView("categoryHomeView");selectedCategoryId=null;selectedTypeId=null;renderCategoryList();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"categories"},"","#menu");
+/* =========================================================
+   GO HOME
+========================================================= */
+
+function goHome(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "signatureSection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "contact"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "menu"
+    ).style.display = "none";
+
+
+    selectedCategoryId = null;
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    history.pushState(
+        { page: "home" },
+        "",
+        "#home"
+    );
+
 }
 
-function goHome(event){
- if(event)event.preventDefault();
- document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";
- selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
-}
 
 /* =========================================================
    LIGHTBOX OPEN
@@ -2788,39 +2968,30 @@ document.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        const saved =
-            localStorage.getItem(
-                "tonysKitchenLanguage"
+        let saved = null;
+
+        try {
+            saved =
+                localStorage.getItem(
+                    "tonysKitchenLanguage"
+                );
+        } catch (error) {
+            console.warn(
+                "Could not read saved language.",
+                error
             );
-
-
-        /*
-           Default language:
-           ENGLISH
-        */
+        }
 
         setLanguage(
-            saved === "th"
-            ? "th"
-            : "en"
+            saved === "th" ? "th" : "en"
         );
 
-
-        renderCategoryList();
-
-
-        /*
-           If page was opened directly
-           with a menu hash, restore it.
-        */
+        renderCategoryGrid();
 
         const hash =
             window.location.hash;
 
-
-        if (
-            hash.startsWith("#menu-")
-        ) {
+        if (hash.startsWith("#menu-")) {
 
             const categoryId =
                 hash.replace(
@@ -2828,15 +2999,20 @@ document.addEventListener(
                     ""
                 );
 
+            const exists =
+                categories.some(
+                    function(category) {
+                        return category.id === categoryId;
+                    }
+                );
 
-            openCategory(
-                categoryId
-            );
+            if (exists) {
+                openCategory(categoryId);
+            } else {
+                openCategoryHome();
+            }
 
-        }
-        else if (
-            hash === "#menu"
-        ) {
+        } else if (hash === "#menu") {
 
             openCategoryHome();
 
