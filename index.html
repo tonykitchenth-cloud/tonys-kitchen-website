@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1782,83 +1783,165 @@ let currentLanguage = "en";
 
 function setLanguage(language) {
 
-    currentLanguage = language;
+    if (language !== "en" && language !== "th") {
+        return;
+    }
 
+    currentLanguage = language;
     document.documentElement.lang = language;
 
+    /*
+       Update every static element that carries both translations.
+    */
+    document.querySelectorAll("[data-en][data-th]").forEach(function(element) {
+        const text = language === "th"
+            ? element.getAttribute("data-th")
+            : element.getAttribute("data-en");
 
-    document
-        .querySelectorAll("[data-en][data-th]")
-        .forEach(function(element) {
+        if (text !== null) {
+            element.textContent = text;
+        }
+    });
 
-            const text =
-                language === "th"
-                ? element.getAttribute("data-th")
-                : element.getAttribute("data-en");
-
-
-            if (text !== null) {
-
-                element.textContent = text;
-
-            }
-
-        });
-
-
-    const enButton =
-        document.getElementById("langEN");
-
-    const thButton =
-        document.getElementById("langTH");
-
+    /*
+       Update the language buttons.
+    */
+    const enButton = document.getElementById("langEN");
+    const thButton = document.getElementById("langTH");
 
     if (enButton) {
-
-        enButton.classList.toggle(
-            "active",
-            language === "en"
-        );
-
+        enButton.classList.toggle("active", language === "en");
+        enButton.setAttribute("aria-pressed", language === "en" ? "true" : "false");
     }
-
 
     if (thButton) {
-
-        thButton.classList.toggle(
-            "active",
-            language === "th"
-        );
-
+        thButton.classList.toggle("active", language === "th");
+        thButton.setAttribute("aria-pressed", language === "th" ? "true" : "false");
     }
 
+    try {
+        localStorage.setItem("tonysKitchenLanguage", language);
+    } catch (error) {
+        /* Ignore storage errors; language switching must still work. */
+    }
 
-    localStorage.setItem(
-        "tonysKitchenLanguage",
-        language
-    );
+    /*
+       IMPORTANT:
+       The menu is rendered dynamically. Therefore changing only
+       data-en/data-th is not enough. We must render the currently
+       visible menu page again.
 
+       Page hierarchy:
+       1. Category list
+       2. Food-type list
+       3. Dish list
+       4. Lightbox
+    */
+    const menu = document.getElementById("menu");
 
-    /* Refresh menu if currently open */
+    if (menu && menu.style.display !== "none") {
 
-    const menu =
-        document.getElementById("menu");
-
-
-    if (
-        menu &&
-        menu.style.display !== "none"
-    ) {
-
-        renderCategoryList();
-
-
+        /*
+           PAGE 3: Dish list
+           This covers both normal food types and Appetizer's
+           direct-dishes page.
+        */
         if (selectedCategoryId) {
 
-        }
+            const currentCategory = categories.find(function(category) {
+                return category.id === selectedCategoryId;
+            });
 
+            if (currentCategory) {
+
+                if (selectedTypeId) {
+
+                    const currentType =
+                        (categoryTypes[selectedCategoryId] || [])
+                            .find(function(type) {
+                                return type.id === selectedTypeId;
+                            });
+
+                    if (currentType) {
+
+                        const currentList = dishes.filter(function(dish) {
+                            return typeof currentType.filter === "function"
+                                ? currentType.filter(dish)
+                                : currentType.groups &&
+                                  currentType.groups.includes(dish.category);
+                        });
+
+                        renderDishList(
+                            currentType.en,
+                            currentType.th,
+                            currentList
+                        );
+                    }
+
+                } else if (currentCategory.directDishes) {
+
+                    /*
+                       Appetizer has no intermediate type page.
+                       It goes directly from category to the dish list.
+                       This was the missing case in the previous version.
+                    */
+                    const currentList = dishes.filter(function(dish) {
+                        return currentCategory.groups &&
+                               currentCategory.groups.includes(dish.category);
+                    });
+
+                    renderDishList(
+                        currentCategory.en,
+                        currentCategory.th,
+                        currentList
+                    );
+
+                } else {
+
+                    /*
+                       PAGE 2: Food-type list
+                    */
+                    renderCategoryTypes(currentCategory);
+                }
+            }
+
+        } else {
+
+            /*
+               PAGE 1: Category list
+            */
+            renderCategoryList();
+        }
     }
 
+    /*
+       If the lightbox is currently open, update its caption too.
+       The image itself remains unchanged.
+    */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+
+    if (
+        lightbox &&
+        lightbox.classList.contains("show") &&
+        lightboxCaption
+    ) {
+        const imageSrc =
+            document.getElementById("lightboxImage")?.getAttribute("src");
+
+        if (imageSrc) {
+            const currentDish = dishes.find(function(dish) {
+                return dish.image === imageSrc;
+            });
+
+            if (currentDish) {
+                lightboxCaption.textContent =
+                    language === "th"
+                        ? currentDish.th
+                        : currentDish.en;
+            }
+        }
+    }
 }
 
 
@@ -2514,13 +2597,11 @@ const dishes = [
 ========================================================= */
 
 let selectedCategoryId = null;
-
+let selectedTypeId = null;
 
 /* =========================================================
    CATEGORY NAVIGATION
 ========================================================= */
-let selectedCategoryId = null;
-let selectedTypeId = null;
 
 function openCategory(categoryId){
  selectedCategoryId=categoryId; selectedTypeId=null;
