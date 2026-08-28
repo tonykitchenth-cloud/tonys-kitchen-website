@@ -792,6 +792,60 @@ button {
 
 
 /* =========================================================
+   ORDER
+========================================================= */
+
+.order-section {
+    background: white;
+}
+
+.order-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.order-card {
+    display: block;
+    background: #fffaf3;
+    border: 1px solid #ececec;
+    border-radius: 24px;
+    padding: 38px 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.12);
+}
+
+.order-card h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.order-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.order-card span {
+    color: #b42318;
+    font-weight: 900;
+}
+
+@media(max-width:700px) {
+    .order-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
    CONTACT
 ========================================================= */
 
@@ -841,6 +895,15 @@ button {
 
 .contact-button:hover {
     background: #fff0e8;
+}
+
+.nav-contact-link {
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.nav-contact-link:hover {
+    color: #b42318;
 }
 
 
@@ -1217,11 +1280,21 @@ footer {
 
                 <a
                     href="#contact"
-                    class="nav-button"
+                    class="nav-contact-link"
                     data-en="Contact"
                     data-th="ติดต่อเรา"
                 >
                     Contact
+                </a>
+
+
+                <a
+                    href="#order"
+                    class="nav-button"
+                    data-en="Order Now"
+                    data-th="สั่งอาหาร"
+                >
+                    Order Now
                 </a>
 
             </nav>
@@ -1599,6 +1672,105 @@ footer {
 
 
 <!-- =========================================================
+     ORDER
+========================================================= -->
+
+<section
+    class="order-section"
+    id="order"
+>
+
+    <div class="section">
+
+        <div class="section-heading">
+
+            <div
+                class="eyebrow"
+                data-en="ORDER ONLINE"
+                data-th="สั่งอาหารออนไลน์"
+            >
+                ORDER ONLINE
+            </div>
+
+            <h2
+                data-en="Choose how you'd like to order"
+                data-th="เลือกช่องทางการสั่งอาหาร"
+            >
+                Choose how you'd like to order
+            </h2>
+
+            <p
+                data-en="Select your preferred ordering service."
+                data-th="เลือกช่องทางการสั่งอาหารที่คุณสะดวก"
+            >
+                Select your preferred ordering service.
+            </p>
+
+        </div>
+
+
+        <div class="order-grid">
+
+            <a
+                href="https://tony-kitchen-thai-restaurant-pwa.ai.studio"
+                target="_blank"
+                rel="noopener"
+                class="order-card"
+            >
+                <h3
+                    data-en="Tony's Kitchen App"
+                    data-th="แอปของ Tony's Kitchen"
+                >
+                    Tony's Kitchen App
+                </h3>
+
+                <p
+                    data-en="Order directly through our restaurant's app."
+                    data-th="สั่งอาหารโดยตรงผ่านแอปของร้าน"
+                >
+                    Order directly through our restaurant's app.
+                </p>
+
+                <span
+                    data-en="Order through our app →"
+                    data-th="สั่งผ่านแอปของร้าน →"
+                >
+                    Order through our app →
+                </span>
+            </a>
+
+
+            <a
+                href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
+                target="_blank"
+                rel="noopener"
+                class="order-card"
+            >
+                <h3>GrabFood</h3>
+
+                <p
+                    data-en="Order Tony's Kitchen through GrabFood."
+                    data-th="สั่งอาหารจาก Tony's Kitchen ผ่าน GrabFood"
+                >
+                    Order Tony's Kitchen through GrabFood.
+                </p>
+
+                <span
+                    data-en="Order with GrabFood →"
+                    data-th="สั่งผ่าน GrabFood →"
+                >
+                    Order with GrabFood →
+                </span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      CONTACT
 ========================================================= -->
 
@@ -1647,18 +1819,6 @@ footer {
             >
                 LINE
             </a>
-
-
-            <a
-                href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
-                target="_blank"
-                rel="noopener"
-                class="contact-button"
-            >
-                GrabFood
-            </a>
-
-
             <a
                 href="https://wa.me/66841536498"
                 target="_blank"
