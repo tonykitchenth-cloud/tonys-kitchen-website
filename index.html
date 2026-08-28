@@ -121,19 +121,6 @@ button {
     border-radius: 999px;
 }
 
-.nav-contact-link {
-    font-weight: 700;
-    transition: 0.2s;
-}
-
-.nav-contact-link:hover {
-    color: #b42318;
-}
-
-.order-nav-button {
-    white-space: nowrap;
-}
-
 
 /* =========================================================
    LANGUAGE SWITCHER
@@ -805,74 +792,6 @@ button {
 
 
 /* =========================================================
-   ORDER
-========================================================= */
-.order-section {
-    background: #fff;
-}
-
-.order-grid {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.order-card {
-    display: block;
-    background: #fffaf3;
-    border: 1px solid #ececec;
-    border-radius: 24px;
-    padding: 38px 30px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,.06);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.order-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 42px rgba(0,0,0,.12);
-}
-
-.order-card-icon {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    font-size: 34px;
-    font-weight: 900;
-    color: #b42318;
-    letter-spacing: 1px;
-}
-
-.order-card-icon.grab-word {
-    font-size: 26px;
-}
-
-.order-card h3 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.order-card p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.order-card span {
-    color: #b42318;
-    font-weight: 900;
-}
-
-@media(max-width:700px) {
-    .order-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* =========================================================
    CONTACT
 ========================================================= */
 
@@ -1298,20 +1217,11 @@ footer {
 
                 <a
                     href="#contact"
-                    class="nav-contact-link"
+                    class="nav-button"
                     data-en="Contact"
                     data-th="ติดต่อเรา"
                 >
                     Contact
-                </a>
-
-                <a
-                    href="#order"
-                    class="nav-button order-nav-button"
-                    data-en="Order Now"
-                    data-th="สั่งอาหาร"
-                >
-                    Order Now
                 </a>
 
             </nav>
@@ -1692,101 +1602,6 @@ footer {
      CONTACT
 ========================================================= -->
 
-<!-- =========================================================
-     ORDER
-========================================================= -->
-<section
-    class="order-section"
-    id="order"
->
-    <div class="section">
-
-        <div class="section-heading">
-            <div
-                class="eyebrow"
-                data-en="ORDER ONLINE"
-                data-th="สั่งอาหารออนไลน์"
-            >
-                ORDER ONLINE
-            </div>
-
-            <h2
-                data-en="Order Now"
-                data-th="สั่งอาหาร"
-            >
-                Order Now
-            </h2>
-
-            <p
-                data-en="Choose how you'd like to order."
-                data-th="เลือกช่องทางที่คุณต้องการสั่งอาหาร"
-            >
-                Choose how you'd like to order.
-            </p>
-        </div>
-
-        <div class="order-grid">
-
-            <a
-                class="order-card"
-                href="https://tony-kitchen-thai-restaurant-pwa.ai.studio"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <div class="order-card-icon" aria-hidden="true">🍽</div>
-
-                <h3
-                    data-en="Order Direct"
-                    data-th="สั่งตรงกับร้าน"
-                >
-                    Order Direct
-                </h3>
-
-                <p
-                    data-en="Order directly from Tony's Kitchen."
-                    data-th="สั่งอาหารโดยตรงจาก Tony's Kitchen"
-                >
-                    Order directly from Tony's Kitchen.
-                </p>
-
-                <span
-                    data-en="Order Now →"
-                    data-th="สั่งอาหาร →"
-                >
-                    Order Now →
-                </span>
-            </a>
-
-            <a
-                class="order-card"
-                href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <div class="order-card-icon grab-word" aria-hidden="true">GRAB</div>
-
-                <h3>GrabFood</h3>
-
-                <p
-                    data-en="Order through GrabFood."
-                    data-th="สั่งอาหารผ่าน GrabFood"
-                >
-                    Order through GrabFood.
-                </p>
-
-                <span
-                    data-en="Order Now →"
-                    data-th="สั่งอาหาร →"
-                >
-                    Order Now →
-                </span>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-
 <section
     class="contact"
     id="contact"
@@ -1796,7 +1611,7 @@ footer {
 
 
         <h2
-            data-en="Contact Tony's Kitchen"
+            data-en="Visit or Contact Tony's Kitchen"
             data-th="แวะมาหรือ ติดต่อ Tony's Kitchen"
         >
             Visit or Contact Tony's Kitchen
@@ -1804,7 +1619,7 @@ footer {
 
 
         <p
-            data-en="Choose how you'd like to contact us."
+            data-en="Explore our menu and contact us directly for more information."
             data-th="ชมเมนูของเราและติดต่อร้านโดยตรงหากต้องการข้อมูลเพิ่มเติม"
         >
             Explore our menu and contact us directly for more information.
@@ -1817,20 +1632,30 @@ footer {
             <a
                 href="tel:0841536498"
                 class="contact-button"
-                data-en="Call Us"
-                data-th="โทรหาร้าน"
+                data-en="Call 084-153-6498"
+                data-th="โทร 084-153-6498"
             >
-                Call Us
+                Call 084-153-6498
             </a>
 
 
             <a
-                href="https://line.me/R/ti/p/@padaroisauce"
+                href="https://line.me/ti/p/~padaroisauce"
                 target="_blank"
                 rel="noopener"
                 class="contact-button"
             >
                 LINE
+            </a>
+
+
+            <a
+                href="https://r.grab.com/g/6-20260820_144219_69E3638DADA3497499AFCD753D1BC8B0_MEXMPS-3-C34UJAD3L3BWFE"
+                target="_blank"
+                rel="noopener"
+                class="contact-button"
+            >
+                GrabFood
             </a>
 
 
@@ -1998,8 +1823,32 @@ function setLanguage(language) {
 
     if (menu && menu.style.display !== "none") {
 
-        /* 1. Final dish page */
-        if (selectedTypeId && selectedCategoryId) {
+        /*
+          1. Appetizer is a direct dish category (it has no food-type page).
+          Keep this branch explicit so its cards are always rebuilt whenever
+          the language changes, even if menu navigation state was restored.
+        */
+        if (selectedCategoryId === "appetizer") {
+            const appetizer = categories.find(function (category) {
+                return category.id === "appetizer";
+            });
+
+            if (appetizer) {
+                const appetizerDishes = dishes.filter(function (dish) {
+                    return dish.category === "appetizer";
+                });
+
+                showMenuView("categoryDishesView");
+                renderDishList(
+                    appetizer.en,
+                    appetizer.th,
+                    appetizerDishes
+                );
+            }
+        }
+
+        /* 2. Final dish page */
+        else if (selectedTypeId && selectedCategoryId) {
             const typeList = categoryTypes[selectedCategoryId] || [];
             const currentType = typeList.find(function (type) {
                 return type.id === selectedTypeId;
@@ -2021,7 +1870,7 @@ function setLanguage(language) {
             }
         }
 
-        /* 2. Category page / direct Appetizer page */
+        /* 3. Category page / other direct category pages */
         else if (selectedCategoryId) {
             const currentCategory = categories.find(function (category) {
                 return category.id === selectedCategoryId;
@@ -2029,14 +1878,25 @@ function setLanguage(language) {
 
             if (currentCategory) {
                 if (currentCategory.directDishes) {
-                    renderDirectCategoryDishes(currentCategory);
+                    /* Direct category pages (e.g. Appetizer) use the same
+                       dish renderer as the final menu page. */
+                    const currentList = dishes.filter(function (dish) {
+                        return currentCategory.groups &&
+                               currentCategory.groups.includes(dish.category);
+                    });
+
+                    renderDishList(
+                        currentCategory.en,
+                        currentCategory.th,
+                        currentList
+                    );
                 } else {
                     renderCategoryTypes(currentCategory);
                 }
             }
         }
 
-        /* 3. Main category page */
+        /* 4. Main category page */
         else {
             renderCategoryList();
         }
@@ -2113,68 +1973,68 @@ function setLanguage(language) {
 ========================================================= */
 
 const categories = [
-    {id:"appetizer",image:"az1.png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
+    {id:"appetizer",image:"az(1).png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
     {id:"thai-salad",image:"ts1.png",en:"Thai Salad",th:"ยำไทย",descEn:"Fresh and vibrant Thai salads with noodles, herbs, seafood and bold, tangy Thai flavors.",descTh:"รวมเมนูยำไทยรสจัดจ้าน ทั้งยำวุ้นเส้น ยำมาม่า ลาบ และเมนูยำที่สดชื่นเข้มข้น"},
-    {id:"fried-rice",image:"fr1.png",en:"Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
-    {id:"noodles",image:"nd1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
-    {id:"stir-fried",image:"stf1.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
-    {id:"vegetable-stir-fried",image:"vsf1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
-    {id:"soup",image:"su1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
-    {id:"drinks",image:"dk0.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
-    {id:"dessert",image:"ds.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
+    {id:"fried-rice",image:"Chicken-fried-rice.png",en:"Thai Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
+    {id:"noodles",image:"pt1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
+    {id:"stir-fried",image:"kaphrao-chicken.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
+    {id:"vegetable-stir-fried",image:"p1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
+    {id:"soup",image:"p1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
+    {id:"drinks",image:"p1.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
+    {id:"dessert",image:"p1.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
 ];
 
 const categoryTypes={
 "thai-salad":[
-{id:"glass-noodle-salad",image:"ts1.png",en:"Glass Noodle Salad",th:"ยำวุ้นเส้น",descEn:"Fresh glass noodle salad tossed with Thai herbs, vegetables and a tangy dressing.",descTh:"ยำวุ้นเส้นสด คลุกเคล้าสมุนไพร ผัก และน้ำยำรสจัดจ้าน",filter:d=>/^thai-salad-[1-7]$/.test(d.id)},
-{id:"instant-noodle-salad",image:"ts2.png",en:"Instant Noodle Salad",th:"ยำมาม่า",descEn:"Spicy Thai-style instant noodle salad with fresh herbs and a tangy dressing.",descTh:"ยำมาม่ารสจัดจ้าน คลุกเคล้าสมุนไพรและน้ำยำสไตล์ไทย",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
-{id:"larb",image:"ts3.png",en:"Larb",th:"ลาบ",descEn:"A classic Thai salad with herbs, lime and toasted rice.",descTh:"ลาบรสจัดจ้าน คลุกสมุนไพร มะนาว และข้าวคั่วแบบไทย",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
-{id:"tuna-thai-salad",image:"ts4.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",descEn:"Thai-style tuna salad with fresh herbs, vegetables and a bright, tangy dressing.",descTh:"ยำปลาทูน่าสไตล์ไทย พร้อมสมุนไพร ผัก และน้ำยำรสสดชื่น",filter:d=>d.id==="thai-salad-21"}],
+{id:"glass-noodle-salad",image:"ts1.png",en:"Glass Noodle Salad",th:"ยำวุ้นเส้น",filter:d=>/^thai-salad-[1-7]$/.test(d.id)},
+{id:"instant-noodle-salad",image:"ts10.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
+{id:"larb",image:"ts15.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
+{id:"tuna-thai-salad",image:"ts21.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
 "fried-rice":[
-{id:"thai-fried-rice",image:"fr1.png",en:"Thai Fried Rice",th:"ข้าวผัด",descEn:"Fragrant Thai-style fried rice cooked in a hot wok with savory seasoning.",descTh:"ข้าวผัดสไตล์ไทย หอมกลิ่นกระทะ ปรุงรสกลมกล่อม",groups:["thai-fried-rice"]},
-{id:"traditional-fried-rice",image:"fr2.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",descEn:"Traditional Thai fried rice with a classic savory flavor and wok aroma.",descTh:"ข้าวผัดโบราณรสคลาสสิก หอมกลิ่นกระทะ",groups:["traditional-fried-rice"]},
-{id:"tom-yum-fried-rice",image:"fr3.png",en:"Tom Yum Fried Rice",th:"ข้าวผัดต้มยำ",descEn:"Wok-fried rice infused with bold, aromatic Thai Tom Yum flavors.",descTh:"ข้าวผัดหอมกระทะที่ผสานรสจัดจ้านและกลิ่นหอมแบบต้มยำ",groups:["tom-yum-fried-rice"]}],
+{id:"thai-fried-rice",image:"fr1.png",en:"Thai Fried Rice",th:"ข้าวผัด",groups:["thai-fried-rice"]},
+{id:"traditional-fried-rice",image:"fr2.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",groups:["traditional-fried-rice"]},
+{id:"tom-yum-fried-rice",image:"fr3.png",en:"Tom Yum Fried Rice",th:"ข้าวผัดต้มยำ",groups:["tom-yum-fried-rice"]}],
 "noodles":[
-{id:"pad-thai",image:"nd1.png",en:"Pad Thai",th:"ผัดไทย",descEn:"Classic Thai rice noodles stir-fried with tamarind sauce and traditional Thai flavors.",descTh:"ผัดไทยเส้นจันท์รสกลมกล่อม ปรุงด้วยซอสมะขามแบบไทย",groups:["pad-thai"]},
-{id:"pad-see-ew",image:"nd2.png",en:"Pad See Ew",th:"ผัดซีอิ๊ว",descEn:"Wide rice noodles stir-fried with dark soy sauce and vegetables.",descTh:"เส้นใหญ่ผัดซีอิ๊วหอมกระทะ รสกลมกล่อมพร้อมผัก",groups:["pad-see-ew"]},
-{id:"yaki-soba",image:"nd3.png",en:"Yaki Soba",th:"ยากิโซบะ",descEn:"Japanese-style stir-fried noodles with vegetables and a savory sauce.",descTh:"ยากิโซบะผัดสไตล์ญี่ปุ่นกับผักและซอสรสกลมกล่อม",groups:["yaki-soba"]},
-{id:"pad-kee-mao",image:"nd4.png",en:"Pad Kee Mao",th:"ผัดขี้เมา",descEn:"Spicy stir-fried noodles with chili, herbs and aromatic Thai basil.",descTh:"ผัดขี้เมารสจัดจ้าน หอมพริก สมุนไพร และใบกะเพรา",groups:["pad-kee-mao"]},
-{id:"stir-fried-macaroni",image:"nd5.png",en:"Stir Fried Macaroni",th:"มักกะโรนี",descEn:"Stir-fried macaroni with vegetables and savory Thai-style seasoning.",descTh:"มักกะโรนีผัดสไตล์ไทย พร้อมผักและเครื่องปรุงรสกลมกล่อม",groups:["stir-fried-macaroni"]},
-{id:"suki-yaki-stir-fried",image:"nd6.png",en:"Suki Yaki Stir Fried",th:"สุกี้แห้ง",descEn:"Thai-style dry sukiyaki stir-fried with vegetables and flavorful suki sauce.",descTh:"สุกี้แห้งผัดกับผักและน้ำจิ้มสุกี้รสเข้มข้น",groups:["suki-yaki-stir-fried"]},
-{id:"suki-yaki-soup",image:"nd7.png",en:"Suki Yaki Soup",th:"สุกี้น้ำ",descEn:"Thai-style sukiyaki served as a warm soup with vegetables and flavorful broth.",descTh:"สุกี้น้ำสไตล์ไทย เสิร์ฟร้อนพร้อมผักและน้ำซุปรสกลมกล่อม",groups:["suki-yaki-soup"]}],
+{id:"pad-thai",image:"nd1.png",en:"Pad Thai",th:"ผัดไทย",groups:["pad-thai"]},
+{id:"pad-see-ew",image:"nd2.png",en:"Pad See Ew",th:"ผัดซีอิ๊ว",groups:["pad-see-ew"]},
+{id:"yaki-soba",image:"nd3.png",en:"Yaki Soba",th:"ยากิโซบะ",groups:["yaki-soba"]},
+{id:"pad-kee-mao",image:"nd4.png",en:"Pad Kee Mao",th:"ผัดขี้เมา",groups:["pad-kee-mao"]},
+{id:"stir-fried-macaroni",image:"nd5.png",en:"Stir Fried Macaroni",th:"มักกะโรนี",groups:["stir-fried-macaroni"]},
+{id:"suki-yaki-stir-fried",image:"nd6.png",en:"Suki Yaki Stir Fried",th:"สุกี้แห้ง",groups:["suki-yaki-stir-fried"]},
+{id:"suki-yaki-soup",image:"nd7.png",en:"Suki Yaki Soup",th:"สุกี้น้ำ",groups:["suki-yaki-soup"]}],
 "stir-fried":[
-{id:"pad-kaphrao",image:"stf1.png",en:"Pad Kaphrao",th:"ผัดกะเพรา",descEn:"A Thai favorite stir-fried with chili, garlic and fragrant holy basil.",descTh:"เมนูผัดกะเพรารสจัดจ้าน หอมพริก กระเทียม และใบกะเพรา",groups:["pad-kaphrao"]},
-{id:"pad-holapa",image:"stf2.png",en:"Pad Holapa",th:"ผัดโหระพา",descEn:"Aromatic Thai stir-fry featuring fragrant Thai basil and savory seasoning.",descTh:"อาหารผัดหอมใบโหระพา ปรุงรสกลมกล่อมแบบไทย",groups:["pad-holapa"]},
-{id:"garlic-pepper",image:"stf3.png",en:"Garlic & Pepper",th:"กระเทียมพริกไทย",descEn:"Savory stir-fried meat or vegetables with aromatic garlic and black pepper.",descTh:"เมนูผัดหอมกระเทียมและพริกไทย รสกลมกล่อม",groups:["garlic-pepper"]},
-{id:"cashew-nut",image:"stf4.png",en:"Cashew Nut Stir Fried",th:"ผัดเม็ดมะม่วงหิมพานต์",descEn:"Savory Thai stir-fry with roasted cashew nuts, vegetables and a rich sauce.",descTh:"ผัดรสกลมกล่อมพร้อมเม็ดมะม่วงหิมพานต์และผัก",groups:["cashew-nut"]},
-{id:"chili-salt",image:"stf5.png",en:"Chili & Salt Stir Fried",th:"คั่วพริกเกลือ",descEn:"Crispy stir-fried ingredients tossed with aromatic chili, garlic and salt.",descTh:"เมนูคั่วพริกเกลือหอมพริก กระเทียม รสเข้มข้น",groups:["chili-salt"]},
-{id:"green-curry-stir-fried",image:"stf6.png",en:"Green Curry Stir Fried",th:"เขียวหวานผัดแห้ง",descEn:"Dry stir-fry inspired by Thai green curry, rich with herbs and curry aroma.",descTh:"เขียวหวานผัดแห้ง หอมเครื่องแกงและสมุนไพรไทย",groups:["green-curry-stir-fried"]},
-{id:"red-curry-stir-fried",image:"stf7.png",en:"Red Curry Stir Fried",th:"ผัดพริกแกง",descEn:"Savory Thai stir-fry seasoned with aromatic red curry paste.",descTh:"ผัดพริกแกงหอมเครื่องแกงแดง รสเข้มข้นแบบไทย",groups:["red-curry-stir-fried"]},
-{id:"panang-curry-stir-fried",image:"stf8.png",en:"Panang Curry Stir Fried",th:"พะแนง",descEn:"Rich and aromatic Panang-style stir-fry with a creamy curry flavor.",descTh:"ผัดพะแนงหอมเครื่องแกง รสเข้มข้นกลมกล่อม",groups:["panang-curry-stir-fried"]},
-{id:"bell-pepper",image:"stf9.png",en:"Bell Pepper Stir Fried",th:"ผัดพริกหยวก",descEn:"Savory Thai stir-fry with crisp bell peppers and aromatic seasoning.",descTh:"ผัดพริกหยวกพร้อมพริกหวานกรอบและเครื่องปรุงหอม ๆ",groups:["bell-pepper"]},
-{id:"ginger",image:"stf10.png",en:"Ginger Stir Fried",th:"ผัดขิงสด",descEn:"Savory stir-fry with fresh ginger, vegetables and aromatic Thai seasoning.",descTh:"ผัดขิงสดหอม ๆ พร้อมผักและเครื่องปรุงสไตล์ไทย",groups:["ginger"]},
-{id:"chilli-jam",image:"stf11.png",en:"Chilli Jam Stir Fried",th:"ผัดน้ำพริกเผา",descEn:"Thai-style stir-fry with sweet-savory roasted chili jam and aromatic seasoning.",descTh:"ผัดน้ำพริกเผารสหวานเค็มกลมกล่อม หอมเครื่องปรุงไทย",groups:["chilli-jam"]},
-{id:"thai-omelet",image:"stf12.png",en:"Thai Omelet",th:"ไข่เจียว",descEn:"A fluffy Thai-style omelet, lightly seasoned and cooked until golden.",descTh:"ไข่เจียวสไตล์ไทย เนื้อนุ่มฟู ทอดจนหอมเหลือง",groups:["thai-omelet"]}],
+{id:"pad-kaphrao",image:"stf1.png",en:"Pad Kaphrao",th:"ผัดกะเพรา",groups:["pad-kaphrao"]},
+{id:"pad-holapa",image:"stf2.png",en:"Pad Holapa",th:"ผัดโหระพา",groups:["pad-holapa"]},
+{id:"garlic-pepper",image:"stf3.png",en:"Garlic & Pepper",th:"กระเทียมพริกไทย",groups:["garlic-pepper"]},
+{id:"cashew-nut",image:"stf4.png",en:"Cashew Nut Stir Fried",th:"ผัดเม็ดมะม่วงหิมพานต์",groups:["cashew-nut"]},
+{id:"chili-salt",image:"stf5.png",en:"Chili & Salt Stir Fried",th:"คั่วพริกเกลือ",groups:["chili-salt"]},
+{id:"green-curry-stir-fried",image:"stf6.png",en:"Green Curry Stir Fried",th:"เขียวหวานผัดแห้ง",groups:["green-curry-stir-fried"]},
+{id:"red-curry-stir-fried",image:"stf7.png",en:"Red Curry Stir Fried",th:"ผัดพริกแกง",groups:["red-curry-stir-fried"]},
+{id:"panang-curry-stir-fried",image:"stf8.png",en:"Panang Curry Stir Fried",th:"พะแนง",groups:["panang-curry-stir-fried"]},
+{id:"bell-pepper",image:"stf9.png",en:"Bell Pepper Stir Fried",th:"ผัดพริกหยวก",groups:["bell-pepper"]},
+{id:"ginger",image:"stf10.png",en:"Ginger Stir Fried",th:"ผัดขิงสด",groups:["ginger"]},
+{id:"chilli-jam",image:"stf11.png",en:"Chilli Jam Stir Fried",th:"ผัดน้ำพริกเผา",groups:["chilli-jam"]},
+{id:"thai-omelet",image:"stf12.png",en:"Thai Omelet",th:"ไข่เจียว",groups:["thai-omelet"]}],
 "vegetable-stir-fried":[
-{id:"morning-glory",image:"vsf1.png",en:"Morning Glory Stir Fried",th:"ผัดผักบุ้ง",descEn:"Fresh morning glory stir-fried quickly with savory Thai seasoning.",descTh:"ผัดผักบุ้งสดไฟแรง ปรุงรสหอมกลมกล่อม",groups:["morning-glory"]},
-{id:"chinese-kale",image:"vsf2.png",en:"Chinese Kale Stir Fried",th:"ผัดผักคะน้า",descEn:"Fresh Chinese kale stir-fried with savory Thai-style seasoning.",descTh:"ผัดผักคะน้าสด ปรุงรสกลมกล่อมแบบไทย",groups:["chinese-kale"]},
-{id:"cabbage",image:"vsf3.png",en:"Cabbage Stir Fried",th:"กะหล่ำฉ่าน้ำปลา",descEn:"Fresh cabbage stir-fried with savory fish sauce and aromatic seasoning.",descTh:"กะหล่ำผัดหอม ๆ ปรุงรสด้วยน้ำปลาแบบไทย",groups:["cabbage"]},
-{id:"mix-vegetable",image:"vsf4.png",en:"Mix Vegetable Stir Fried",th:"ผัดผักรวมมิตร",descEn:"A colorful mix of fresh vegetables stir-fried with savory Thai seasoning.",descTh:"ผัดผักรวมมิตรหลากสี ปรุงรสกลมกล่อมแบบไทย",groups:["mix-vegetable"]},
-{id:"bean-sprouts",image:"vsf5.png",en:"Bean Spouts Stir Fried",th:"ผัดถั่วงอก",descEn:"Crisp bean sprouts stir-fried quickly with savory Thai seasoning.",descTh:"ผัดถั่วงอกกรอบสด ปรุงรสหอมกลมกล่อม",groups:["bean-sprouts"]}],
+{id:"morning-glory",image:"p1.png",en:"Morning Glory Stir Fried",th:"ผัดผักบุ้ง",groups:["morning-glory"]},
+{id:"chinese-kale",image:"p1.png",en:"Chinese Kale Stir Fried",th:"ผัดผักคะน้า",groups:["chinese-kale"]},
+{id:"cabbage",image:"p1.png",en:"Cabbage Stir Fried",th:"กะหล่ำฉ่าน้ำปลา",groups:["cabbage"]},
+{id:"mix-vegetable",image:"p1.png",en:"Mix Vegetable Stir Fried",th:"ผัดผักรวมมิตร",groups:["mix-vegetable"]},
+{id:"bean-sprouts",image:"p1.png",en:"Bean Spouts Stir Fried",th:"ผัดถั่วงอก",groups:["bean-sprouts"]}],
 "soup":[
-{id:"thai-rice-soup",image:"su1.png",en:"Thai Rice Soup",th:"ข้าวต้ม",descEn:"Warm Thai rice soup with a light, comforting broth and savory flavor.",descTh:"ข้าวต้มร้อน ๆ ในน้ำซุปรสอ่อน หอมและรับประทานสบาย",groups:["thai-rice-soup"]},
-{id:"tofu-soup",image:"su2.png",en:"Tofu Soup",th:"แกงจืดเต้าหู้ไข่",descEn:"Light Thai clear soup with soft egg tofu and a comforting savory broth.",descTh:"แกงจืดน้ำใสพร้อมเต้าหู้ไข่นุ่ม ๆ รสอ่อนกลมกล่อม",groups:["tofu-soup"]},
-{id:"omelet-soup",image:"su3.png",en:"Omelet Soup",th:"แกงจืดไข่น้ำ",descEn:"Comforting Thai clear soup with fluffy omelet pieces in a light broth.",descTh:"แกงจืดน้ำใสใส่ไข่เจียวชิ้นนุ่ม รสอ่อนกลมกล่อม",groups:["omelet-soup"]},
-{id:"tom-yum",image:"su4.png",en:"Tom Yum",th:"ต้มยำ",descEn:"Famous Thai hot and sour soup with aromatic herbs, lime and chili.",descTh:"ต้มยำไทยรสเปรี้ยวเผ็ด หอมสมุนไพร มะนาว และพริก",groups:["tom-yum"]},
-{id:"tom-kha",image:"su5.png",en:"Tom Kha",th:"ต้มข่า",descEn:"Rich Thai coconut soup with galangal, herbs and a creamy aromatic broth.",descTh:"ต้มข่าไทยหอมกะทิ ข่า และสมุนไพร รสนุ่มกลมกล่อม",groups:["tom-kha"]}]
+{id:"thai-rice-soup",image:"p1.png",en:"Thai Rice Soup",th:"ข้าวต้ม",groups:["thai-rice-soup"]},
+{id:"tofu-soup",image:"p1.png",en:"Tofu Soup",th:"แกงจืดเต้าหู้ไข่",groups:["tofu-soup"]},
+{id:"omelet-soup",image:"p1.png",en:"Omelet Soup",th:"แกงจืดไข่น้ำ",groups:["omelet-soup"]},
+{id:"tom-yum",image:"p1.png",en:"Tom Yum",th:"ต้มยำ",groups:["tom-yum"]},
+{id:"tom-kha",image:"p1.png",en:"Tom Kha",th:"ต้มข่า",groups:["tom-kha"]}]
 };
 
 const categoryOverview={
 "drinks":[
-{image:"dk1.png",en:"Soft drinks",th:"น้ำอัดลม"},
-{image:"dk2.png",en:"Soft drinks",th:"น้ำอัดลม"},
-{image:"dk3.png",en:"Thai Herbal Drinks",th:"เครื่องดื่มสมุนไพร"}],
-"dessert":[{image:"ds.png",en:"Dessert",th:"ของหวาน"}]
+{image:"p1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
+{image:"p2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
+{image:"p3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
+"dessert":[{image:"d1.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
 };
 
 /* =========================================================
@@ -2796,7 +2656,7 @@ function renderCategoryTypes(c){
  const types=categoryTypes[c.id]||[];
  grid.innerHTML=types.map(t=>{
    const title=currentLanguage==="th"?t.th:t.en;
-   const sub=currentLanguage==="th"?(t.descTh||t.th):(t.descEn||t.en);
+   const sub=currentLanguage==="th"?t.en:t.th;
    const typeImage=t.image || "p1.png";
    return `<article class="type-card">
      <div class="type-image" role="button" tabindex="0"
