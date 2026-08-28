@@ -2113,15 +2113,15 @@ function setLanguage(language) {
 ========================================================= */
 
 const categories = [
-    {id:"appetizer",image:"az(1).png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
+    {id:"appetizer",image:"az1.png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
     {id:"thai-salad",image:"ts1.png",en:"Thai Salad",th:"ยำไทย",descEn:"Fresh and vibrant Thai salads with noodles, herbs, seafood and bold, tangy Thai flavors.",descTh:"รวมเมนูยำไทยรสจัดจ้าน ทั้งยำวุ้นเส้น ยำมาม่า ลาบ และเมนูยำที่สดชื่นเข้มข้น"},
-    {id:"fried-rice",image:"Chicken-fried-rice.png",en:"Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
-    {id:"noodles",image:"pt1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
-    {id:"stir-fried",image:"kaphrao-chicken.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
-    {id:"vegetable-stir-fried",image:"p1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
-    {id:"soup",image:"p1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
-    {id:"drinks",image:"p1.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
-    {id:"dessert",image:"p1.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
+    {id:"fried-rice",image:"fr1.png",en:"Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
+    {id:"noodles",image:"nd1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
+    {id:"stir-fried",image:"stf.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
+    {id:"vegetable-stir-fried",image:"vsf.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
+    {id:"soup",image:"su1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
+    {id:"drinks",image:"dk1.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
+    {id:"dessert",image:"ds.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
 ];
 
 const categoryTypes={
