@@ -797,6 +797,7 @@ button {
 
 .order-section {
     background: white;
+    display: none;
 }
 
 .order-grid {
@@ -1293,6 +1294,7 @@ footer {
                     class="nav-button"
                     data-en="Order Now"
                     data-th="สั่งอาหาร"
+                    onclick="openOrder(event)"
                 >
                     Order Now
                 </a>
@@ -2831,6 +2833,7 @@ function openCategory(categoryId){
  document.getElementById("homePage").style.display="none";
  document.getElementById("signatureSection").style.display="none";
  document.getElementById("contact").style.display="none";
+ document.getElementById("order").style.display="none";
  document.getElementById("menu").style.display="block";
  if(c.directDishes){showMenuView("categoryDishesView");renderDishList(c.en,c.th,dishes.filter(d=>c.groups.includes(d.category)));}
  else {showMenuView("categoryTypesView");renderCategoryTypes(c);}
@@ -2916,13 +2919,19 @@ function backToCategoryTypes(){const c=categories.find(x=>x.id===selectedCategor
 
 function openCategoryHome(event){
  if(event)event.preventDefault();
- document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("menu").style.display="block";document.getElementById("contact").style.display="none";
+ document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("menu").style.display="block";document.getElementById("contact").style.display="none";document.getElementById("order").style.display="none";
  showMenuView("categoryHomeView");selectedCategoryId=null;selectedTypeId=null;renderCategoryList();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"categories"},"","#menu");
+}
+
+function openOrder(event){
+ if(event)event.preventDefault();
+ document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("contact").style.display="none";document.getElementById("menu").style.display="none";document.getElementById("order").style.display="block";
+ selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"order"},"","#order");
 }
 
 function goHome(event){
  if(event)event.preventDefault();
- document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";
+ document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";document.getElementById("order").style.display="none";
  selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
 }
 
