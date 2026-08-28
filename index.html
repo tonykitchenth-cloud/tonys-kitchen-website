@@ -2189,12 +2189,52 @@ const categoryTypes={
 {id:"tom-kha",image:"su5.png",en:"Tom Kha",th:"ต้มข่า",groups:["tom-kha"]}]
 };
 
+/* Descriptions shown beneath each food-type title. */
+const categoryTypeDescriptions={
+"glass-noodle-salad":{descEn:"Glass noodles tossed with fresh herbs and a tangy Thai dressing.",descTh:"วุ้นเส้นคลุกเคล้าสมุนไพรสดและน้ำยำรสจัดจ้านแบบไทย"},
+"instant-noodle-salad":{descEn:"Instant noodles mixed with fresh herbs and a bold Thai dressing.",descTh:"เส้นมาม่าคลุกเคล้าสมุนไพรสดและน้ำยำรสจัดจ้าน"},
+"larb":{descEn:"A fragrant Thai salad prepared with herbs, lime and roasted rice.",descTh:"เมนูยำลาบหอมสมุนไพร มะนาว และข้าวคั่วแบบไทย"},
+"tuna-thai-salad":{descEn:"Tuna salad with fresh herbs and a bright, tangy Thai dressing.",descTh:"ยำทูน่ากับสมุนไพรสดและน้ำยำรสเปรี้ยวจัดจ้าน"},
+"thai-fried-rice":{descEn:"Wok-fried rice with classic Thai seasoning and your choice of ingredients.",descTh:"ข้าวผัดกระทะร้อนปรุงรสแบบไทย เลือกวัตถุดิบได้ตามชอบ"},
+"traditional-fried-rice":{descEn:"Classic Thai-style fried rice with a comforting traditional flavor.",descTh:"ข้าวผัดสไตล์ไทยดั้งเดิม รสชาติกลมกล่อม"},
+"tom-yum-fried-rice":{descEn:"Fragrant fried rice with the hot and sour flavors of Tom Yum.",descTh:"ข้าวผัดหอม ๆ รสต้มยำเปรี้ยวเผ็ดแบบไทย"},
+"pad-thai":{descEn:"Classic Thai stir-fried rice noodles with a balanced sweet and tangy flavor.",descTh:"เส้นจันท์ผัดไทยรสหวานเปรี้ยวกลมกล่อมแบบคลาสสิก"},
+"pad-see-ew":{descEn:"Wide rice noodles stir-fried with dark soy sauce and vegetables.",descTh:"เส้นใหญ่ผัดซีอิ๊วดำพร้อมผัก รสหอมกลมกล่อม"},
+"yaki-soba":{descEn:"Japanese-style stir-fried noodles with a savory sauce.",descTh:"เส้นยากิโซบะผัดซอสรสกลมกล่อมสไตล์ญี่ปุ่น"},
+"pad-kee-mao":{descEn:"Spicy stir-fried noodles with Thai basil and aromatic herbs.",descTh:"เส้นผัดขี้เมารสเผ็ดหอมใบกะเพราและสมุนไพร"},
+"stir-fried-macaroni":{descEn:"Macaroni stir-fried with a savory Thai-style sauce.",descTh:"มักกะโรนีผัดซอสรสกลมกล่อมสไตล์ไทย"},
+"suki-yaki-stir-fried":{descEn:"Thai sukiyaki ingredients stir-fried with a flavorful sauce.",descTh:"สุกี้แห้งผัดซอสรสเข้มข้นแบบไทย"},
+"suki-yaki-soup":{descEn:"Thai sukiyaki served in a warm, comforting broth.",descTh:"สุกี้น้ำเสิร์ฟพร้อมน้ำซุปร้อน ๆ กลมกล่อม"},
+"pad-kaphrao":{descEn:"Thai basil stir-fry with garlic, chili and aromatic holy basil.",descTh:"ผัดกะเพราหอมกระเทียม พริก และใบกะเพรา"},
+"pad-holapa":{descEn:"Aromatic stir-fry with sweet basil and Thai seasonings.",descTh:"อาหารผัดหอมใบโหระพาและเครื่องปรุงสไตล์ไทย"},
+"garlic-pepper":{descEn:"Savory stir-fry with fragrant garlic and black pepper.",descTh:"อาหารผัดรสกลมกล่อมหอมกระเทียมและพริกไทยดำ"},
+"cashew-nut":{descEn:"Stir-fried dish with roasted cashew nuts and savory sauce.",descTh:"อาหารผัดเม็ดมะม่วงหิมพานต์ หอมกรุบกรอบรสกลมกล่อม"},
+"chili-salt":{descEn:"A bold stir-fry seasoned with chili, garlic and salt.",descTh:"อาหารคั่วพริกเกลือ รสเผ็ดเค็มหอมกระเทียม"},
+"green-curry-stir-fried":{descEn:"Stir-fried dish with the creamy, fragrant flavors of green curry.",descTh:"อาหารผัดแห้งรสแกงเขียวหวาน หอมกะทิและเครื่องแกง"},
+"red-curry-stir-fried":{descEn:"Stir-fried dish with rich Thai red curry paste.",descTh:"อาหารผัดพริกแกงรสเข้มข้นแบบไทย"},
+"panang-curry-stir-fried":{descEn:"Rich and creamy Panang curry-style stir-fry.",descTh:"อาหารผัดพะแนงรสเข้มข้น หอมกะทิและเครื่องแกง"},
+"bell-pepper":{descEn:"Stir-fried dish with sweet bell peppers and Thai seasoning.",descTh:"อาหารผัดพริกหยวกรสกลมกล่อมแบบไทย"},
+"ginger":{descEn:"A fragrant stir-fry with fresh ginger and vegetables.",descTh:"อาหารผัดขิงสดหอม ๆ พร้อมผักหลากหลาย"},
+"chilli-jam":{descEn:"Stir-fried dish with smoky Thai chilli jam.",descTh:"อาหารผัดน้ำพริกเผารสหอมเข้มข้น"},
+"thai-omelet":{descEn:"A fluffy Thai-style omelet, cooked until golden.",descTh:"ไข่เจียวสไตล์ไทย ฟูนุ่มสีเหลืองทอง"},
+"morning-glory":{descEn:"Fresh morning glory stir-fried with Thai garlic and chili.",descTh:"ผักบุ้งสดผัดกระเทียมและพริกแบบไทย"},
+"chinese-kale":{descEn:"Chinese kale stir-fried with savory Thai seasonings.",descTh:"คะน้าผัดรสกลมกล่อมแบบไทย"},
+"cabbage":{descEn:"Cabbage stir-fried with fish sauce for a savory aroma.",descTh:"กะหล่ำปลีผัดน้ำปลา หอมรสเค็มกลมกล่อม"},
+"mix-vegetable":{descEn:"A colorful selection of fresh vegetables stir-fried Thai-style.",descTh:"ผักสดหลากหลายชนิดผัดสไตล์ไทย"},
+"bean-sprouts":{descEn:"Crisp bean sprouts stir-fried with Thai seasonings.",descTh:"ถั่วงอกกรอบผัดเครื่องปรุงรสแบบไทย"},
+"thai-rice-soup":{descEn:"Comforting Thai rice soup served in a warm broth.",descTh:"ข้าวต้มไทยเสิร์ฟพร้อมน้ำซุปร้อน ๆ"},
+"tofu-soup":{descEn:"Clear Thai soup with soft tofu and comforting flavors.",descTh:"แกงจืดเต้าหู้อ่อน น้ำซุปใสรสกลมกล่อม"},
+"omelet-soup":{descEn:"Clear Thai soup with soft omelet and a light broth.",descTh:"แกงจืดไข่น้ำ น้ำซุปใสเบารสกลมกล่อม"},
+"tom-yum":{descEn:"Thailand's famous hot and sour soup with fragrant herbs.",descTh:"ต้มยำรสเปรี้ยวเผ็ด หอมสมุนไพรไทย"},
+"tom-kha":{descEn:"Creamy coconut soup infused with galangal and Thai herbs.",descTh:"ต้มข่ากะทิหอมข่าและสมุนไพรไทย"}
+};
+
 const categoryOverview={
 "drinks":[
-{image:"dk1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
-{image:"dk2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
-{image:"dk3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
-"dessert":[{image:"ds.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
+{image:"dk1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1",descEn:"A refreshing selection of drinks to enjoy with your meal.",descTh:"เครื่องดื่มหลากหลายสำหรับรับประทานคู่กับอาหาร"},
+{image:"dk2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2",descEn:"More refreshing drink choices from Tony's Kitchen.",descTh:"ตัวเลือกเครื่องดื่มสดชื่นเพิ่มเติมจาก Tony's Kitchen"},
+{image:"dk3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3",descEn:"Cool beverages prepared to complement Thai food.",descTh:"เครื่องดื่มเย็น ๆ ที่เข้ากันกับอาหารไทย"}],
+"dessert":[{image:"ds.png",en:"Dessert Overview",th:"ภาพรวมของหวาน",descEn:"A sweet Thai-style finish to your meal.",descTh:"ของหวานแสนอร่อยสำหรับปิดท้ายมื้ออาหาร"}]
 };
 
 /* =========================================================
@@ -2811,12 +2851,13 @@ function renderCategoryTypes(c){
  const grid=document.getElementById("categoryTypeGrid");if(!grid)return;
  if(c.overview){
   const items=categoryOverview[c.id]||[];
-  grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3></div></article>`;}).join("");return;
+  grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;const sub=currentLanguage==="th"?x.descTh:x.descEn;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3><p>${escapeHtml(sub)}</p></div></article>`;}).join("");return;
  }
  const types=categoryTypes[c.id]||[];
  grid.innerHTML=types.map(t=>{
    const title=currentLanguage==="th"?t.th:t.en;
-   const sub=currentLanguage==="th"?t.en:t.th;
+   const description=categoryTypeDescriptions[t.id];
+   const sub=currentLanguage==="th"?description.descTh:description.descEn;
    const typeImage=t.image || "p1.png";
    return `<article class="type-card">
      <div class="type-image" role="button" tabindex="0"
