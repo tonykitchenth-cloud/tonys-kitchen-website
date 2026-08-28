@@ -1975,21 +1975,21 @@ function setLanguage(language) {
 const categories = [
     {id:"appetizer",image:"az(1).png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
     {id:"thai-salad",image:"ts1.png",en:"Thai Salad",th:"ยำไทย",descEn:"Fresh and vibrant Thai salads with noodles, herbs, seafood and bold, tangy Thai flavors.",descTh:"รวมเมนูยำไทยรสจัดจ้าน ทั้งยำวุ้นเส้น ยำมาม่า ลาบ และเมนูยำที่สดชื่นเข้มข้น"},
-    {id:"fried-rice",image:"Chicken-fried-rice.png",en:"Thai Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
-    {id:"noodles",image:"pt1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
-    {id:"stir-fried",image:"kaphrao-chicken.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
-    {id:"vegetable-stir-fried",image:"p1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
-    {id:"soup",image:"p1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
-    {id:"drinks",image:"p1.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
-    {id:"dessert",image:"p1.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
+    {id:"fried-rice",image:"fr1.png",en:"Thai Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
+    {id:"noodles",image:"nd1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
+    {id:"stir-fried",image:"stf1.png",en:"Stir Fried",th:"อาหารผัด",descEn:"Flavorful Thai stir-fried dishes featuring basil, garlic, pepper, curry and more.",descTh:"รวมอาหารผัดรสเข้มข้น ทั้งผัดกะเพรา กระเทียมพริกไทย แกง และเมนูผัดหลากหลาย"},
+    {id:"vegetable-stir-fried",image:"vsf1.png",en:"Vegetable Stir Fried",th:"ผัดผัก",descEn:"Fresh vegetables stir-fried in classic Thai styles.",descTh:"เมนูผัดผักสดหลากหลายแบบสไตล์ไทย"},
+    {id:"soup",image:"su1.png",en:"Soup",th:"ซุปและแกง",descEn:"Comforting Thai soups and broths, from light rice soup to rich Tom Yum and Tom Kha.",descTh:"เมนูซุปและแกงไทย ทั้งข้าวต้ม ต้มจืด ต้มยำ และต้มข่า"},
+    {id:"drinks",image:"dk0.png",en:"Drinks",th:"เครื่องดื่ม",descEn:"Refreshing drinks to complement your meal and keep you cool.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหารและเติมความสดชื่น",overview:true},
+    {id:"dessert",image:"ds.png",en:"Dessert",th:"ของหวาน",descEn:"A sweet finish to your Thai dining experience.",descTh:"ปิดท้ายมื้ออาหารด้วยของหวานแสนอร่อย",overview:true}
 ];
 
 const categoryTypes={
 "thai-salad":[
 {id:"glass-noodle-salad",image:"ts1.png",en:"Glass Noodle Salad",th:"ยำวุ้นเส้น",filter:d=>/^thai-salad-[1-7]$/.test(d.id)},
-{id:"instant-noodle-salad",image:"ts10.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
-{id:"larb",image:"ts15.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
-{id:"tuna-thai-salad",image:"ts21.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
+{id:"instant-noodle-salad",image:"ts2.png",en:"Instant Noodle Salad",th:"ยำมาม่า",filter:d=>/^thai-salad-(?:[8-9]|1[0-4])$/.test(d.id)},
+{id:"larb",image:"ts3.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
+{id:"tuna-thai-salad",image:"ts4.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
 "fried-rice":[
 {id:"thai-fried-rice",image:"fr1.png",en:"Thai Fried Rice",th:"ข้าวผัด",groups:["thai-fried-rice"]},
 {id:"traditional-fried-rice",image:"fr2.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",groups:["traditional-fried-rice"]},
@@ -2016,25 +2016,25 @@ const categoryTypes={
 {id:"chilli-jam",image:"stf11.png",en:"Chilli Jam Stir Fried",th:"ผัดน้ำพริกเผา",groups:["chilli-jam"]},
 {id:"thai-omelet",image:"stf12.png",en:"Thai Omelet",th:"ไข่เจียว",groups:["thai-omelet"]}],
 "vegetable-stir-fried":[
-{id:"morning-glory",image:"p1.png",en:"Morning Glory Stir Fried",th:"ผัดผักบุ้ง",groups:["morning-glory"]},
-{id:"chinese-kale",image:"p1.png",en:"Chinese Kale Stir Fried",th:"ผัดผักคะน้า",groups:["chinese-kale"]},
-{id:"cabbage",image:"p1.png",en:"Cabbage Stir Fried",th:"กะหล่ำฉ่าน้ำปลา",groups:["cabbage"]},
-{id:"mix-vegetable",image:"p1.png",en:"Mix Vegetable Stir Fried",th:"ผัดผักรวมมิตร",groups:["mix-vegetable"]},
-{id:"bean-sprouts",image:"p1.png",en:"Bean Spouts Stir Fried",th:"ผัดถั่วงอก",groups:["bean-sprouts"]}],
+{id:"morning-glory",image:"vsf1.png",en:"Morning Glory Stir Fried",th:"ผัดผักบุ้ง",groups:["morning-glory"]},
+{id:"chinese-kale",image:"vsf2.png",en:"Chinese Kale Stir Fried",th:"ผัดผักคะน้า",groups:["chinese-kale"]},
+{id:"cabbage",image:"vsf3.png",en:"Cabbage Stir Fried",th:"กะหล่ำฉ่าน้ำปลา",groups:["cabbage"]},
+{id:"mix-vegetable",image:"vsf4.png",en:"Mix Vegetable Stir Fried",th:"ผัดผักรวมมิตร",groups:["mix-vegetable"]},
+{id:"bean-sprouts",image:"vsf5.png",en:"Bean Spouts Stir Fried",th:"ผัดถั่วงอก",groups:["bean-sprouts"]}],
 "soup":[
-{id:"thai-rice-soup",image:"p1.png",en:"Thai Rice Soup",th:"ข้าวต้ม",groups:["thai-rice-soup"]},
-{id:"tofu-soup",image:"p1.png",en:"Tofu Soup",th:"แกงจืดเต้าหู้ไข่",groups:["tofu-soup"]},
-{id:"omelet-soup",image:"p1.png",en:"Omelet Soup",th:"แกงจืดไข่น้ำ",groups:["omelet-soup"]},
-{id:"tom-yum",image:"p1.png",en:"Tom Yum",th:"ต้มยำ",groups:["tom-yum"]},
-{id:"tom-kha",image:"p1.png",en:"Tom Kha",th:"ต้มข่า",groups:["tom-kha"]}]
+{id:"thai-rice-soup",image:"su1.png",en:"Thai Rice Soup",th:"ข้าวต้ม",groups:["thai-rice-soup"]},
+{id:"tofu-soup",image:"su2.png",en:"Tofu Soup",th:"แกงจืดเต้าหู้ไข่",groups:["tofu-soup"]},
+{id:"omelet-soup",image:"su3.png",en:"Omelet Soup",th:"แกงจืดไข่น้ำ",groups:["omelet-soup"]},
+{id:"tom-yum",image:"su4.png",en:"Tom Yum",th:"ต้มยำ",groups:["tom-yum"]},
+{id:"tom-kha",image:"su5.png",en:"Tom Kha",th:"ต้มข่า",groups:["tom-kha"]}]
 };
 
 const categoryOverview={
 "drinks":[
-{image:"p1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
-{image:"p2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
-{image:"p3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
-"dessert":[{image:"d1.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
+{image:"dk1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
+{image:"dk2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
+{image:"dk3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
+"dessert":[{image:"ds.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
 };
 
 /* =========================================================
