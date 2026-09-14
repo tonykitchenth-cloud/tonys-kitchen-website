@@ -1950,10 +1950,11 @@ const categoryTypes={
 
 const categoryOverview={
 "drinks":[
-{image:"dk1.png",en:"Drinks Overview 1",th:"ภาพรวมเครื่องดื่ม 1"},
-{image:"dk2.png",en:"Drinks Overview 2",th:"ภาพรวมเครื่องดื่ม 2"},
-{image:"dk3.png",en:"Drinks Overview 3",th:"ภาพรวมเครื่องดื่ม 3"}],
-"dessert":[{image:"d1.png",en:"Dessert Overview",th:"ภาพรวมของหวาน"}]
+{image:"dk1.png",en:"Drinks Overview 1",th:"เครื่องดื่มตัวอย่าง 1",descEn:"A refreshing drink to enjoy with your meal.",descTh:"เครื่องดื่มสดชื่นสำหรับรับประทานคู่กับอาหาร"},
+{image:"dk2.png",en:"Drinks Overview 2",th:"เครื่องดื่มตัวอย่าง 2",descEn:"A refreshing Thai-style drink with a smooth, enjoyable taste.",descTh:"เครื่องดื่มสไตล์ไทยรสชาติสดชื่น ดื่มง่าย"},
+{image:"dk3.png",en:"Drinks Overview 3",th:"เครื่องดื่มตัวอย่าง 3",descEn:"A cool and refreshing choice to complement your meal.",descTh:"เครื่องดื่มเย็นสดชื่น เหมาะสำหรับรับประทานคู่กับอาหาร"}],
+"dessert":[
+{image:"d1.png",en:"Dessert Overview",th:"ของหวานตัวอย่าง",descEn:"A sweet finish to your Thai dining experience.",descTh:"ของหวานแสนอร่อยสำหรับปิดท้ายมื้ออาหารแบบไทย"}]
 };
 
 /* =========================================================
@@ -2591,14 +2592,54 @@ function openCategoryType(typeId){
 }
 
 function renderOverviewDishList(en,th,list){
- document.getElementById("selectedTypeTitle").textContent=currentLanguage==="th"?th:en;
- document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
- const grid=document.getElementById("dishGrid");
- if(!list.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"ยังไม่มีรูปเมนู":"More dishes coming soon"}</h3></div>`;return;}
- grid.innerHTML=list.map(function(item){
-   const name=currentLanguage==="th"?item.th:item.en;
-   return `<article class="dish-card"><div class="dish-image" role="button" tabindex="0" onclick="event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')}" aria-label="View ${escapeAttr(name)}"><img src="${escapeAttr(item.image)}" alt="${escapeAttr(name)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3></div></article>`;
- }).join("");
+    document.getElementById("selectedTypeTitle").textContent =
+        currentLanguage === "th" ? th : en;
+
+    document.getElementById("selectedTypeDescription").textContent =
+        currentLanguage === "th"
+        ? "เลือกชมตัวอย่างอาหารในประเภทนี้"
+        : "Explore the food examples in this type.";
+
+    const grid = document.getElementById("dishGrid");
+
+    if (!grid) return;
+
+    if (!list.length) {
+        grid.innerHTML =
+            `<div class="empty-category"><h3>${
+                currentLanguage === "th"
+                ? "ยังไม่มีรูปเมนู"
+                : "More dishes coming soon"
+            }</h3></div>`;
+        return;
+    }
+
+    grid.innerHTML = list.map(function(item) {
+        const name =
+            currentLanguage === "th" ? item.th : item.en;
+
+        const desc =
+            currentLanguage === "th"
+            ? (item.descTh || item.descEn || "")
+            : (item.descEn || item.descTh || "");
+
+        return `<article class="dish-card">
+            <div class="dish-image"
+                 role="button"
+                 tabindex="0"
+                 onclick="event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')"
+                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')}"
+                 aria-label="${escapeAttr(currentLanguage === "th" ? "ขยายรูป " + name : "Enlarge " + name)}">
+                <img src="${escapeAttr(item.image)}"
+                     alt="${escapeAttr(name)}"
+                     onerror="this.onerror=null;this.src='p1.png';">
+            </div>
+            <div class="dish-info">
+                <h3>${escapeHtml(name)}</h3>
+                <p>${escapeHtml(desc)}</p>
+            </div>
+        </article>`;
+    }).join("");
 }
 
 function renderDishList(en,th,list){
@@ -2609,7 +2650,7 @@ function renderDishList(en,th,list){
  grid.innerHTML=list.map(function(d){
    const name=currentLanguage==="th"?d.th:d.en;
    const desc=currentLanguage==="th"?(d.descTh||d.descEn||""):(d.descEn||d.descTh||"");
-   return `<article class="dish-card"><div class="dish-image" role="button" tabindex="0" onclick="event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')}" aria-label="View ${escapeAttr(name)}"><img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;
+   return `<article class="dish-card"><div class="dish-image" role="button" tabindex="0" onclick="event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')}" aria-label="${escapeAttr(currentLanguage === "th" ? "ขยายรูป " + name : "Enlarge " + name)}"><img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;
  }).join("");
 }
 
@@ -2798,40 +2839,47 @@ window.addEventListener(
     "popstate",
     function() {
 
-        const hash =
-            window.location.hash;
+        const hash = window.location.hash;
 
-
-        if (
-            hash === "#menu" ||
-            hash === "#"
-        ) {
-
+        if (hash === "#menu" || hash === "#") {
             openCategoryHome();
-
-        }
-        else if (
-            hash.startsWith("#menu-")
-        ) {
-
-            const categoryId =
-                hash.replace(
-                    "#menu-",
-                    ""
-                );
-
-
-            openCategory(
-                categoryId
-            );
-
-        }
-        else {
-
-            goHome();
-
+            return;
         }
 
+        if (hash.startsWith("#menu-")) {
+            const path = hash.slice("#menu-".length);
+
+            /* Restore either a category or a category + food type. */
+            const category = categories.find(function(c) {
+                return path === c.id || path.startsWith(c.id + "-");
+            });
+
+            if (!category) {
+                openCategoryHome();
+                return;
+            }
+
+            if (path === category.id) {
+                openCategory(category.id);
+                return;
+            }
+
+            const typeId = path.slice((category.id + "-").length);
+            const type = (categoryTypes[category.id] || []).find(function(t) {
+                return t.id === typeId;
+            });
+
+            if (type) {
+                openCategory(category.id);
+                openCategoryType(type.id);
+            } else {
+                openCategory(category.id);
+            }
+
+            return;
+        }
+
+        goHome();
     }
 );
 
@@ -2908,25 +2956,33 @@ document.addEventListener(
             window.location.hash;
 
 
-        if (
-            hash.startsWith("#menu-")
-        ) {
+        if (hash.startsWith("#menu-")) {
 
-            const categoryId =
-                hash.replace(
-                    "#menu-",
-                    ""
-                );
+            const path = hash.slice("#menu-".length);
 
+            const category = categories.find(function(c) {
+                return path === c.id || path.startsWith(c.id + "-");
+            });
 
-            openCategory(
-                categoryId
-            );
+            if (category) {
+                openCategory(category.id);
+
+                if (path !== category.id) {
+                    const typeId = path.slice((category.id + "-").length);
+                    const type = (categoryTypes[category.id] || []).find(function(t) {
+                        return t.id === typeId;
+                    });
+
+                    if (type) {
+                        openCategoryType(type.id);
+                    }
+                }
+            } else {
+                openCategoryHome();
+            }
 
         }
-        else if (
-            hash === "#menu"
-        ) {
+        else if (hash === "#menu") {
 
             openCategoryHome();
 
