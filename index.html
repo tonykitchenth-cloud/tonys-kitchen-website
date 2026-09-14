@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,6 +89,14 @@ button {
     height: 58px;
     object-fit: contain;
 }
+
+.menu-nav-back { display:none; align-items:center; gap:8px; flex-wrap:wrap; }
+.menu-nav-button { border:1px solid #e6e6e6; background:#fff; color:#222; padding:8px 13px; border-radius:999px; font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap; transition:.2s; }
+.menu-nav-button:hover { background:#b42318; color:#fff; border-color:#b42318; }
+body.menu-open .menu-nav-back { display:flex; }
+body.menu-open:not(.menu-category-types) #menuBackCategoriesBtn { display:none; }
+@media (max-width:900px){ .menu-nav-back{gap:5px}.menu-nav-button{padding:7px 10px;font-size:12px}.logo-image{width:145px} }
+@media (max-width:620px){ .menu-nav-back{gap:4px}.menu-nav-button{padding:6px 8px;font-size:11px}.logo-image{width:120px;height:50px} }
 
 .nav-right {
     display: flex;
@@ -552,6 +559,7 @@ button {
 }
 
 
+.category-type-sections{display:flex;flex-direction:column;gap:46px;max-width:1200px;margin:0 auto}.menu-type-section{display:block}.type-card-static{max-width:520px;margin:0 auto 24px;cursor:default}.menu-type-section .dish-grid{max-width:1200px;margin:0 auto}.menu-type-section .dish-card{cursor:default}.menu-type-section .dish-image{cursor:zoom-in}
 .type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1100px;margin:0 auto}.type-card{background:#fff;border:1px solid #ececec;border-radius:22px;overflow:hidden;cursor:default;box-shadow:0 8px 25px rgba(0,0,0,.06)}.type-image{aspect-ratio:4/3;overflow:hidden;background:#eee}.type-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.type-card:hover .type-image img{transform:scale(1.05)}.type-card-content{padding:20px 20px 22px}.type-card-content h3{margin:0;font-size:22px;line-height:1.2;font-weight:900}.type-card-content p{margin:7px 0 12px;color:#777;font-size:14px}.type-card-action{color:#b42318;font-size:14px;font-weight:900}@media(max-width:900px){.type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.type-grid{grid-template-columns:1fr}}
 
 
@@ -1167,21 +1175,28 @@ footer {
 
     <div class="nav-inner">
 
-        <a
-            href="#home"
-            class="logo-link"
-            aria-label="Tony's Kitchen"
-            onclick="goHome(event)"
-        >
-
-            <img
-                src="Logo-Ex.png"
-                alt="Tony's Kitchen"
-                class="logo-image"
+        <div class="nav-brand-menu">
+            <a
+                href="#home"
+                class="logo-link"
+                aria-label="Tony's Kitchen"
+                onclick="goHome(event)"
             >
+    
+                <img
+                    src="Logo-Ex.png"
+                    alt="Tony's Kitchen"
+                    class="logo-image"
+                >
+    
+            </a>
+    
 
-        </a>
-
+            <div class="menu-nav-back" id="menuNavBack" aria-label="Menu navigation">
+                <button type="button" id="menuBackHomeBtn" class="menu-nav-button" onclick="goHome()">← <span data-en="Back to Home" data-th="กลับหน้าแรก">Back to Home</span></button>
+                <button type="button" id="menuBackCategoriesBtn" class="menu-nav-button" onclick="openCategoryHome()">← <span data-en="Back to Categories" data-th="กลับไปหน้าหมวดหมู่">Back to Categories</span></button>
+            </div>
+        </div>
 
         <div class="nav-right">
 
@@ -1510,24 +1525,15 @@ footer {
 
 
 <!-- =====================================================
-     VIEW 2 : CATEGORY TYPES
+     VIEW 2 : CATEGORY TYPES + DISH PREVIEWS
 ===================================================== -->
 <div class="menu-view" id="categoryTypesView">
   <div class="section">
-    <button type="button" class="menu-back" onclick="openCategoryHome()">← <span data-en="Back to Categories" data-th="กลับไปหน้าหมวดหมู่">Back to Categories</span></button>
-    <div class="category-title"><h2 id="selectedCategoryTitle">Menu</h2><p id="selectedCategoryDescription">Choose a food type.</p></div>
-    <div class="type-grid" id="categoryTypeGrid"></div>
-  </div>
-</div>
-
-<!-- =====================================================
-     VIEW 3 : DISHES
-===================================================== -->
-<div class="menu-view" id="categoryDishesView">
-  <div class="section">
-    <button type="button" class="menu-back" onclick="backToCategoryTypes()">← <span data-en="Back to Food Types" data-th="กลับไปหน้าประเภทอาหาร">Back to Food Types</span></button>
-    <div class="category-title"><h2 id="selectedTypeTitle">Menu</h2><p id="selectedTypeDescription">Explore our dishes.</p></div>
-    <div class="dish-grid" id="dishGrid"></div>
+    <div class="category-title">
+      <h2 id="selectedCategoryTitle">Menu</h2>
+      <p id="selectedCategoryDescription">Food types in this category.</p>
+    </div>
+    <div class="category-type-sections" id="categoryTypeGrid"></div>
   </div>
 </div>
 
@@ -1851,26 +1857,8 @@ function setLanguage(language) {
         menu.style.display !== "none"
     ) {
 
-        if (selectedTypeId && selectedCategoryId) {
-            const currentType =
-                (categoryTypes[selectedCategoryId] || [])
-                    .find(function(type) { return type.id === selectedTypeId; });
-            if (currentType) {
-                if (currentType.overview) {
-                    renderOverviewDishList(currentType.en,currentType.th,categoryOverview[selectedCategoryId]||[]);
-                } else {
-                    const currentList = dishes.filter(function(dish) {
-                        return typeof currentType.filter === "function"
-                            ? currentType.filter(dish)
-                            : currentType.groups && currentType.groups.includes(dish.category);
-                    });
-                    renderDishList(currentType.en, currentType.th, currentList);
-                }
-            }
-        } else if (selectedCategoryId) {
-            const currentCategory = categories.find(function(category) {
-                return category.id === selectedCategoryId;
-            });
+        if (selectedCategoryId) {
+            const currentCategory = categories.find(function(category) { return category.id === selectedCategoryId; });
             if (currentCategory) renderCategoryTypes(currentCategory);
         } else {
             renderCategoryList();
@@ -2545,6 +2533,13 @@ let selectedTypeId = null;
    CATEGORY NAVIGATION
 ========================================================= */
 
+function updateMenuNavigation(){
+    const menu=document.getElementById("menu");
+    const open=menu && menu.style.display!=="none";
+    document.body.classList.toggle("menu-open",!!open);
+    document.body.classList.toggle("menu-category-types",!!(open && selectedCategoryId));
+}
+
 function openCategory(categoryId){
  selectedCategoryId=categoryId; selectedTypeId=null;
  const c=categories.find(x=>x.id===categoryId); if(!c)return;
@@ -2552,8 +2547,7 @@ function openCategory(categoryId){
  document.getElementById("signatureSection").style.display="none";
  document.getElementById("contact").style.display="none";
  document.getElementById("menu").style.display="block";
- showMenuView("categoryTypesView");
- renderCategoryTypes(c);
+ showMenuView("categoryTypesView"); renderCategoryTypes(c); updateMenuNavigation();
  window.scrollTo({top:0,behavior:"smooth"});
  history.pushState({page:"category",category:categoryId},"","#menu-"+categoryId);
 }
@@ -2565,108 +2559,40 @@ function renderCategoryList(){
  list.innerHTML=categories.map((c,i)=>{const title=currentLanguage==="th"?c.th:c.en,desc=currentLanguage==="th"?c.descTh:c.descEn,act=currentLanguage==="th"?"ชมเมนูในหมวดนี้":"Explore this category";return `<article class="category-row" onclick="openCategory('${escapeJs(c.id)}')"><div class="category-row-image"><img src="${escapeAttr(c.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="category-row-content"><div class="category-row-number">${String(i+1).padStart(2,"0")}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(desc)}</p><div class="category-row-action">${escapeHtml(act)}</div></div></article>`;}).join("");
 }
 
+function getDishesForType(type){
+ if(type.overview)return categoryOverview[selectedCategoryId]||[];
+ return dishes.filter(function(d){return typeof type.filter==="function"?type.filter(d):type.groups&&type.groups.includes(d.category);});
+}
+
+function renderDishCards(list){
+ if(!list.length)return `<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3></div>`;
+ return `<div class="dish-grid">${list.map(function(item){const name=currentLanguage==="th"?item.th:item.en;const desc=currentLanguage==="th"?(item.descTh||item.descEn||""):(item.descEn||item.descTh||"");return `<article class="dish-card"><div class="dish-image" role="button" tabindex="0" onclick="event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')}" aria-label="${escapeAttr(currentLanguage==="th"?"ขยายรูป "+name:"Enlarge "+name)}"><img src="${escapeAttr(item.image)}" alt="${escapeAttr(name)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;}).join("")}</div>`;
+}
+
 function renderCategoryTypes(c){
  document.getElementById("selectedCategoryTitle").textContent=currentLanguage==="th"?c.th:c.en;
  document.getElementById("selectedCategoryDescription").textContent=currentLanguage==="th"?"ประเภทอาหารในหมวดนี้":"Food types in this category.";
  const grid=document.getElementById("categoryTypeGrid");if(!grid)return;
  const types=categoryTypes[c.id]||[];
- grid.innerHTML=types.map(function(t){
-   const title=currentLanguage==="th"?t.th:t.en;
-   return `<article class="type-card" role="button" tabindex="0" onclick="openCategoryType('${escapeJs(t.id)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCategoryType('${escapeJs(t.id)}')}" aria-label="${escapeAttr(title)}"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3></div></article>`;
- }).join("");
- if(!types.length)grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"ยังไม่มีประเภทอาหาร":"No food types available"}</h3></div>`;
+ if(!types.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"ยังไม่มีประเภทอาหาร":"No food types available"}</h3></div>`;return;}
+ grid.innerHTML=types.map(function(t){const title=currentLanguage==="th"?t.th:t.en;return `<section class="menu-type-section"><div class="type-card type-card-static"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3></div></div>${renderDishCards(getDishesForType(t))}</section>`;}).join("");
 }
 
 function openCategoryType(typeId){
- const t=(categoryTypes[selectedCategoryId]||[]).find(function(x){return x.id===typeId});if(!t)return;
- selectedTypeId=typeId;showMenuView("categoryDishesView");
- if(t.overview){
-   const items=categoryOverview[selectedCategoryId]||[];
-   renderOverviewDishList(t.en,t.th,items);
- }else{
-   const list=dishes.filter(function(d){return typeof t.filter==="function"?t.filter(d):t.groups&&t.groups.includes(d.category);});
-   renderDishList(t.en,t.th,list);
- }
- window.scrollTo({top:0,behavior:"smooth"});
- history.pushState({page:"type",category:selectedCategoryId,type:typeId},"","#menu-"+selectedCategoryId+"-"+typeId);
+ /* Compatibility only: food types no longer open a separate page. */
+ const c=categories.find(function(x){return x.id===selectedCategoryId}); if(c)renderCategoryTypes(c);
 }
-
-function renderOverviewDishList(en,th,list){
-    document.getElementById("selectedTypeTitle").textContent =
-        currentLanguage === "th" ? th : en;
-
-    document.getElementById("selectedTypeDescription").textContent =
-        currentLanguage === "th"
-        ? "เลือกชมตัวอย่างอาหารในประเภทนี้"
-        : "Explore the food examples in this type.";
-
-    const grid = document.getElementById("dishGrid");
-
-    if (!grid) return;
-
-    if (!list.length) {
-        grid.innerHTML =
-            `<div class="empty-category"><h3>${
-                currentLanguage === "th"
-                ? "ยังไม่มีรูปเมนู"
-                : "More dishes coming soon"
-            }</h3></div>`;
-        return;
-    }
-
-    grid.innerHTML = list.map(function(item) {
-        const name =
-            currentLanguage === "th" ? item.th : item.en;
-
-        const desc =
-            currentLanguage === "th"
-            ? (item.descTh || item.descEn || "")
-            : (item.descEn || item.descTh || "");
-
-        return `<article class="dish-card">
-            <div class="dish-image"
-                 role="button"
-                 tabindex="0"
-                 onclick="event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')"
-                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(item.image)}','${escapeJs(name)}')}"
-                 aria-label="${escapeAttr(currentLanguage === "th" ? "ขยายรูป " + name : "Enlarge " + name)}">
-                <img src="${escapeAttr(item.image)}"
-                     alt="${escapeAttr(name)}"
-                     onerror="this.onerror=null;this.src='p1.png';">
-            </div>
-            <div class="dish-info">
-                <h3>${escapeHtml(name)}</h3>
-                <p>${escapeHtml(desc)}</p>
-            </div>
-        </article>`;
-    }).join("");
-}
-
-function renderDishList(en,th,list){
- document.getElementById("selectedTypeTitle").textContent=currentLanguage==="th"?th:en;
- document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
- const grid=document.getElementById("dishGrid");
- if(!list.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3><p style="margin-top:8px;">${currentLanguage==="th"?"เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป":"More real dishes from Tony's Kitchen will be added to this category."}</p></div>`;return;}
- grid.innerHTML=list.map(function(d){
-   const name=currentLanguage==="th"?d.th:d.en;
-   const desc=currentLanguage==="th"?(d.descTh||d.descEn||""):(d.descEn||d.descTh||"");
-   return `<article class="dish-card"><div class="dish-image" role="button" tabindex="0" onclick="event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')}" aria-label="${escapeAttr(currentLanguage === "th" ? "ขยายรูป " + name : "Enlarge " + name)}"><img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="dish-info"><h3>${escapeHtml(name)}</h3><p>${escapeHtml(desc)}</p></div></article>`;
- }).join("");
-}
-
-function openOverviewItem(cat,i){const x=(categoryOverview[cat]||[])[i];if(!x)return;openLightbox(x.image,currentLanguage==="th"?x.th:x.en);}
-function backToCategoryTypes(){const c=categories.find(x=>x.id===selectedCategoryId);if(!c){openCategoryHome();return;}selectedTypeId=null;showMenuView("categoryTypesView");renderCategoryTypes(c);window.scrollTo({top:0,behavior:"smooth"});}
-
+function openOverviewItem(cat,i){const x=(categoryOverview[cat]||[])[i];if(x)openLightbox(x.image,currentLanguage==="th"?x.th:x.en);}
+function backToCategoryTypes(){openCategoryHome();}
 function openCategoryHome(event){
  if(event)event.preventDefault();
  document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("menu").style.display="block";document.getElementById("contact").style.display="none";
- showMenuView("categoryHomeView");selectedCategoryId=null;selectedTypeId=null;renderCategoryList();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"categories"},"","#menu");
+ showMenuView("categoryHomeView");selectedCategoryId=null;selectedTypeId=null;updateMenuNavigation();renderCategoryList();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"categories"},"","#menu");
 }
-
 function goHome(event){
  if(event)event.preventDefault();
  document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";
- selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
+ selectedCategoryId=null;selectedTypeId=null;updateMenuNavigation();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
 }
 
 /* =========================================================
@@ -2849,7 +2775,7 @@ window.addEventListener(
         if (hash.startsWith("#menu-")) {
             const path = hash.slice("#menu-".length);
 
-            /* Restore either a category or a category + food type. */
+            /* Restore the category only. Food types are displayed on the same page. */
             const category = categories.find(function(c) {
                 return path === c.id || path.startsWith(c.id + "-");
             });
@@ -2859,23 +2785,7 @@ window.addEventListener(
                 return;
             }
 
-            if (path === category.id) {
-                openCategory(category.id);
-                return;
-            }
-
-            const typeId = path.slice((category.id + "-").length);
-            const type = (categoryTypes[category.id] || []).find(function(t) {
-                return t.id === typeId;
-            });
-
-            if (type) {
-                openCategory(category.id);
-                openCategoryType(type.id);
-            } else {
-                openCategory(category.id);
-            }
-
+            openCategory(category.id);
             return;
         }
 
@@ -2967,16 +2877,7 @@ document.addEventListener(
             if (category) {
                 openCategory(category.id);
 
-                if (path !== category.id) {
-                    const typeId = path.slice((category.id + "-").length);
-                    const type = (categoryTypes[category.id] || []).find(function(t) {
-                        return t.id === typeId;
-                    });
 
-                    if (type) {
-                        openCategoryType(type.id);
-                    }
-                }
             } else {
                 openCategoryHome();
             }
