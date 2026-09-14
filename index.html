@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,30 +90,38 @@ button {
     object-fit: contain;
 }
 
-.menu-top-back {
-    display: none;
+.nav-brand-group {
+    display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    min-width: 0;
+}
+
+.menu-top-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     border: 1px solid #e6e6e6;
     background: white;
     color: #222;
-    padding: 9px 15px;
+    padding: 9px 14px;
     border-radius: 999px;
     font-weight: 800;
     font-size: 14px;
+    line-height: 1.2;
     cursor: pointer;
-    transition: 0.2s;
     white-space: nowrap;
-}
-
-.menu-top-back.show {
-    display: inline-flex;
+    transition: 0.2s;
 }
 
 .menu-top-back:hover {
     background: #b42318;
     color: white;
     border-color: #b42318;
+}
+
+.menu-top-back[hidden] {
+    display: none;
 }
 
 .nav-right {
@@ -1056,6 +1063,11 @@ footer {
         height: 50px;
     }
 
+    .menu-top-back {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
     .nav-right {
         gap: 10px;
     }
@@ -1132,6 +1144,15 @@ footer {
         height: 46px;
     }
 
+    .nav-brand-group {
+        gap: 8px;
+    }
+
+    .menu-top-back {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+
     .language-switcher {
         gap: 2px;
     }
@@ -1193,37 +1214,31 @@ footer {
 
     <div class="nav-inner">
 
-        <a
-            href="#home"
-            class="logo-link"
-            aria-label="Tony's Kitchen"
-            onclick="goHome(event)"
-        >
-
-            <img
-                src="Logo-Ex.png"
-                alt="Tony's Kitchen"
-                class="logo-image"
+        <div class="nav-brand-group">
+            <a
+                href="#home"
+                class="logo-link"
+                aria-label="Tony's Kitchen"
+                onclick="goHome(event)"
             >
+                <img
+                    src="Logo-Ex.png"
+                    alt="Tony's Kitchen"
+                    class="logo-image"
+                >
+            </a>
 
-        </a>
-
-        <button
-            type="button"
-            class="menu-top-back"
-            id="menuTopBack"
-            onclick="openCategoryHome()"
-            aria-label="Back to Categories"
-        >
-            ←
-            <span
-                data-en="Back to Categories"
-                data-th="กลับไปหน้าหมวดหมู่"
+            <button
+                type="button"
+                id="menuTopBack"
+                class="menu-top-back"
+                onclick="handleMenuTopBack(event)"
+                aria-label="Back"
+                hidden
             >
-                Back to Categories
-            </span>
-        </button>
-
+                ← <span id="menuTopBackText">Back</span>
+            </button>
+        </div>
 
         <div class="nav-right">
 
@@ -1493,24 +1508,6 @@ footer {
     <div class="section">
 
 
-        <button
-            type="button"
-            class="menu-back"
-            onclick="goHome()"
-        >
-
-            ←
-
-            <span
-                data-en="Back to Home"
-                data-th="กลับหน้าแรก"
-            >
-                Back to Home
-            </span>
-
-        </button>
-
-
         <div class="section-heading">
 
             <div
@@ -1566,7 +1563,6 @@ footer {
 ===================================================== -->
 <div class="menu-view" id="categoryDishesView">
   <div class="section">
-    <button type="button" class="menu-back" onclick="backToCategoryTypes()">← <span data-en="Back to Food Types" data-th="กลับไปหน้าประเภทอาหาร">Back to Food Types</span></button>
     <div class="category-title"><h2 id="selectedTypeTitle">Menu</h2><p id="selectedTypeDescription">Explore our dishes.</p></div>
     <div class="dish-grid" id="dishGrid"></div>
   </div>
@@ -1824,12 +1820,10 @@ let currentLanguage = "en";
 
 function setLanguage(language) {
 
-    if (language !== "en" && language !== "th") {
-        return;
-    }
-
     currentLanguage = language;
+
     document.documentElement.lang = language;
+
 
     document
         .querySelectorAll("[data-en][data-th]")
@@ -1842,7 +1836,9 @@ function setLanguage(language) {
 
 
             if (text !== null) {
+
                 element.textContent = text;
+
             }
 
         });
@@ -1856,117 +1852,69 @@ function setLanguage(language) {
 
 
     if (enButton) {
+
         enButton.classList.toggle(
             "active",
             language === "en"
         );
-        enButton.setAttribute(
-            "aria-pressed",
-            language === "en" ? "true" : "false"
-        );
+
     }
 
 
     if (thButton) {
+
         thButton.classList.toggle(
             "active",
             language === "th"
         );
-        thButton.setAttribute(
-            "aria-pressed",
-            language === "th" ? "true" : "false"
-        );
+
     }
 
 
-    try {
-        localStorage.setItem(
-            "tonysKitchenLanguage",
-            language
-        );
-    } catch (e) {}
+    localStorage.setItem(
+        "tonysKitchenLanguage",
+        language
+    );
 
 
-    /*
-       The menu is rendered dynamically. Re-render only the view that is
-       currently active so dish names and dish descriptions immediately
-       follow the selected language without changing navigation state.
-    */
-    const menu = document.getElementById("menu");
+    updateMenuTopBack();
 
-    if (!menu || menu.style.display === "none") {
-        return;
-    }
+    /* Refresh menu if currently open */
 
-    const activeView = document.querySelector(".menu-view.active");
+    const menu =
+        document.getElementById("menu");
 
-    if (!activeView) {
-        renderCategoryList();
-        return;
-    }
 
-    if (activeView.id === "categoryHomeView") {
-        renderCategoryList();
-        return;
-    }
+    if (
+        menu &&
+        menu.style.display !== "none"
+    ) {
 
-    if (activeView.id === "categoryTypesView") {
-        const currentCategory = categories.find(function(category) {
-            return category.id === selectedCategoryId;
-        });
-
-        if (currentCategory) {
-            renderCategoryTypes(currentCategory);
-        }
-        return;
-    }
-
-    if (activeView.id === "categoryDishesView") {
-        const currentCategory = categories.find(function(category) {
-            return category.id === selectedCategoryId;
-        });
-
-        if (!currentCategory) {
-            return;
-        }
-
-        if (selectedTypeId) {
-            const typeList = categoryTypes[selectedCategoryId] || [];
-            const currentType = typeList.find(function(type) {
-                return type.id === selectedTypeId;
-            });
-
+        if (selectedTypeId && selectedCategoryId) {
+            const currentType =
+                (categoryTypes[selectedCategoryId] || [])
+                    .find(function(type) { return type.id === selectedTypeId; });
             if (currentType) {
                 const currentList = dishes.filter(function(dish) {
                     return typeof currentType.filter === "function"
                         ? currentType.filter(dish)
-                        : currentType.groups &&
-                          currentType.groups.includes(dish.category);
+                        : currentType.groups && currentType.groups.includes(dish.category);
                 });
-
-                renderDishList(
-                    currentType.en,
-                    currentType.th,
-                    currentList
-                );
+                renderDishList(currentType.en, currentType.th, currentList);
             }
-            return;
-        }
-
-        if (currentCategory.directDishes) {
-            const currentList = dishes.filter(function(dish) {
-                return currentCategory.groups &&
-                    currentCategory.groups.includes(dish.category);
+        } else if (selectedCategoryId) {
+            const currentCategory = categories.find(function(category) {
+                return category.id === selectedCategoryId;
             });
-
-            renderDishList(
-                currentCategory.en,
-                currentCategory.th,
-                currentList
-            );
+            if (currentCategory) renderCategoryTypes(currentCategory);
+        } else {
+            renderCategoryList();
         }
+
     }
+
 }
+
 
 /* =========================================================
    CATEGORY DATA
@@ -2619,16 +2567,52 @@ const dishes = [
    MENU STATE
 ========================================================= */
 
-
-
+let selectedCategoryId = null;
+let selectedTypeId = null;
 
 /* =========================================================
    CATEGORY NAVIGATION
 ========================================================= */
-let selectedCategoryId = null;
-let selectedTypeId = null;
 
-function openCategory(categoryId){
+function updateMenuTopBack() {
+    const button = document.getElementById("menuTopBack");
+    const text = document.getElementById("menuTopBackText");
+    const menu = document.getElementById("menu");
+    if (!button || !text) return;
+
+    if (!menu || menu.style.display === "none") {
+        button.hidden = true;
+        return;
+    }
+
+    const dishesView = document.getElementById("categoryDishesView");
+    const typesView = document.getElementById("categoryTypesView");
+    const isDishesView = dishesView && dishesView.classList.contains("active");
+    const isTypesView = typesView && typesView.classList.contains("active");
+
+    if (isDishesView || isTypesView) {
+        text.textContent = currentLanguage === "th" ? "กลับไปหน้าหมวดหมู่" : "Back to Categories";
+    } else {
+        text.textContent = currentLanguage === "th" ? "กลับหน้าแรก" : "Back to Home";
+    }
+    button.setAttribute("aria-label", text.textContent);
+    button.hidden = false;
+}
+
+function handleMenuTopBack(event) {
+    if (event) event.preventDefault();
+    const dishesView = document.getElementById("categoryDishesView");
+    const typesView = document.getElementById("categoryTypesView");
+    if (dishesView && dishesView.classList.contains("active")) {
+        backToCategoryTypes();
+    } else if (typesView && typesView.classList.contains("active")) {
+        openCategoryHome();
+    } else {
+        goHome();
+    }
+}
+
+function openCategory(categoryId, pushHistory = true){
  selectedCategoryId=categoryId; selectedTypeId=null;
  const c=categories.find(x=>x.id===categoryId); if(!c)return;
  document.getElementById("homePage").style.display="none";
@@ -2638,24 +2622,10 @@ function openCategory(categoryId){
  if(c.directDishes){showMenuView("categoryDishesView");renderDishList(c.en,c.th,dishes.filter(d=>c.groups.includes(d.category)));}
  else {showMenuView("categoryTypesView");renderCategoryTypes(c);}
  window.scrollTo({top:0,behavior:"smooth"});
- history.pushState({page:"category",category:categoryId},"","#menu-"+categoryId);
+ if (pushHistory) history.pushState({page:"category",category:categoryId},"","#menu-"+categoryId);
 }
 
-function showMenuView(id){
- document.querySelectorAll(".menu-view").forEach(function(view){
-  view.classList.remove("active");
- });
-
- const view=document.getElementById(id);
- if(view){
-  view.classList.add("active");
- }
-
- const topBack=document.getElementById("menuTopBack");
- if(topBack){
-  topBack.classList.toggle("show", id !== "categoryHomeView");
- }
-}
+function showMenuView(id){document.querySelectorAll(".menu-view").forEach(v=>v.classList.remove("active"));const v=document.getElementById(id);if(v)v.classList.add("active");updateMenuTopBack();}
 
 function renderCategoryList(){
  const list=document.getElementById("categoryList");if(!list)return;
@@ -2671,60 +2641,60 @@ function renderCategoryTypes(c){
   grid.innerHTML=items.map((x,i)=>{const t=currentLanguage==="th"?x.th:x.en;return `<article class="type-card" onclick="openOverviewItem('${c.id}',${i})"><div class="type-image"><img src="${escapeAttr(x.image)}" alt="${escapeAttr(t)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(t)}</h3></div></article>`;}).join("");return;
  }
  const types=categoryTypes[c.id]||[];
- grid.innerHTML=types.map(t=>{const title=currentLanguage==="th"?t.th:t.en,sub=currentLanguage==="th"?t.en:t.th;return `<article class="type-card" onclick="openCategoryType('${escapeJs(t.id)}')"><div class="type-image"><img src="${escapeAttr(t.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="type-card-content"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(sub)}</p><div class="type-card-action">${currentLanguage==="th"?"ดูรายการอาหาร":"View dishes"} →</div></div></article>`;}).join("");
+ grid.innerHTML=types.map(t=>{
+   const title=currentLanguage==="th"?t.th:t.en;
+   const sub=currentLanguage==="th"?t.en:t.th;
+   const typeImage=t.image || "p1.png";
+   return `<article class="type-card">
+     <div class="type-image" role="button" tabindex="0"
+       aria-label="${escapeAttr(currentLanguage==="th"?"ขยายรูป "+title:"Enlarge "+title)}"
+       onclick="event.stopPropagation();openLightbox('${escapeJs(typeImage)}','${escapeJs(title)}')"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(typeImage)}','${escapeJs(title)}')}">
+       <img src="${escapeAttr(typeImage)}" alt="${escapeAttr(title)}"
+         onerror="this.onerror=null;this.src='p1.png';">
+     </div>
+     <div class="type-card-content">
+       <h3>${escapeHtml(title)}</h3>
+       <p>${escapeHtml(sub)}</p>
+       <div class="type-card-action" role="button" tabindex="0"
+         onclick="event.stopPropagation();openCategoryType('${escapeJs(t.id)}')"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openCategoryType('${escapeJs(t.id)}')}">
+         ${currentLanguage==="th"?"ดูรายการอาหาร":"View dishes"} →
+       </div>
+     </div>
+   </article>`;
+ }).join("");
 }
 
-function openCategoryType(typeId){
+function openCategoryType(typeId, pushHistory = true){
  const t=(categoryTypes[selectedCategoryId]||[]).find(x=>x.id===typeId);if(!t)return;selectedTypeId=typeId;showMenuView("categoryDishesView");
  const list=dishes.filter(d=>typeof t.filter==="function"?t.filter(d):t.groups&&t.groups.includes(d.category));
  renderDishList(t.en,t.th,list);window.scrollTo({top:0,behavior:"smooth"});
- history.pushState({page:"type",category:selectedCategoryId,type:typeId},"","#menu-"+selectedCategoryId+"-"+typeId);
+ if (pushHistory) history.pushState({page:"type",category:selectedCategoryId,type:typeId},"","#menu-"+selectedCategoryId+"-"+typeId);
 }
 
 function renderDishList(en,th,list){
-
- document.getElementById("selectedTypeTitle").textContent=
-  currentLanguage==="th" ? th : en;
-
- document.getElementById("selectedTypeDescription").textContent=
-  currentLanguage==="th"
-  ? "เลือกชมรูปอาหารในประเภทนี้"
-  : "Explore the dishes in this type.";
-
+ document.getElementById("selectedTypeTitle").textContent=currentLanguage==="th"?th:en;
+ document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
  const grid=document.getElementById("dishGrid");
- if(!grid)return;
-
- if(!Array.isArray(list) || !list.length){
-  grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3><p style="margin-top:8px;">${currentLanguage==="th"?"เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป":"More real dishes from Tony's Kitchen will be added to this category."}</p></div>`;
-  return;
- }
-
- grid.innerHTML=list.map(function(dish){
-  const name=currentLanguage==="th" ? dish.th : dish.en;
-  const description=currentLanguage==="th"
-   ? (dish.descTh || dish.descEn || "")
-   : (dish.descEn || dish.descTh || "");
-  const image=dish.image || "p1.png";
-  const lightboxLabel=currentLanguage==="th"
-   ? "ขยายรูป " + name
-   : "Enlarge " + name;
-
+ if(!list.length){grid.innerHTML=`<div class="empty-category"><h3>${currentLanguage==="th"?"กำลังเตรียมเมนูในประเภทนี้":"More dishes coming soon"}</h3><p style="margin-top:8px;">${currentLanguage==="th"?"เราจะเพิ่มรูปอาหารจริงของหมวดนี้ในขั้นตอนถัดไป":"More real dishes from Tony's Kitchen will be added to this category."}</p></div>`;return;}
+ grid.innerHTML=list.map(d=>{
+  const name=currentLanguage==="th"?d.th:d.en;
+  const desc=currentLanguage==="th"?d.descTh:d.descEn;
   return `<article class="dish-card">
     <div class="dish-image" role="button" tabindex="0"
-      aria-label="${escapeAttr(lightboxLabel)}"
-      onclick="event.stopPropagation();openLightbox('${escapeJs(image)}','${escapeJs(name)}')"
-      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(image)}','${escapeJs(name)}')}"
-    >
-      <img src="${escapeAttr(image)}" alt="${escapeAttr(name)}"
-        onerror="this.onerror=null;this.src='p1.png';"
-      >
+      aria-label="${escapeAttr(currentLanguage==="th"?"ขยายรูป "+name:"Enlarge "+name)}"
+      onclick="event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openLightbox('${escapeJs(d.image)}','${escapeJs(name)}')}">
+      <img src="${escapeAttr(d.image)}" alt="${escapeAttr(name)}"
+        onerror="this.onerror=null;this.src='p1.png';">
     </div>
     <div class="dish-info">
       <h3>${escapeHtml(name)}</h3>
-      <p>${escapeHtml(description)}</p>
+      <p>${escapeHtml(desc)}</p>
     </div>
   </article>`;
- }).join("");
+}).join("");
 }
 
 function openOverviewItem(cat,i){const x=(categoryOverview[cat]||[])[i];if(!x)return;openLightbox(x.image,currentLanguage==="th"?x.th:x.en);}
@@ -2739,8 +2709,7 @@ function openCategoryHome(event){
 function goHome(event){
  if(event)event.preventDefault();
  document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";
- const topBack=document.getElementById("menuTopBack");
- if(topBack)topBack.classList.remove("show");
+ updateMenuTopBack();
  selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
 }
 
@@ -2930,17 +2899,19 @@ window.addEventListener(
             hash.startsWith("#menu-")
         ) {
 
-            const categoryId =
-                hash.replace(
-                    "#menu-",
-                    ""
-                );
+            const parts = hash
+                .replace("#menu-", "")
+                .split("-");
 
+            const categoryId = parts.shift();
+            const typeId = parts.join("-");
 
-            openCategory(
-                categoryId
-            );
-
+            if (typeId && categoryTypes[categoryId]) {
+                openCategory(categoryId, false);
+                openCategoryType(typeId, false);
+            } else {
+                openCategory(categoryId, false);
+            }
         }
         else {
 
