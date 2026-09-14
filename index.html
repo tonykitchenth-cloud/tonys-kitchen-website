@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -499,6 +500,59 @@
      color: #666;
      max-width: 700px;
  }
+ .dish-page-layout {
+     display: grid;
+     grid-template-columns: 185px minmax(0, 1fr);
+     gap: 28px;
+     align-items: start;
+ }
+ .dish-category-sidebar {
+     position: sticky;
+     top: 92px;
+     background: white;
+     border: 1px solid #eee;
+     border-radius: 16px;
+     padding: 12px;
+     box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+ }
+ .dish-category-sidebar-title {
+     font-size: 12px;
+     font-weight: 900;
+     text-transform: uppercase;
+     letter-spacing: .06em;
+     color: #888;
+     padding: 6px 8px 9px;
+ }
+ .dish-category-sidebar-list {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+ }
+ .dish-category-sidebar-button {
+     width: 100%;
+     border: 0;
+     background: transparent;
+     color: #333;
+     padding: 9px 10px;
+     border-radius: 10px;
+     text-align: left;
+     font-weight: 700;
+     font-size: 13px;
+     line-height: 1.3;
+     cursor: pointer;
+     transition: .2s ease;
+ }
+ .dish-category-sidebar-button:hover {
+     background: #fff1ef;
+     color: #b42318;
+ }
+ .dish-category-sidebar-button.active {
+     background: #b42318;
+     color: white;
+ }
+ .dish-page-content {
+     min-width: 0;
+ }
  .dish-grid {
      display: grid;
      grid-template-columns: repeat(3,1fr);
@@ -787,6 +841,10 @@
      .category-grid {
          grid-template-columns: repeat(2,1fr);
      }
+     .dish-page-layout {
+         grid-template-columns: 165px minmax(0, 1fr);
+         gap: 20px;
+     }
      .dish-grid {
          grid-template-columns: repeat(2,1fr);
      }
@@ -906,6 +964,31 @@
      }
      .category-grid {
          grid-template-columns: 1fr;
+     }
+     .dish-page-layout {
+         display: block;
+     }
+     .dish-category-sidebar {
+         position: static;
+         margin-bottom: 24px;
+         padding: 10px;
+     }
+     .dish-category-sidebar-title {
+         padding: 4px 6px 8px;
+     }
+     .dish-category-sidebar-list {
+         flex-direction: row;
+         overflow-x: auto;
+         gap: 6px;
+         padding-bottom: 2px;
+         scrollbar-width: thin;
+     }
+     .dish-category-sidebar-button {
+         width: auto;
+         flex: 0 0 auto;
+         white-space: nowrap;
+         text-align: center;
+         padding: 8px 11px;
      }
      .dish-grid {
          grid-template-columns: 1fr;
@@ -1221,8 +1304,16 @@
  ===================================================== -->
  <div class="menu-view" id="categoryTypesView">
    <div class="section">
-     <div class="category-title"><h2 id="selectedCategoryTitle">Menu</h2><p id="selectedCategoryDescription">Choose a food type.</p></div>
-     <div class="type-grid" id="categoryTypeGrid"></div>
+     <div class="dish-page-layout category-types-page-layout">
+       <aside class="dish-category-sidebar" aria-label="Food categories">
+         <div class="dish-category-sidebar-title" data-en="Food Categories" data-th="หมวดหมู่อาหาร">Food Categories</div>
+         <div class="dish-category-sidebar-list" id="dishCategorySidebarTypesList"></div>
+       </aside>
+       <div class="dish-page-content">
+         <div class="category-title"><h2 id="selectedCategoryTitle">Menu</h2><p id="selectedCategoryDescription">Choose a food type.</p></div>
+         <div class="type-grid" id="categoryTypeGrid"></div>
+       </div>
+     </div>
    </div>
  </div>
  <!-- =====================================================
@@ -1230,8 +1321,16 @@
  ===================================================== -->
  <div class="menu-view" id="categoryDishesView">
    <div class="section">
-     <div class="category-title"><h2 id="selectedTypeTitle">Menu</h2><p id="selectedTypeDescription">Explore our dishes.</p></div>
-     <div class="dish-grid" id="dishGrid"></div>
+     <div class="dish-page-layout">
+       <aside class="dish-category-sidebar" aria-label="Food categories">
+         <div class="dish-category-sidebar-title" data-en="Food Categories" data-th="หมวดหมู่อาหาร">Food Categories</div>
+         <div class="dish-category-sidebar-list" id="dishCategorySidebarList"></div>
+       </aside>
+       <div class="dish-page-content">
+         <div class="category-title"><h2 id="selectedTypeTitle">Menu</h2><p id="selectedTypeDescription">Explore our dishes.</p></div>
+         <div class="dish-grid" id="dishGrid"></div>
+       </div>
+     </div>
    </div>
  </div>
  </section>
@@ -2308,6 +2407,7 @@
   list.innerHTML=categories.map((c,i)=>{const title=currentLanguage==="th"?c.th:c.en,desc=currentLanguage==="th"?c.descTh:c.descEn,act=currentLanguage==="th"?"ชมเมนูในหมวดนี้":"Explore this category";return `<article class="category-row" onclick="openCategory('${escapeJs(c.id)}')"><div class="category-row-image"><img src="${escapeAttr(c.image)}" alt="${escapeAttr(title)}" onerror="this.onerror=null;this.src='p1.png';"></div><div class="category-row-content"><div class="category-row-number">${String(i+1).padStart(2,"0")}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(desc)}</p><div class="category-row-action">${escapeHtml(act)}</div></div></article>`;}).join("");
  }
  function renderCategoryTypes(c){
+  renderDishCategorySidebar();
   document.getElementById("selectedCategoryTitle").textContent=currentLanguage==="th"?c.th:c.en;
   document.getElementById("selectedCategoryDescription").textContent=currentLanguage==="th"?"เลือกประเภทอาหารที่ต้องการชม":"Choose a food type to explore.";
   const grid=document.getElementById("categoryTypeGrid");if(!grid)return;
@@ -2342,7 +2442,22 @@
   renderDishList(t.en,t.th,list);window.scrollTo({top:0,behavior:"smooth"});
   history.pushState({page:"type",category:selectedCategoryId,type:typeId},"","#menu-"+selectedCategoryId+"-"+typeId);
  }
+ function renderDishCategorySidebar(){
+  const lists=[
+   document.getElementById("dishCategorySidebarList"),
+   document.getElementById("dishCategorySidebarTypesList")
+  ].filter(Boolean);
+  if(!lists.length)return;
+  const html=categories.map(c=>{
+    const title=currentLanguage==="th"?c.th:c.en;
+    const active=c.id===selectedCategoryId?" active":"";
+    const pressed=c.id===selectedCategoryId?"true":"false";
+    return `<button type="button" class="dish-category-sidebar-button${active}" aria-pressed="${pressed}" onclick="openCategory('${escapeJs(c.id)}')">${escapeHtml(title)}</button>`;
+  }).join("");
+  lists.forEach(list=>{list.innerHTML=html;});
+ }
  function renderDishList(en,th,list){
+  renderDishCategorySidebar();
   document.getElementById("selectedTypeTitle").textContent=currentLanguage==="th"?th:en;
   document.getElementById("selectedTypeDescription").textContent=currentLanguage==="th"?"เลือกชมรูปอาหารในประเภทนี้":"Explore the dishes in this type.";
   const grid=document.getElementById("dishGrid");
