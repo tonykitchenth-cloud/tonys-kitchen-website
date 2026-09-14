@@ -1883,7 +1883,7 @@ function setLanguage(language) {
 ========================================================= */
 
 const categories = [
-    {id:"appetizer",image:"az(1).png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
+    {id:"appetizer",image:"az1.png",en:"Appetizer",th:"อาหารเรียกน้ำย่อย",descEn:"Crispy, savory Thai-style starters and bites, perfect for sharing before your main meal.",descTh:"อาหารเรียกน้ำย่อยและของทานเล่นสไตล์ไทย รสอร่อย เหมาะสำหรับรับประทานร่วมกัน",directDishes:true,groups:["appetizer"]},
     {id:"thai-salad",image:"ts1.png",en:"Thai Salad",th:"ยำไทย",descEn:"Fresh and vibrant Thai salads with noodles, herbs, seafood and bold, tangy Thai flavors.",descTh:"รวมเมนูยำไทยรสจัดจ้าน ทั้งยำวุ้นเส้น ยำมาม่า ลาบ และเมนูยำที่สดชื่นเข้มข้น"},
     {id:"fried-rice",image:"Chicken-fried-rice.png",en:"Fried Rice",th:"ข้าวผัด",descEn:"Fragrant wok-fried rice prepared with Thai seasoning and a choice of delicious ingredients.",descTh:"ข้าวผัดหอม ๆ ปรุงในกระทะด้วยเครื่องปรุงสไตล์ไทยและวัตถุดิบหลากหลาย"},
     {id:"noodles",image:"pt1.png",en:"Noodles",th:"เมนูเส้น",descEn:"Thai and Asian-style noodle dishes, from classic Pad Thai to savory stir-fried noodles.",descTh:"รวมเมนูเส้นสไตล์ไทยและเอเชีย ตั้งแต่ผัดไทยคลาสสิกไปจนถึงเส้นผัดรสกลมกล่อม"},
@@ -1901,9 +1901,11 @@ const categoryTypes={
 {id:"larb",image:"ts15.png",en:"Larb",th:"ลาบ",filter:d=>/^thai-salad-(?:1[5-9]|20)$/.test(d.id)},
 {id:"tuna-thai-salad",image:"ts21.png",en:"Tuna Thai Salad",th:"ยำปลาทูน่า",filter:d=>d.id==="thai-salad-21"}],
 "fried-rice":[
-{id:"thai-fried-rice",image:"Chicken-fried-rice.png",en:"Thai Fried Rice",th:"ข้าวผัด",groups:["thai-fried-rice"]},
-{id:"traditional-fried-rice",image:"Chicken-fried-rice.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",groups:["traditional-fried-rice"]},
-{id:"tom-yum-fried-rice",image:"Chicken-fried-rice.png",en:"Tom Yum Fried Rice",th:"ข้าวผัดต้มยำ",groups:["tom-yum-fried-rice"]}],
+{id:"thai-fried-rice",image:"fr1.png",en:"Thai Fried Rice",th:"ข้าวผัด",groups:["thai-fried-rice"]},
+{id:"traditional-fried-rice",image:"fr2.png",en:"Traditional Fried Rice",th:"ข้าวผัดโบราณ",groups:["traditional-fried-rice"]},
+{id:"tom-yum-fried-rice",image:"fr3.png",en:"Tom Yum Fried Rice",th:"ข้าวผัดต้มยำ",groups:["tom-yum-fried-rice"]},
+{id:"fried-rice-with-chaew-nut",image:"fr4.png",en:"Fried Rice + Chewh",th:"ข้าวผัด+ไม่เม็ด",groups:["fried-rice-chaew nut"]},
+{id:"fried-rice-with-garlic pepper",image:"fr5.png",en:"Fried Rice + Garlic Pepper",th:"ข้าวผัดำ+ไก่กระเทียม",groups:["fried-rice-garlic"]}],    
 "noodles":[
 {id:"pad-thai",image:"pt1.png",en:"Pad Thai",th:"ผัดไทย",groups:["pad-thai"]},
 {id:"pad-see-ew",image:"se1.png",en:"Pad See Ew",th:"ผัดซีอิ๊ว",groups:["pad-see-ew"]},
@@ -1961,20 +1963,20 @@ const categoryOverview={
 
    Appetizer currently contains 14 real image files:
 
-   az(1).png
-   az(2).png
-   az(3).png
-   az(4).png
-   az(5).png
-   az(6).png
-   az(7).png
-   az(8).png
-   az(9).png
-   az(10).png
-   az(11).png
-   az(12).png
-   az(13).png
-   az(14).png
+   az1.png
+   az2.png
+   az3.png
+   az4.png
+   az5.png
+   az6.png
+   az7.png
+   az8.png
+   az9.png
+   az10.png
+   az11.png
+   az12.png
+   az13.png
+   az14.png
 */
 
 
@@ -1983,7 +1985,7 @@ const dishes = [
     {
         id: "appetizer-1",
         category: "appetizer",
-        image: "az(1).png",
+        image: "az1.png",
         en: "Vegetable Spring Roll",
         th: "ปอเปี๊ยะทอด ไส้ผัก",
         descEn: "Crispy spring roll filled with seasoned vegetables.",
@@ -1993,7 +1995,7 @@ const dishes = [
     {
         id: "appetizer-2",
         category: "appetizer",
-        image: "az(2).png",
+        image: "az2.png",
         en: "Chicken Spring Roll",
         th: "ปอเปี๊ยะทอด ไส้ผัก",
         descEn: "Crispy spring roll prepared with chicken filling.",
@@ -2003,7 +2005,7 @@ const dishes = [
     {
         id: "appetizer-3",
         category: "appetizer",
-        image: "az(3).png",
+        image: "az3.png",
         en: "Prawn Spring Roll",
         th: "ปอเปี๊ยะทอด ไส้กุ้ง",
         descEn: "Crispy spring roll filled with seasoned prawns.",
@@ -2013,7 +2015,7 @@ const dishes = [
     {
         id: "appetizer-4",
         category: "appetizer",
-        image: "az(4).png",
+        image: "az4.png",
         en: "Money Bag",
         th: "ถุงทอง",
         descEn: "Crispy Thai-style money bag appetizer.",
@@ -2023,7 +2025,7 @@ const dishes = [
     {
         id: "appetizer-5",
         category: "appetizer",
-        image: "az(5).png",
+        image: "az5.png",
         en: "Fried Chicken Wing",
         th: "ปีกไก่ทอด",
         descEn: "Crispy fried chicken wings seasoned for a savory bite.",
@@ -2033,7 +2035,7 @@ const dishes = [
     {
         id: "appetizer-6",
         category: "appetizer",
-        image: "az(6).png",
+        image: "az6.png",
         en: "Chicken Satay",
         th: "ไก่สะเต๊ะ",
         descEn: "Tender grilled chicken satay with Thai-style seasoning.",
@@ -2043,7 +2045,7 @@ const dishes = [
     {
         id: "appetizer-7",
         category: "appetizer",
-        image: "az(7).png",
+        image: "az7.png",
         en: "Chicken Yor Black Pepper",
         th: "ไก่ยอทอด",
         descEn: "Fried chicken yor seasoned with black pepper.",
@@ -2053,7 +2055,7 @@ const dishes = [
     {
         id: "appetizer-8",
         category: "appetizer",
-        image: "az(8).png",
+        image: "az8.png",
         en: "Salt Pepper Calamari",
         th: "ปลาหมึกทอด",
         descEn: "Crispy calamari seasoned with salt and pepper.",
@@ -2063,7 +2065,7 @@ const dishes = [
     {
         id: "appetizer-9",
         category: "appetizer",
-        image: "az(9).png",
+        image: "az9.png",
         en: "Fried Chinese Sausage",
         th: "กุนเชียงทอด",
         descEn: "Fried Chinese sausage with a savory, slightly sweet flavor.",
@@ -2073,7 +2075,7 @@ const dishes = [
     {
         id: "appetizer-10",
         category: "appetizer",
-        image: "az(10).png",
+        image: "az10.png",
         en: "Sun Dried Beef",
         th: "เนื้อแดดเดียว",
         descEn: "Thai-style sun-dried beef fried until fragrant and savory.",
@@ -2083,7 +2085,7 @@ const dishes = [
     {
         id: "appetizer-11",
         category: "appetizer",
-        image: "az(11).png",
+        image: "az11.png",
         en: "French Fries",
         th: "เฟรนช์ฟรายส์",
         descEn: "Crispy golden French fries.",
@@ -2093,7 +2095,7 @@ const dishes = [
     {
         id: "appetizer-12",
         category: "appetizer",
-        image: "az(12).png",
+        image: "az12.png",
         en: "Smoked Chicken Sausage",
         th: "ไส้กรอกทอด",
         descEn: "Smoked chicken sausage fried until lightly crisp.",
@@ -2103,7 +2105,7 @@ const dishes = [
     {
         id: "appetizer-13",
         category: "appetizer",
-        image: "az(13).png",
+        image: "az13.png",
         en: "Chicken Sticks",
         th: "ไก่สติ๊ก",
         descEn: "Crispy chicken sticks prepared for easy snacking.",
@@ -2113,7 +2115,7 @@ const dishes = [
     {
         id: "appetizer-14",
         category: "appetizer",
-        image: "az(14).png",
+        image: "az14.png",
         en: "Chicken Nugget",
         th: "นักเก็ตไก่",
         descEn: "Crispy chicken nuggets.",
