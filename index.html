@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -89,9 +90,16 @@
      justify-content: space-between;
      gap: 20px;
  }
+ .nav-brand-group {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     flex-shrink: 0;
+ }
  .logo-link {
      display: flex;
      align-items: center;
+     flex-shrink: 0;
  }
  .logo-image {
      width: 170px;
@@ -627,6 +635,11 @@
          grid-template-columns: 1fr;
      }
 
+     .nav-brand-group {
+         gap: 6px;
+         min-width: 0;
+     }
+
      .menu-context-back {
          flex-shrink: 0;
          margin-left: 0;
@@ -947,22 +960,24 @@
  ========================================================= -->
  <header class="navbar">
      <div class="nav-inner">
-         <a
-             href="#home"
-             class="logo-link"
-             aria-label="Tony's Kitchen"
-             onclick="goHome(event)"
-         >
-             <img
-                 src="Logo-Ex.png"
-                 alt="Tony's Kitchen"
-                 class="logo-image"
+         <div class="nav-brand-group">
+             <a
+                 href="#home"
+                 class="logo-link"
+                 aria-label="Tony's Kitchen"
+                 onclick="goHome(event)"
              >
-         </a>
+                 <img
+                     src="Logo-Ex.png"
+                     alt="Tony's Kitchen"
+                     class="logo-image"
+                 >
+             </a>
 
-         <div class="menu-context-back" aria-label="Menu navigation">
-             <button type="button" id="menuBackHome" class="menu-context-button" onclick="goHome()">← <span data-en="Back to Home" data-th="กลับหน้าแรก">Back to Home</span></button>
-             <button type="button" id="menuBackTypes" class="menu-context-button" onclick="backToCategoryTypes()">← <span data-en="Back to Food Types" data-th="กลับไปหน้าประเภทอาหาร">Back to Food Types</span></button>
+             <div class="menu-context-back" aria-label="Menu navigation">
+                 <button type="button" id="menuBackHome" class="menu-context-button" onclick="goHome()">← <span data-en="Back to Home" data-th="กลับหน้าแรก">Back to Home</span></button>
+                 <button type="button" id="menuBackTypes" class="menu-context-button" onclick="backToCategoryTypes()">← <span data-en="Back to Food Types" data-th="กลับไปหน้าประเภทอาหาร">Back to Food Types</span></button>
+             </div>
          </div>
          <div class="nav-right">
              <nav class="nav-links">
