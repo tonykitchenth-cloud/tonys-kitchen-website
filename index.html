@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -94,6 +93,11 @@
      display: flex;
      align-items: center;
      gap: 12px;
+     flex-shrink: 0;
+ }
+ .nav-brand-group .menu-context-back {
+     display: flex;
+     align-items: center;
      flex-shrink: 0;
  }
  .logo-link {
@@ -862,9 +866,14 @@
      .nav-right {
          display: contents;
      }
-     .logo-link {
+     .nav-brand-group {
          grid-column: 1;
          grid-row: 1;
+         min-width: 0;
+     }
+     .logo-link {
+         grid-column: auto;
+         grid-row: auto;
      }
      .language-switcher {
          grid-column: 2;
@@ -2279,10 +2288,14 @@
   holder.style.display=menuVisible?"flex":"none";
   homeBtn.style.display="none";
   typesBtn.style.display="none";
+  if(!menuVisible)return;
   const active=document.querySelector(".menu-view.active");
-  if(!menuVisible||!active)return;
-  if(active.id==="categoryHomeView")homeBtn.style.display="inline-flex";
-  else if(active.id==="categoryDishesView")typesBtn.style.display="inline-flex";
+  if(!active)return;
+  if(active.id==="categoryHomeView"){
+   homeBtn.style.display="inline-flex";
+  }else if(active.id==="categoryDishesView"){
+   typesBtn.style.display="inline-flex";
+  }
  }
 
  function showMenuView(id){document.querySelectorAll(".menu-view").forEach(v=>v.classList.remove("active"));const v=document.getElementById(id);if(v)v.classList.add("active");updateMenuContextBack();}
@@ -2358,12 +2371,12 @@
  function openOrder(event){
   if(event)event.preventDefault();
   document.getElementById("homePage").style.display="none";document.getElementById("signatureSection").style.display="none";document.getElementById("contact").style.display="none";document.getElementById("menu").style.display="none";document.getElementById("order").style.display="block";
-  selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"order"},"","#order");
+  selectedCategoryId=null;selectedTypeId=null;updateMenuContextBack();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"order"},"","#order");
  }
  function goHome(event){
   if(event)event.preventDefault();
   document.getElementById("homePage").style.display="block";document.getElementById("signatureSection").style.display="block";document.getElementById("contact").style.display="block";document.getElementById("menu").style.display="none";document.getElementById("order").style.display="none";
-  selectedCategoryId=null;selectedTypeId=null;window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
+  selectedCategoryId=null;selectedTypeId=null;updateMenuContextBack();window.scrollTo({top:0,behavior:"smooth"});history.pushState({page:"home"},"","#home");
  }
  /* =========================================================
     LIGHTBOX OPEN
